@@ -11,7 +11,7 @@
 	<groupId>org.kimbs.ims</groupId>
 	<artifactId>ims-admin-server</artifactId>
 	<version>1.0.0</version>
-	<name>ims</name>
+	<name>ims-admin-server</name>
 	<description>Spring boot admin(SBA) server</description>
 
 	<properties>

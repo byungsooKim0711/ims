@@ -8,10 +8,10 @@ import org.springframework.context.event.EventListener;
 
 @EnableAdminServer
 @SpringBootApplication
-public class ImsApplication {
+public class ImsAdminServerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ImsApplication.class, args);
+		SpringApplication.run(ImsAdminServerApplication.class, args);
 	}
 
 	@EventListener(classes = { ApplicationReadyEvent.class })
