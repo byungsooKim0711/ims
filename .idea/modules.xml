@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/ims.iml" filepath="$PROJECT_DIR$/.idea/ims.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ims.iml" filepath="$PROJECT_DIR$/ims.iml" />
       <module fileurl="file://$PROJECT_DIR$/ims-admin-server/ims-admin-server.iml" filepath="$PROJECT_DIR$/ims-admin-server/ims-admin-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ims-common/ims-common.iml" filepath="$PROJECT_DIR$/ims-common/ims-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ims-protocol/ims-protocol.iml" filepath="$PROJECT_DIR$/ims-protocol/ims-protocol.iml" />
     </modules>
   </component>
 </project>

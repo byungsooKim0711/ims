@@ -14,7 +14,7 @@ public class ImsAdminServerApplication {
 		SpringApplication.run(ImsAdminServerApplication.class, args);
 	}
 
-	@EventListener(classes = { ApplicationReadyEvent.class })
+	@EventListener(ApplicationReadyEvent.class)
 	public void init() throws Exception {
 
 	}

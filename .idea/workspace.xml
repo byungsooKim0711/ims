@@ -4,24 +4,43 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf2c5fe9-77ae-4b15-ae5c-048c2817349b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/ims.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-admin-server/src/main/java/org/kimbs/ims/sba/ImsAdminServerApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-admin-server/src/test/java/org/kimbs/ims/sba/ImsAdminServerApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+    <list default="true" id="57480980-59ba-4ec3-a3eb-a18f3aefde39" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-common/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-protocol/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/kimbs/ims/ImsApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/kimbs/ims/ImsApplicationTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ims.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ims-admin-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-admin-server/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-admin-server/src/main/java/org/kimbs/ims/sba/ImsApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-admin-server/src/test/java/org/kimbs/ims/sba/ImsApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-admin-server/src/main/java/org/kimbs/ims/sba/ImsAdminServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-admin-server/src/main/java/org/kimbs/ims/sba/ImsAdminServerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-admin-server/src/main/java/org/kimbs/ims/sba/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-admin-server/src/main/java/org/kimbs/ims/sba/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-admin-server/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-admin-server/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-admin-server/src/main/resources/banner.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ims-admin-server/src/main/resources/banner.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-admin-server/src/main/resources/logback-spring.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-admin-server/src/main/resources/logback-spring.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -29,11 +48,11 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA 2019.1.2\plugins\maven\lib\maven3" />
+        <option name="mavenHome" value="C:\Users\vlakd\.m2\wrapper\dists\apache-maven-3.6.3-bin\1iopthnavndlasol9gbrbg6bf2\apache-maven-3.6.3" />
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectId" id="1kNbns6vhLNhrEsizF9yAQcA8u5" />
+  <component name="ProjectId" id="1kNe7brLbdPadedvHjhvqLwA041" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -44,21 +63,13 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/ims-admin-server/src/main/resources" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\vlakd\Desktop\kimbs\ims\ims-admin-server\src\main\resources" />
-      <recent name="C:\Users\vlakd\Desktop\kimbs\ims\ims-admin-server\src\main\java\org\kimbs\ims\sba" />
-    </key>
-  </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Spring Boot.ImsAdminServerApplication">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -77,16 +88,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ImsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="ims" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.kimbs.ims.ImsApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="bf2c5fe9-77ae-4b15-ae5c-048c2817349b" name="Default Changelist" comment="" />
-      <created>1605544168311</created>
+      <changelist id="57480980-59ba-4ec3-a3eb-a18f3aefde39" name="Default Changelist" comment="" />
+      <created>1605545310698</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1605544168311</updated>
-      <workItem from="1605544170680" duration="370000" />
+      <updated>1605545310698</updated>
+      <workItem from="1605545312368" duration="871000" />
     </task>
     <servers />
   </component>
@@ -97,9 +115,9 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="404" y="73" key="new project wizard" timestamp="1605544342762">
+    <state x="347" y="73" key="new project wizard" timestamp="1605545740061">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="404" y="73" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1605544342762" />
+    <state x="347" y="73" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1605545740061" />
   </component>
 </project>
