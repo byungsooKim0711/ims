@@ -1,0 +1,39 @@
+################################################################################################################
+# IMS Admin Server
+################################################################################################################
+
+server:
+  port: 29000
+  servlet:
+    session:
+      timeout: 60m
+
+logging:
+  #config: file:${user.dir}/logback-spring.xml
+  config: classpath:logback-spring.xml
+
+spring:
+  banner:
+    #location: file:${user.dir}/banner.txt
+    location: classpath:banner.txt
+    charset: UTF-8
+
+  boot:
+    admin:
+      ui:
+        brand: Integration Messaging System
+        title: IMS Control System
+      notify:
+        mail:
+          enabled: true
+          from:
+          to:
+            - vlakd0711@naver.com
+  mail:
+    host:
+    username:
+    password:
+  security:
+    user:
+      name: admin
+      password: admin12#$

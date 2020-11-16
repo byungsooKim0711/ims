@@ -1,8 +1,6 @@
-# 통합 메시지 발송 시스템
+# 통합 메시지 발송 시스템 (Integration Messaging System.)
 
-_대충적는 초안_, _이슈관리 템플릿_, 
-
-
+_대충적는 초안_
 
 ## 기술 스택
 
@@ -83,6 +81,9 @@ API(GATEWAY, MESSAGE) / Loadbalancer / kako, mt, email, push, rcs / report(callb
 
 
 
+#### 기타
+- 배너사용 (https://devops.datenkollektiv.de/banner.txt/ - jerusalem)
+- _이슈관리 템플릿_, 
 ---
 
 
