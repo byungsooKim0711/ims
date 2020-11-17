@@ -20,6 +20,20 @@
 	</properties>
 
 	<dependencies>
+		<!-- IMS Protocol -->
+		<dependency>
+			<groupId>org.kimbs.ims</groupId>
+			<artifactId>ims-protocol</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+
+		<!-- IMS Common -->
+		<dependency>
+			<groupId>org.kimbs.ims</groupId>
+			<artifactId>ims-common</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
