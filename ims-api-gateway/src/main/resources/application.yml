@@ -1,0 +1,42 @@
+################################################################################################################
+# IMS API Gateway
+################################################################################################################
+
+server:
+  port: 39000
+
+logging:
+  #config: file:${user.dir}/logback-spring.xml
+  config: classpath:logback-spring.xml
+
+spring:
+  application:
+    # application 명칭 설정
+    name: IMS-API-GATEWAY
+
+  banner:
+    #location: file:${user.dir}/banner.txt
+    location: classpath:banner.txt
+    charset: UTF-8
+
+  # gateway 설정
+  cloud:
+    gateway:
+      routes:
+        - id: v1-api-kakao
+          uri: http://127.0.0.1:39001/
+          predicates:
+            - Path=/ims/v1/**
+
+  boot:
+    admin:
+      client:
+        # spring boot admin 서버 설정
+        url: http://127.0.0.1:29000
+        username: admin
+        password: admin12#$
+        instance:
+          prefer-ip: true
+          metadata:
+            user.name: admin
+            user.password: admin12#$
