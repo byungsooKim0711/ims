@@ -40,3 +40,13 @@ spring:
           metadata:
             user.name: admin
             user.password: admin12#$
+
+# Actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always

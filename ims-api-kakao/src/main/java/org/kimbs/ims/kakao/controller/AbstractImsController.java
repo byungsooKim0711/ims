@@ -1,7 +1,11 @@
 package org.kimbs.ims.kakao.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.kimbs.ims.protocol.ImsCommonRes;
+import org.springframework.http.ResponseEntity;
 
-@RequestMapping("/ims/v1")
-public abstract class AbstractImsController {
+public abstract class AbstractImsController<R> {
+
+    protected final static String V1_PATH = "/ims/v1/{serviceKey}";
+
+    protected abstract ResponseEntity<ImsCommonRes<Void>> sendMessage(String serviceKey, R imsBizReq);
 }
