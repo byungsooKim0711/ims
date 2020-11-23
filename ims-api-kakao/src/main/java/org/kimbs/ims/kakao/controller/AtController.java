@@ -3,8 +3,8 @@ package org.kimbs.ims.kakao.controller;
 import lombok.extern.slf4j.Slf4j;
 import org.kimbs.ims.kakao.service.AtService;
 import org.kimbs.ims.protocol.ImsCommonRes;
-import org.kimbs.ims.protocol.code.ResponseCode;
 import org.kimbs.ims.protocol.v1.ImsBizAtReq;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,13 +22,8 @@ public class AtController extends AbstractImsController<ImsBizAtReq> {
     @Override
     @PostMapping("/at/sendMessage")
     protected ResponseEntity<ImsCommonRes<Void>> sendMessage(@PathVariable String serviceKey, @RequestBody ImsBizAtReq imsBizReq) {
+        ImsCommonRes<Void> response = atService.sendMessage(serviceKey, imsBizReq);
 
-        log.info("service key: {}, AT: {}", serviceKey, imsBizReq);
-
-        atService.sendMessage(serviceKey, imsBizReq);
-
-        return ResponseEntity.ok(ImsCommonRes.<Void>builder()
-                .code(ResponseCode.SUCCESS)
-                .build());
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }

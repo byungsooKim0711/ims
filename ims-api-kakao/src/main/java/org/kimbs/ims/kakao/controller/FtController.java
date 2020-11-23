@@ -3,8 +3,8 @@ package org.kimbs.ims.kakao.controller;
 import lombok.extern.slf4j.Slf4j;
 import org.kimbs.ims.kakao.service.FtService;
 import org.kimbs.ims.protocol.ImsCommonRes;
-import org.kimbs.ims.protocol.code.ResponseCode;
 import org.kimbs.ims.protocol.v1.ImsBizFtReq;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,12 +22,8 @@ public class FtController extends AbstractImsController<ImsBizFtReq> {
     @PostMapping("/ft/sendMessage")
     @Override
     protected ResponseEntity<ImsCommonRes<Void>> sendMessage(@PathVariable String serviceKey, @RequestBody ImsBizFtReq imsBizReq) {
-        log.info("service key: {}", serviceKey);
+        ImsCommonRes<Void> response = ftService.sendMessage(serviceKey, imsBizReq);
 
-        ftService.sendMessage(serviceKey, imsBizReq);
-
-        return ResponseEntity.ok(ImsCommonRes.<Void>builder()
-                .code(ResponseCode.SUCCESS)
-                .build());
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }
