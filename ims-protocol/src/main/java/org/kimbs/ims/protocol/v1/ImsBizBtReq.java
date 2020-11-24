@@ -20,4 +20,9 @@ public class ImsBizBtReq implements Serializable {
     @JsonProperty("sender_key")
     private String senderKey;
 
+    // 발신 프로필 키
+    @JsonProperty("contents")
+    private String contents;
+
+
 }

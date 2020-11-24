@@ -9,13 +9,11 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <name>ims-common</name>
+    <artifactId>ims-common</artifactId>
     <url>http://maven.apache.org</url>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
-    <artifactId>ims-common</artifactId>
-
 
     <build>
         <plugins>

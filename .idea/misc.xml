@@ -5,9 +5,11 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/ims-admin-server/pom.xml" />
-        <option value="$PROJECT_DIR$/ims-gateway/pom.xml" />
-        <option value="$PROJECT_DIR$/ims-api-at/pom.xml" />
         <option value="$PROJECT_DIR$/ims-api-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/ims-store/pom.xml" />
+        <option value="$PROJECT_DIR$/ims-api-email/pom.xml" />
+        <option value="$PROJECT_DIR$/ims-api-kakao/pom.xml" />
+        <option value="$PROJECT_DIR$/ims-api-push/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

@@ -2,11 +2,15 @@
 <project version="4">
   <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$/ims-admin-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ims-api-email/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ims-api-gateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ims-api-gateway/src/main/resources/application.yml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ims-api-kakao/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ims-api-push/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ims-common/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ims-protocol/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ims-store/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ims-store/src/main/resources/application.yml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />

@@ -20,8 +20,11 @@
         <module>ims-admin-server</module>
         <module>ims-api-gateway</module>
         <module>ims-api-kakao</module>
+        <module>ims-api-push</module>
+        <module>ims-api-email</module>
         <module>ims-common</module>
         <module>ims-protocol</module>
+        <module>ims-store</module>
     </modules>
 
     <properties>

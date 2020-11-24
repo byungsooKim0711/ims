@@ -1,8 +1,9 @@
 package org.kimbs.ims.protocol.code;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.Getter;
-import org.kimbs.ims.protocol.exception.NotSupportButtonType;
+import org.kimbs.ims.exception.NotSupportButtonType;
 
 import java.util.Arrays;
 import java.util.Map;
@@ -44,6 +45,7 @@ public enum ButtonType {
             .stream(values())
             .collect(Collectors.toMap(ButtonType::getCode, Function.identity()));
 
+    @JsonCreator
     public static ButtonType fromValue(String code) {
         return Optional
                 .ofNullable(buttonTypeMap.get(code))

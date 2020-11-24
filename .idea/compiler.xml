@@ -7,9 +7,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="ims-common" />
-        <module name="ims-protocol" />
+        <module name="ims-store" />
+        <module name="ims-api-push" />
         <module name="ims-api-kakao" />
+        <module name="ims-common" />
+        <module name="ims-api-email" />
+        <module name="ims-protocol" />
         <module name="ims-admin-server" />
         <module name="demo" />
         <module name="ims-api-gateway" />
@@ -19,11 +22,14 @@
       <module name="demo" target="1.8" />
       <module name="ims" target="1.8" />
       <module name="ims-admin-server" target="1.8" />
+      <module name="ims-api-email" target="1.8" />
       <module name="ims-api-gateway" target="1.8" />
       <module name="ims-api-kakao" target="1.8" />
       <module name="ims-api-kakao1" target="1.8" />
+      <module name="ims-api-push" target="1.8" />
       <module name="ims-common" target="1.8" />
       <module name="ims-protocol" target="1.8" />
+      <module name="ims-store" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -31,11 +37,14 @@
       <module name="demo" options="-parameters" />
       <module name="ims" options="-parameters" />
       <module name="ims-admin-server" options="-parameters" />
+      <module name="ims-api-email" options="-parameters" />
       <module name="ims-api-gateway" options="-parameters" />
       <module name="ims-api-kakao" options="-parameters" />
       <module name="ims-api-kakao1" options="-parameters" />
+      <module name="ims-api-push" options="-parameters" />
       <module name="ims-common" options="-parameters" />
       <module name="ims-protocol" options="-parameters" />
+      <module name="ims-store" options="-parameters" />
     </option>
   </component>
 </project>

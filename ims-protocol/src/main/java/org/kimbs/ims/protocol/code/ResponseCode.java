@@ -8,6 +8,9 @@ public enum ResponseCode {
 
     UNKNOWN_SERVICE_KEY_EXCEPTION("1100", "Unknown service key exception"),
 
+    TOO_LONG_MESSAGE_EXCEPTION("2010", "Too long message."),
+
+    NOT_SUPPORT_BUTTON_TYPE_EXCEPTION("4000", "Not support button type exception"),
     ATTACHMENT_EXCEPTION("4001", "Attachment exception"),
     SUPPLEMENT_EXCEPTION("4002", "Supplement exception"),
 
