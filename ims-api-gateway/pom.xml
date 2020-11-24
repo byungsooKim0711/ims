@@ -8,9 +8,9 @@
 		<version>1.0.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<artifactId>ims-gateway</artifactId>
+	<artifactId>ims-api-gateway</artifactId>
 	<version>1.0.0</version>
-	<name>ims-gateway</name>
+	<name>ims-api-gateway</name>
 	<description>Ims api gateway</description>
 
 	<properties>
