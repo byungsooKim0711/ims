@@ -15,6 +15,9 @@ public class AtMessageReq extends AbstractMessage implements Serializable {
 
     private static final long serialVersionUID = -2510853128921260272L;
 
+    @JsonProperty("message_type")
+    private String messageType;
+
     @JsonProperty("serial_number")
     private String serialNumber;
 

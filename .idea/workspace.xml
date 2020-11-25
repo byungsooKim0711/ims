@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="57480980-59ba-4ec3-a3eb-a18f3aefde39" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-protocol/src/main/java/org/kimbs/ims/model/kakao/BtMessageReq.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-protocol/src/main/java/org/kimbs/ims/model/kakao/BtMessageReq.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-protocol/src/main/java/org/kimbs/ims/model/kakao/AtMessageReq.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-protocol/src/main/java/org/kimbs/ims/model/kakao/AtMessageReq.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-protocol/src/main/java/org/kimbs/ims/model/kakao/BizType.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-protocol/src/main/java/org/kimbs/ims/model/kakao/BizType.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +160,7 @@
       <workItem from="1606229921699" duration="416000" />
       <workItem from="1606230365958" duration="1458000" />
       <workItem from="1606303846925" duration="7422000" />
-      <workItem from="1606313031726" duration="480000" />
+      <workItem from="1606313031726" duration="897000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1605546227057</created>
@@ -252,7 +253,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606311845438</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="브랜드톡 일반형 요청 모델 추가">
+      <created>1606313567510</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1606313567510</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -270,7 +278,8 @@
     <MESSAGE value="." />
     <MESSAGE value="init" />
     <MESSAGE value="...." />
-    <option name="LAST_COMMIT_MESSAGE" value="...." />
+    <MESSAGE value="브랜드톡 일반형 요청 모델 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="브랜드톡 일반형 요청 모델 추가" />
   </component>
   <component name="WindowStateProjectService">
     <state x="395" y="91" key="#Inspections" timestamp="1605978467361">
@@ -309,16 +318,16 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1606048798640" />
-    <state x="195" y="69" width="844" height="698" key="CommitChangelistDialog2" timestamp="1606311844723">
+    <state x="333" y="0" width="844" height="698" key="CommitChangelistDialog2" timestamp="1606313566922">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="195" y="69" width="844" height="698" key="CommitChangelistDialog2/0.0.1536.824/-1680.26.1680.1010@0.0.1536.824" timestamp="1606311844723" />
-    <state x="333" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1606220067837" />
-    <state x="145" y="65" width="1224" height="690" key="DiffContextDialog" timestamp="1606311830357">
+    <state x="333" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1606313566922" />
+    <state x="145" y="69" width="1224" height="690" key="DiffContextDialog" timestamp="1606313549980">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="145" y="65" key="DiffContextDialog/0.0.1536.824/-1680.26.1680.1010@0.0.1536.824" timestamp="1606311830357" />
-    <state x="145" y="69" width="1224" height="690" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1606219973400" />
+    <state x="145" y="69" width="1224" height="690" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1606313549980" />
     <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1606305053143">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -396,11 +405,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="376" y="0" key="SettingsEditor/0.0.1536.824/-1680.26.1680.1010@0.0.1536.824" timestamp="1606230539757" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1606311848751">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1606313569869">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1680.26.1680.1010@0.0.1536.824" timestamp="1606311848751" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1606220070439" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1606313569869" />
     <state x="499" y="172" key="extract.method.dialog" timestamp="1606304953714">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
