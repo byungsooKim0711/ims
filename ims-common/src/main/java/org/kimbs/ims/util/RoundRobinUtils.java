@@ -9,11 +9,10 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class RoundRobinUtils {
+public final class RoundRobinUtils {
 
     @Getter
     public enum RoundRobinKey {
-        ETC
 
     }
 

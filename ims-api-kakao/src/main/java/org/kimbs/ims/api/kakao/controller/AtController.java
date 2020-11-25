@@ -1,6 +1,7 @@
 package org.kimbs.ims.api.kakao.controller;
 
 import lombok.extern.slf4j.Slf4j;
+import org.kimbs.ims.api.kakao.controller.annotation.Version1;
 import org.kimbs.ims.api.kakao.service.AtService;
 import org.kimbs.ims.protocol.ImsCommonRes;
 import org.kimbs.ims.protocol.v1.ImsBizAtReq;
@@ -9,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @Slf4j
-@RequestMapping(AbstractImsController.V1_PATH)
+@Version1
 @RestController
 public class AtController extends AbstractImsController<ImsBizAtReq> {
 

@@ -1,11 +1,10 @@
 package org.kimbs.ims.api.kakao.handler;
 
 import lombok.extern.slf4j.Slf4j;
-import org.kimbs.ims.exception.NotSupportButtonType;
-import org.kimbs.ims.protocol.ImsCommonRes;
-import org.kimbs.ims.protocol.code.ResponseCode;
 import org.kimbs.ims.exception.ImsServiceKeyException;
 import org.kimbs.ims.exception.ImsTooLongMessageException;
+import org.kimbs.ims.protocol.ImsCommonRes;
+import org.kimbs.ims.protocol.code.ResponseCode;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -30,10 +29,4 @@ public class ImsExceptionHandler {
                 .build();
     }
 
-//    @ExceptionHandler(NotSupportButtonType.class)
-//    public ImsCommonRes<Void> notSupportButtonType(ImsServiceKeyException e, HttpServletRequest request, HttpServletResponse response) {
-//        return ImsCommonRes.<Void>builder()
-//                .code(ResponseCode.NOT_SUPPORT_BUTTON_TYPE_EXCEPTION)
-//                .build();
-//    }
 }

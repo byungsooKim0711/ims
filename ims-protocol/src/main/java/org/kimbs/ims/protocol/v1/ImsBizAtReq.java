@@ -3,12 +3,17 @@ package org.kimbs.ims.protocol.v1;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import org.kimbs.ims.model.kakao.Attachment;
+import org.kimbs.ims.model.kakao.Supplement;
+import org.kimbs.ims.protocol.AbstractMessage;
 
 import java.io.Serializable;
 
 @Data
+@EqualsAndHashCode(callSuper = true)
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class ImsBizAtReq implements Serializable {
+public class ImsBizAtReq extends AbstractMessage implements Serializable {
 
     private static final long serialVersionUID = 2039270023030263089L;
 

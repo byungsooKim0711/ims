@@ -19,8 +19,8 @@ public abstract class AbstractImsService<R, M> {
         // logic, validation, auth, duplicate_key, etc...
 
         checkServiceKey(serviceKey);
-        checkMandatory(request);
 //        checkDuplicateMsgUid(request);
+        checkMandatory(request);
         checkLength(request);
 
         // success
@@ -36,9 +36,9 @@ public abstract class AbstractImsService<R, M> {
         throw new ImsServiceKeyException(serviceKey);
     }
 
+//    protected abstract void checkDuplicateMsgUid(R request);
     protected abstract void checkMandatory(R request);
     protected abstract void checkLength(R request);
-//    protected abstract void checkDuplicateMsgUid(R request);
 //    protected abstract void checkSenderKey();
 //    protected abstract void checkTemplate();
 //    protected abstract void checkAttachment();

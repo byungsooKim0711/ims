@@ -2,6 +2,8 @@ package org.kimbs.ims.exception;
 
 public class ImsMandatoryException extends RuntimeException {
 
+    private static final long serialVersionUID = -8527137250256018259L;
+
     public ImsMandatoryException() {
         super();
     }

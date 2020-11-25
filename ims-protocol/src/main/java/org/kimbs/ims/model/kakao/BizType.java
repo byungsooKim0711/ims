@@ -1,4 +1,4 @@
-package org.kimbs.ims.protocol.code;
+package org.kimbs.ims.model.kakao;
 
 import lombok.Getter;
 

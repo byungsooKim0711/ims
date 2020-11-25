@@ -1,4 +1,4 @@
-package org.kimbs.ims.protocol.code;
+package org.kimbs.ims.model.kakao;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;

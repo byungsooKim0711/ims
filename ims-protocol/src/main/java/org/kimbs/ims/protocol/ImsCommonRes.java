@@ -6,8 +6,6 @@ import lombok.Builder;
 import lombok.Getter;
 import org.kimbs.ims.protocol.code.ResponseCode;
 
-import java.time.LocalDateTime;
-
 @Getter
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class ImsCommonRes<T> {
@@ -24,16 +22,11 @@ public class ImsCommonRes<T> {
     @JsonProperty("data")
     private final T data;
 
-    // 응답 시간
-    @JsonProperty("time")
-    private final LocalDateTime time;
-
     @Builder
     public ImsCommonRes(ResponseCode code, T data) {
         this.code = code.getCode();
         this.message = code.getMessage();
         this.data = data;
-        this.time = LocalDateTime.now();
     }
 
 }

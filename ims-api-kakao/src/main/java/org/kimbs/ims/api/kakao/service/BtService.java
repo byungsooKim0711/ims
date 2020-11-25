@@ -1,12 +1,14 @@
 package org.kimbs.ims.api.kakao.service;
 
+import org.kimbs.ims.exception.ImsMandatoryException;
 import org.kimbs.ims.exception.ImsTooLongMessageException;
+import org.kimbs.ims.model.kakao.BtMessageReq;
 import org.kimbs.ims.protocol.v1.ImsBizBtReq;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 @Service
-public class BtService extends AbstractImsService<ImsBizBtReq, Object> {
+public class BtService extends AbstractImsService<ImsBizBtReq, BtMessageReq> {
 
     private final static int BT_MAX_LENGTH_MESSAGE = 1000;
 
@@ -16,10 +18,13 @@ public class BtService extends AbstractImsService<ImsBizBtReq, Object> {
 //        String appUserId = request.getAppUserId();
 //        String phoneNumber = request.getPhoneNumber();
 
-        StringBuilder builder = new StringBuilder();
-        if (StringUtils.isEmpty(contents)) {
-            builder.append("empty contents");
+        if (!StringUtils.hasText(contents)) {
+            throw new ImsMandatoryException("contents is empty.");
         }
+
+//        if (!StringUtils.hasText(appUserId) && !StringUtils.hasText(phoneNumber)) {
+//            throw new ImsMandatoryException("appUserId and phoneNumber is empty.");
+//        }
     }
 
     @Override

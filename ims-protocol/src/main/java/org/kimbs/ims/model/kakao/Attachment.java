@@ -1,10 +1,9 @@
-package org.kimbs.ims.protocol.v1;
+package org.kimbs.ims.model.kakao;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
-import org.kimbs.ims.protocol.code.ButtonType;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -40,7 +39,7 @@ public class Attachment implements Serializable {
 
         // 버튼 타입
         @JsonProperty("type")
-        private final ButtonType buttonType;
+        private final String type;
 
         // pc 환경에서 버튼 클릭 시 이동할 url
         @JsonProperty("url_pc")
@@ -66,9 +65,9 @@ public class Attachment implements Serializable {
         @JsonProperty("chat_extra")
         private String chatExtra;
 
-        public Button(@JsonProperty("name") String name, @JsonProperty("type") ButtonType buttonType) {
+        public Button(@JsonProperty("name") String name, @JsonProperty("type") String type) {
             this.name = name;
-            this.buttonType = buttonType;
+            this.type = type;
         }
     }
 
