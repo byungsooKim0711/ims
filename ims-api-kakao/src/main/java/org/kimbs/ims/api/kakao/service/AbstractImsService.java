@@ -3,9 +3,9 @@ package org.kimbs.ims.api.kakao.service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
+import org.kimbs.ims.exception.ImsServiceKeyException;
 import org.kimbs.ims.protocol.ImsCommonRes;
 import org.kimbs.ims.protocol.code.ResponseCode;
-import org.kimbs.ims.exception.ImsServiceKeyException;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Slf4j
@@ -19,6 +19,7 @@ public abstract class AbstractImsService<R, M> {
         // logic, validation, auth, duplicate_key, etc...
 
         checkServiceKey(serviceKey);
+        checkMandatory(request);
 //        checkDuplicateMsgUid(request);
         checkLength(request);
 
@@ -35,6 +36,7 @@ public abstract class AbstractImsService<R, M> {
         throw new ImsServiceKeyException(serviceKey);
     }
 
+    protected abstract void checkMandatory(R request);
     protected abstract void checkLength(R request);
 //    protected abstract void checkDuplicateMsgUid(R request);
 //    protected abstract void checkSenderKey();
