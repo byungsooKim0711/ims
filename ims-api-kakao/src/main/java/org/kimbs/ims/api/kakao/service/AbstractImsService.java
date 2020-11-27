@@ -3,10 +3,17 @@ package org.kimbs.ims.api.kakao.service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
+import org.kimbs.ims.exception.ImsMandatoryException;
 import org.kimbs.ims.exception.ImsServiceKeyException;
+import org.kimbs.ims.exception.ImsTooLongMessageException;
+import org.kimbs.ims.protocol.AbstractMessage;
 import org.kimbs.ims.protocol.ImsCommonRes;
+import org.kimbs.ims.protocol.TraceInfo;
 import org.kimbs.ims.protocol.code.ResponseCode;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Slf4j
 public abstract class AbstractImsService<R, M> {
@@ -18,10 +25,25 @@ public abstract class AbstractImsService<R, M> {
 
         // logic, validation, auth, duplicate_key, etc...
 
-        checkServiceKey(serviceKey);
+        try {
+            checkServiceKey(serviceKey);
 //        checkDuplicateMsgUid(request);
-        checkMandatory(request);
-        checkLength(request);
+            checkMandatory(request);
+            checkLength(request);
+        } catch (ImsServiceKeyException e) {
+            onException(request, e);
+            throw e;
+        } catch (ImsMandatoryException e) {
+            onException(request, e);
+            throw e;
+        } catch (ImsTooLongMessageException e) {
+            onException(request, e);
+            throw e;
+        } catch (Exception e) {
+            onException(request, e);
+        } finally {
+            
+        }
 
         // success
         return ImsCommonRes.<Void>builder()
@@ -37,13 +59,17 @@ public abstract class AbstractImsService<R, M> {
     }
 
 //    protected abstract void checkDuplicateMsgUid(R request);
-    protected abstract void checkMandatory(R request);
-    protected abstract void checkLength(R request);
+    protected abstract void checkMandatory(R request) throws ImsMandatoryException;
+    protected abstract void checkLength(R request) throws ImsTooLongMessageException;
 //    protected abstract void checkSenderKey();
 //    protected abstract void checkTemplate();
 //    protected abstract void checkAttachment();
 //    protected abstract void checkSupplement();
-//    protected abstract void onException();
+    protected void setTraceInfo(R request) {
+        // 접수시간 trace_info 에 추가
+        ((AbstractMessage) request).addTraceInfo(TraceInfo.RECEIVED_AT, LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")));
+    }
+    protected abstract void onException(R request, Exception e);
 
 
     protected void sendToKafka(String topic, M message) throws JsonProcessingException, Exception {

@@ -18,7 +18,7 @@ public class ImsBizFtReq extends AbstractMessage implements Serializable {
 
     // 접수 유니크 키
     @JsonProperty("msg_uid")
-    private String msg_uid;
+    private String msgUid;
 
     // 발신 프로필 키
     @JsonProperty("sender_key")

@@ -1,5 +1,6 @@
 package org.kimbs.ims.api.kakao.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.kimbs.ims.exception.ImsMandatoryException;
 import org.kimbs.ims.exception.ImsTooLongMessageException;
 import org.kimbs.ims.model.kakao.FtMessageReq;
@@ -7,6 +8,7 @@ import org.kimbs.ims.protocol.v1.ImsBizFtReq;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+@Slf4j
 @Service
 public class FtService extends AbstractImsService<ImsBizFtReq, FtMessageReq> {
 
@@ -32,5 +34,10 @@ public class FtService extends AbstractImsService<ImsBizFtReq, FtMessageReq> {
         if (request.getContents().length() > FT_MAX_LENGTH_MESSAGE) {
             throw new ImsTooLongMessageException("Too long message. " + request.getContents().length());
         }
+    }
+
+    @Override
+    protected void onException(ImsBizFtReq request, Exception e) {
+        log.error("exception occurred. msgUid: {}, senderKey: {}, phoneNumber: {}", request.getMsgUid(), request.getSenderKey(), request.getPhoneNumber(), e);
     }
 }

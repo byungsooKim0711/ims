@@ -17,7 +17,7 @@ public class ImsBizBtReq extends AbstractMessage implements Serializable {
 
     // 접수 유니크 키
     @JsonProperty("msg_uid")
-    private String msg_uid;
+    private String msgUid;
 
     // 발신 프로필 키
     @JsonProperty("sender_key")
@@ -26,6 +26,10 @@ public class ImsBizBtReq extends AbstractMessage implements Serializable {
     // 발신 프로필 키
     @JsonProperty("contents")
     private String contents;
+
+    // 국가번호 포함 핸드폰번호
+    @JsonProperty("phone_number")
+    private String phoneNumber;
 
 
 }
