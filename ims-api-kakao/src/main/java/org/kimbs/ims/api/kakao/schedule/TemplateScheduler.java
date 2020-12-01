@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 
 @Component
-public class ServiceInfoScheduler {
+public class TemplateScheduler {
 
     @PostConstruct
     public void init() {

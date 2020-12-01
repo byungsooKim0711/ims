@@ -16,7 +16,7 @@ import reactor.core.publisher.Mono;
 public class ImsExceptionHandler {
 
     @ExceptionHandler(ImsServiceKeyException.class)
-    public Mono<ImsCommonRes<Void>> handle(ImsServiceKeyException e, ServerWebExchange exchanges) {
+    public Mono<ImsCommonRes<Void>> handle(ImsServiceKeyException e, ServerWebExchange exchange) {
         return Mono.just(
                 ImsCommonRes.<Void>builder()
                         .code(ResponseCode.UNKNOWN_SERVICE_KEY_EXCEPTION)
