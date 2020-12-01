@@ -38,6 +38,6 @@ public class AtService extends AbstractImsService<ImsBizAtReq, AtMessageReq> {
 
     @Override
     protected void onException(ImsBizAtReq request, Exception e) {
-        log.error("exception occurred. msgUid: {}, senderKey: {}, phoneNumber: {}", request.getMsgUid(), request.getSenderKey(), request.getPhoneNumber(), e);
+        log.error("exception occurred({}). msgUid: {}, senderKey: {}, phoneNumber: {}", e.getMessage(), request.getMsgUid(), request.getSenderKey(), request.getPhoneNumber());
     }
 }

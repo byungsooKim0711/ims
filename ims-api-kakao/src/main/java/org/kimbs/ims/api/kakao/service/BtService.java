@@ -38,6 +38,6 @@ public class BtService extends AbstractImsService<ImsBizBtReq, BtMessageReq> {
 
     @Override
     protected void onException(ImsBizBtReq request, Exception e) {
-        log.error("exception occurred. msgUid: {}, senderKey: {}, phoneNumber: {}", request.getMsgUid(), request.getSenderKey(), request.getPhoneNumber(), e);
+        log.error("exception occurred({}). msgUid: {}, senderKey: {}, phoneNumber: {}", e.getMessage(), request.getMsgUid(), request.getSenderKey(), request.getPhoneNumber());
     }
 }

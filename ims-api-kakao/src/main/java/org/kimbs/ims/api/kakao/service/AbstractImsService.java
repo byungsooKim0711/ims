@@ -27,7 +27,7 @@ public abstract class AbstractImsService<R, M> {
 
         try {
             checkServiceKey(serviceKey);
-//        checkDuplicateMsgUid(request);
+//            checkDuplicateMsgUid(request);
             checkMandatory(request);
             checkLength(request);
         } catch (ImsServiceKeyException e) {
@@ -39,8 +39,6 @@ public abstract class AbstractImsService<R, M> {
         } catch (ImsTooLongMessageException e) {
             onException(request, e);
             throw e;
-        } catch (Exception e) {
-            onException(request, e);
         } finally {
             
         }
@@ -65,12 +63,12 @@ public abstract class AbstractImsService<R, M> {
 //    protected abstract void checkTemplate();
 //    protected abstract void checkAttachment();
 //    protected abstract void checkSupplement();
-    protected void setTraceInfo(R request) {
+
+    protected void addTraceInfo(TraceInfo info, R request) {
         // 접수시간 trace_info 에 추가
         ((AbstractMessage) request).addTraceInfo(TraceInfo.RECEIVED_AT, LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")));
     }
     protected abstract void onException(R request, Exception e);
-
 
     protected void sendToKafka(String topic, M message) throws JsonProcessingException, Exception {
         String data = null;
