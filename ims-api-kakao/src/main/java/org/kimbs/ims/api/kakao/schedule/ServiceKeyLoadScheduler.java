@@ -5,10 +5,15 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 
 @Component
-public class TemplateScheduler {
+public class ServiceKeyLoadScheduler extends AbstractLoadScheduler {
 
     @PostConstruct
     public void init() {
+
+    }
+
+    @Override
+    public void scheduled() {
 
     }
 }

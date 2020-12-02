@@ -11,6 +11,7 @@ import org.kimbs.ims.protocol.ImsCommonRes;
 import org.kimbs.ims.protocol.TraceInfo;
 import org.kimbs.ims.protocol.code.ResponseCode;
 import org.springframework.beans.factory.annotation.Autowired;
+import reactor.core.publisher.Mono;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -21,7 +22,7 @@ public abstract class AbstractImsService<R, M> {
     @Autowired
     private ObjectMapper mapper;
 
-    public ImsCommonRes<Void> sendMessage(String serviceKey, R request) {
+    public Mono<ImsCommonRes<Void>> sendMessage(String serviceKey, R request) {
 
         // logic, validation, auth, duplicate_key, etc...
 
@@ -44,9 +45,9 @@ public abstract class AbstractImsService<R, M> {
         }
 
         // success
-        return ImsCommonRes.<Void>builder()
+        return Mono.just(ImsCommonRes.<Void>builder()
                 .code(ResponseCode.SUCCESS)
-                .build();
+                .build());
     }
 
     private void checkServiceKey(String serviceKey) throws ImsServiceKeyException {

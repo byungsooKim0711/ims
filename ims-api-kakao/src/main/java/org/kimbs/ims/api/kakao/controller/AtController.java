@@ -5,9 +5,11 @@ import org.kimbs.ims.api.kakao.controller.annotation.Version1;
 import org.kimbs.ims.api.kakao.service.AtService;
 import org.kimbs.ims.protocol.ImsCommonRes;
 import org.kimbs.ims.protocol.v1.ImsBizAtReq;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Mono;
 
 @Slf4j
 @Version1
@@ -22,9 +24,9 @@ public class AtController extends AbstractImsController<ImsBizAtReq> {
 
     @Override
     @PostMapping("/at/sendMessage")
-    protected ResponseEntity<ImsCommonRes<Void>> sendMessage(@PathVariable String serviceKey, @RequestBody ImsBizAtReq imsBizReq) {
-        ImsCommonRes<Void> response = atService.sendMessage(serviceKey, imsBizReq);
+    protected Mono<ImsCommonRes<Void>> sendMessage(@PathVariable String serviceKey, @RequestBody ImsBizAtReq imsBizReq) {
+        Mono<ImsCommonRes<Void>> response = atService.sendMessage(serviceKey, imsBizReq);
 
-        return new ResponseEntity<>(response, HttpStatus.OK);
+        return response;
     }
 }
