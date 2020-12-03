@@ -8,6 +8,9 @@ public enum TraceInfo {
     // 메시지 UID
     MSG_UID,
 
+    // 트래킹 ID
+    TRACKING_ID,
+
     // 접수시간
     RECEIVED_AT,
 
