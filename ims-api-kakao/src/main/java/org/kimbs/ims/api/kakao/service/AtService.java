@@ -9,6 +9,7 @@ import org.kimbs.ims.model.kakao.KakaoMessageType;
 import org.kimbs.ims.model.kakao.Supplement;
 import org.kimbs.ims.protocol.TraceInfo;
 import org.kimbs.ims.protocol.v1.ImsBizAtReq;
+import org.kimbs.ims.util.RoundRobinUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -89,7 +90,7 @@ public class AtService extends AbstractImsService<ImsBizAtReq, AtMessageReq> {
 
     @Override
     protected void send(AtMessageReq message) {
-//        super.sendToKafka("recv topic", message);
+//        super.sendToKafka(RoundRobinUtils.getRoundRobinValue(RoundRobinUtils.RoundRobinKey.RECV_AT, ), message);
     }
 
     @Override

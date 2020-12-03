@@ -8,6 +8,7 @@ import org.kimbs.ims.model.kakao.FtMessageReq;
 import org.kimbs.ims.model.kakao.KakaoMessageType;
 import org.kimbs.ims.protocol.TraceInfo;
 import org.kimbs.ims.protocol.v1.ImsBizFtReq;
+import org.kimbs.ims.util.RoundRobinUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -88,7 +89,7 @@ public class FtService extends AbstractImsService<ImsBizFtReq, FtMessageReq> {
 
     @Override
     protected void send(FtMessageReq message) {
-//        super.sendToKafka();
+//        super.sendToKafka(RoundRobinUtils.getRoundRobinValue(RoundRobinUtils.RoundRobinKey.RECV_FT, ), message);
     }
 
     @Override

@@ -5,6 +5,7 @@ import org.kimbs.ims.exception.ImsMandatoryException;
 import org.kimbs.ims.exception.ImsTooLongMessageException;
 import org.kimbs.ims.model.kakao.BtMessageReq;
 import org.kimbs.ims.protocol.v1.ImsBizBtReq;
+import org.kimbs.ims.util.RoundRobinUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -55,7 +56,7 @@ public class BtService extends AbstractImsService<ImsBizBtReq, BtMessageReq> {
 
     @Override
     protected void send(BtMessageReq message) {
-//        super.sendToKafka();
+//        super.sendToKafka(RoundRobinUtils.getRoundRobinValue(RoundRobinUtils.RoundRobinKey.RECV_BT, ), message);
     }
 
     @Override
