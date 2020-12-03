@@ -7,6 +7,8 @@ import org.springframework.web.server.WebFilter;
 import org.springframework.web.server.WebFilterChain;
 import reactor.core.publisher.Mono;
 
+import java.net.URI;
+
 @Slf4j
 @Component
 public class ImsRequestFilter implements WebFilter {
@@ -21,7 +23,24 @@ public class ImsRequestFilter implements WebFilter {
         log.info("#### body: {}", exchange.getRequest().getBody());
         log.info("#### id: {}", exchange.getRequest().getId());
         log.info("#### method: {}", exchange.getRequest().getMethod());
+        log.info("#### header: {}", exchange.getRequest().getHeaders().getFirst("IMS-SERVICE-KEY"));
+        log.info("#### header: {}", exchange.getRequest().getHeaders().getFirst("IMS-VERSION"));
 
-        return chain.filter(exchange);
+        URI originUri = exchange.getRequest().getURI();
+
+        try {
+            URI mutatedUri = new URI("http",
+                    originUri.getUserInfo(),
+                    originUri.getHost(),
+                    originUri.getPort(),
+                    "/ims/v1/test/test",
+                    originUri.getQuery(),
+                    originUri.getFragment());
+
+
+            return chain.filter(exchange.mutate().request(req -> req.uri(mutatedUri)).build());
+        } catch (Exception e) {
+            return Mono.error(e);
+        }
     }
 }
