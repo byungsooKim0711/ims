@@ -14,6 +14,38 @@ public final class RoundRobinUtils {
     @Getter
     public enum RoundRobinKey {
 
+        RECV_AT,
+        RECV_FT,
+        RECV_BT,
+        RECV_EMAIL,
+        RECV_PUSH,
+        RECV_MT,
+
+        SEND_AT,
+        SEND_FT,
+        SEND_BT,
+        SEND_EMAIL,
+        SEND_PUSH,
+        SEND_SMS,
+        SEND_LMS,
+        SEND_MMS,
+
+        REPORT_AT,
+        REPORT_FT,
+        REPORT_BT,
+        REPORT_EMAIL,
+        REPORT_PUSH,
+        REPORT_MT,
+
+        HIST_AT,
+        HIST_FT,
+        HIST_BT,
+        HIST_MT,
+        HIST_EMAIL,
+        HIST_PUSH,
+
+        COMMON_LOG,
+        ;
     }
 
     private final static Map<RoundRobinKey, AtomicInteger> roundRobinMap = new HashMap<>();
