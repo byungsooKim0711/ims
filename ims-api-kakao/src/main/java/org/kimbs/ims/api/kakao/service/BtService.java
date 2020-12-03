@@ -15,6 +15,11 @@ public class BtService extends AbstractImsService<ImsBizBtReq, BtMessageReq> {
     private final static int BT_MAX_LENGTH_MESSAGE = 1000;
 
     @Override
+    protected void checkSenderKeyAndTemplate(ImsBizBtReq request) {
+
+    }
+
+    @Override
     protected void checkMandatory(ImsBizBtReq request) {
         String contents = request.getContents();
 //        String appUserId = request.getAppUserId();
@@ -31,9 +36,26 @@ public class BtService extends AbstractImsService<ImsBizBtReq, BtMessageReq> {
 
     @Override
     protected void checkLength(ImsBizBtReq request) {
-        if (request.getContents().length() > BT_MAX_LENGTH_MESSAGE) {
+        String message = request.getContents();
+
+        if (StringUtils.hasText(message) && message.length() > BT_MAX_LENGTH_MESSAGE) {
             throw new ImsTooLongMessageException("Too long message. " + request.getContents().length());
         }
+    }
+
+    @Override
+    protected void checkDuplicateMsgUid(ImsBizBtReq request) {
+
+    }
+
+    @Override
+    protected BtMessageReq convert(ImsBizBtReq request) {
+        return null;
+    }
+
+    @Override
+    protected void send(BtMessageReq message) {
+//        super.sendToKafka();
     }
 
     @Override

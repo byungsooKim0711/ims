@@ -3,13 +3,15 @@ package org.kimbs.ims.model.kakao;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import org.kimbs.ims.protocol.AbstractMessage;
 
 import java.io.Serializable;
 
-@Data
+@Getter
 @EqualsAndHashCode(callSuper = true)
 @JsonInclude(Include.NON_EMPTY)
 public class FtMessageReq extends AbstractMessage implements Serializable {
@@ -17,7 +19,7 @@ public class FtMessageReq extends AbstractMessage implements Serializable {
 	private static final long serialVersionUID = -1142822831531186105L;
 
 	@JsonProperty("message_type")
-	private String messageType;
+	private KakaoMessageType messageType;
 	
 	@JsonProperty("serial_number")
 	private String serialNumber;
@@ -48,4 +50,21 @@ public class FtMessageReq extends AbstractMessage implements Serializable {
 	
 	@JsonProperty("attachment")
 	private Attachment attachment;
+
+	@Builder
+	public FtMessageReq(KakaoMessageType messageType, String senderKey, String phoneNumber, String appUserId, String userKey, String message, String adFlag, String wide, Attachment attachment) {
+		this.messageType = messageType;
+		this.senderKey = senderKey;
+		this.phoneNumber = phoneNumber;
+		this.appUserId = appUserId;
+		this.userKey = userKey;
+		this.message = message;
+		this.adFlag = adFlag;
+		this.wide = wide;
+		this.attachment = attachment;
+	}
+
+	public void setSerialNumber(String serialNumber) {
+		this.serialNumber = serialNumber;
+	}
 }

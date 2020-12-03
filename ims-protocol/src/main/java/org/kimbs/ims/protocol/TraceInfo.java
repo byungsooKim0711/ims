@@ -2,6 +2,12 @@ package org.kimbs.ims.protocol;
 
 public enum TraceInfo {
 
+    // 유저 아이디
+    USER_ID,
+
+    // 메시지 UID
+    MSG_UID,
+
     // 접수시간
     RECEIVED_AT,
 
@@ -26,6 +32,9 @@ public enum TraceInfo {
     // 앱푸시 요청/응답
     PUSH_REQ_AT,
     PUSH_RES_AT,
+
+    // 사용자 정의 과금 코드
+    BILL_CODE,
     ;
 
 

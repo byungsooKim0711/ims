@@ -24,8 +24,8 @@ public class BtController extends AbstractImsController<ImsBizBtReq> {
 
     @Override
     @PostMapping("/bt/sendMessage")
-    protected Mono<ImsCommonRes<Void>> sendMessage(@PathVariable String serviceKey, @RequestBody ImsBizBtReq imsBizReq) {
-        Mono<ImsCommonRes<Void>> response = btService.sendMessage(serviceKey, imsBizReq);
+    protected Mono<ImsCommonRes<Void>> sendMessage(@PathVariable String serviceKey, @RequestBody ImsBizBtReq request) {
+        Mono<ImsCommonRes<Void>> response = btService.sendMessage(serviceKey, request);
 
         return response;
     }

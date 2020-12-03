@@ -27,10 +27,23 @@ public abstract class AbstractImsService<R, M> {
         // logic, validation, auth, duplicate_key, etc...
 
         try {
+            // check validation
             checkServiceKey(serviceKey);
-//            checkDuplicateMsgUid(request);
+            checkSenderKeyAndTemplate(request);
             checkMandatory(request);
             checkLength(request);
+            checkDuplicateMsgUid(request);
+
+            // convert message
+            M message = convert(request);
+
+            // add trace info
+            addTraceInfo(message, TraceInfo.RECEIVED_AT, LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")));
+            addTraceInfo(message, TraceInfo.USER_ID, "#{userId}");
+
+
+            // send recv topic
+            send(message);
         } catch (ImsServiceKeyException e) {
             onException(request, e);
             throw e;
@@ -57,18 +70,18 @@ public abstract class AbstractImsService<R, M> {
         throw new ImsServiceKeyException(serviceKey);
     }
 
-//    protected abstract void checkDuplicateMsgUid(R request);
+    protected abstract void checkSenderKeyAndTemplate(R request);
     protected abstract void checkMandatory(R request) throws ImsMandatoryException;
     protected abstract void checkLength(R request) throws ImsTooLongMessageException;
-//    protected abstract void checkSenderKey();
-//    protected abstract void checkTemplate();
-//    protected abstract void checkAttachment();
-//    protected abstract void checkSupplement();
+    protected abstract void checkDuplicateMsgUid(R request);
+    protected abstract M convert(R request);
 
-    protected void addTraceInfo(TraceInfo info, R request) {
-        // 접수시간 trace_info 에 추가
-        ((AbstractMessage) request).addTraceInfo(TraceInfo.RECEIVED_AT, LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")));
+    protected void addTraceInfo(M message, TraceInfo info, String trace) {
+        ((AbstractMessage) message).addTraceInfo(info, trace);
     }
+
+    protected abstract void send(M message);
+
     protected abstract void onException(R request, Exception e);
 
     protected void sendToKafka(String topic, M message) throws JsonProcessingException, Exception {

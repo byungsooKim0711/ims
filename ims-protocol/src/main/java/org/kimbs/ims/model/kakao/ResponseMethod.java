@@ -18,25 +18,25 @@ public enum ResponseMethod {
     POLLING("polling"),
     ;
 
-    private final String code;
+    private final String method;
 
-    ResponseMethod(String code) {
-        this.code = code;
+    ResponseMethod(String method) {
+        this.method = method;
     }
 
     @JsonValue
-    public String getCode() {
-        return code;
+    public String getMethod() {
+        return method;
     }
 
     private static final Map<String, ResponseMethod> responseMethodMap = Arrays
             .stream(values())
-            .collect(Collectors.toMap(ResponseMethod::getCode, Function.identity()));
+            .collect(Collectors.toMap(ResponseMethod::getMethod, Function.identity()));
 
     @JsonCreator
-    public static ResponseMethod fromValue(String code) {
+    public static ResponseMethod fromValue(String method) {
         return Optional
-                .ofNullable(responseMethodMap.get(code))
+                .ofNullable(responseMethodMap.get(method))
                 .orElse(PUSH);
     }
 }

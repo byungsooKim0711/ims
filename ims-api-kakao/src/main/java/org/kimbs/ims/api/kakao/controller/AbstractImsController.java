@@ -11,6 +11,4 @@ public abstract class AbstractImsController<R> {
      * @return
      */
     protected abstract Mono<ImsCommonRes<Void>> sendMessage(String serviceKey, R request);
-
-//    protected abstract void process(R request);
 }

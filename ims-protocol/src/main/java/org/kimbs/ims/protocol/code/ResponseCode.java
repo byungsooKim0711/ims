@@ -7,9 +7,10 @@ public enum ResponseCode {
     SUCCESS("0000", "Success"),
 
     UNKNOWN_SERVICE_KEY_EXCEPTION("1100", "Unknown service key exception"),
+    BAD_REQUEST("400", "Bad request"),
 
-    TOO_LONG_MESSAGE_EXCEPTION("2010", "Too long message."),
-    MANDATORY_EXCEPTION("2020", "Mandatory check exception."),
+    TOO_LONG_MESSAGE_EXCEPTION("2010", "Too long message"),
+    MANDATORY_EXCEPTION("2020", "Mandatory check exception"),
 
     NOT_SUPPORT_BUTTON_TYPE_EXCEPTION("4000", "Not support button type exception"),
     ATTACHMENT_EXCEPTION("4001", "Attachment exception"),

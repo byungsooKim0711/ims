@@ -28,6 +28,10 @@ public class ImsBizFtReq extends AbstractMessage implements Serializable {
     @JsonProperty("app_user_id")
     private String appUserId;
 
+    // 사용자 식별키, 카카오톡 채널 봇을 이용해 받은 카카오톡 채널 사용자 식별키
+    @JsonProperty("user_key")
+    private String userKey;
+
     // 국가번호 포함 핸드폰번호
     @JsonProperty("phone_number")
     private String phoneNumber;

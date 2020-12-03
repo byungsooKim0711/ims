@@ -24,8 +24,8 @@ public class FtController extends AbstractImsController<ImsBizFtReq> {
 
     @PostMapping("/ft/sendMessage")
     @Override
-    protected Mono<ImsCommonRes<Void>> sendMessage(@PathVariable String serviceKey, @RequestBody ImsBizFtReq imsBizReq) {
-        Mono<ImsCommonRes<Void>> response = ftService.sendMessage(serviceKey, imsBizReq);
+    protected Mono<ImsCommonRes<Void>> sendMessage(@PathVariable String serviceKey, @RequestBody ImsBizFtReq request) {
+        Mono<ImsCommonRes<Void>> response = ftService.sendMessage(serviceKey, request);
 
         return response;
     }

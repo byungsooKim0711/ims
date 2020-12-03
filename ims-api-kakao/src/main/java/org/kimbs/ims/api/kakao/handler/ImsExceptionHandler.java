@@ -9,6 +9,7 @@ import org.kimbs.ims.protocol.code.ResponseCode;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.server.ServerWebExchange;
+import org.springframework.web.server.ServerWebInputException;
 import reactor.core.publisher.Mono;
 
 @Slf4j
@@ -36,6 +37,14 @@ public class ImsExceptionHandler {
         return Mono.just(
                 ImsCommonRes.<Void>builder()
                         .code(ResponseCode.MANDATORY_EXCEPTION)
+                        .build());
+    }
+
+    @ExceptionHandler(ServerWebInputException.class)
+    public Mono<ImsCommonRes<Void>> handle(ServerWebInputException e, ServerWebExchange exchange) {
+        return Mono.just(
+                ImsCommonRes.<Void>builder()
+                        .code(ResponseCode.BAD_REQUEST)
                         .build());
     }
 

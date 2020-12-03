@@ -24,8 +24,8 @@ public class AtController extends AbstractImsController<ImsBizAtReq> {
 
     @Override
     @PostMapping("/at/sendMessage")
-    protected Mono<ImsCommonRes<Void>> sendMessage(@PathVariable String serviceKey, @RequestBody ImsBizAtReq imsBizReq) {
-        Mono<ImsCommonRes<Void>> response = atService.sendMessage(serviceKey, imsBizReq);
+    protected Mono<ImsCommonRes<Void>> sendMessage(@PathVariable String serviceKey, @RequestBody ImsBizAtReq request) {
+        Mono<ImsCommonRes<Void>> response = atService.sendMessage(serviceKey, request);
 
         return response;
     }
