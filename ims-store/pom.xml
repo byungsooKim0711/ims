@@ -19,19 +19,43 @@
 	</properties>
 
 	<dependencies>
+		<!-- JPA -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
+
+		<!-- WEB -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+		<!-- MySQL-->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
+		</dependency>
+
+		<!-- Redis -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
+
+		<!-- IMS COMMON-->
+		<dependency>
+			<groupId>org.kimbs.ims</groupId>
+			<artifactId>ims-common</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+
+		<!-- IMS PROTOCOL -->
+		<dependency>
+			<groupId>org.kimbs.ims</groupId>
+			<artifactId>ims-protocol</artifactId>
+			<version>1.0.0</version>
 		</dependency>
 
 		<dependency>
