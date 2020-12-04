@@ -4,22 +4,44 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57480980-59ba-4ec3-a3eb-a18f3aefde39" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/config/KafkaConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/config/RedisConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/schedule/AbstractLoadScheduler.java" afterDir="false" />
+    <list default="true" id="57480980-59ba-4ec3-a3eb-a18f3aefde39" name="Default Changelist" comment="Add redis-reactive">
+      <change afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/cache/ImsCache.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/cache/ImsSendProfileCache.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/cache/ImsServiceKeyCache.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/cache/ImsTemplateCodeCache.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-protocol/src/main/java/org/kimbs/ims/exception/ImsKafkaSendException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/config/KafkaConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/config/RedisConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/config/StoreConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/consumer/AtHistoryConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/consumer/BtHistoryConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/consumer/EmailHistoryConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/consumer/FtHistoryConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/consumer/MtHistoryConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/consumer/PushHistoryConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/BaseTimeEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/BooleanYNConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/LocalDateTimeConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/ServiceKey.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/WebUser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-api-kakao/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/ImsApiKakaoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/ImsApiKakaoApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/controller/AbstractImsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/controller/AbstractImsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/config/ApiKakaoConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/config/ApiKakaoConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/controller/AtController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/controller/AtController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/controller/BtController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/controller/BtController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/controller/FtController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/controller/FtController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/schedule/SendProfileScheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/schedule/SendProfileLoadScheduler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/schedule/ServiceKeyScheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/schedule/ServiceKeyLoadScheduler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/schedule/TemplateScheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/schedule/TemplateLoadScheduler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/controller/filter/ImsRequestFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/controller/filter/ImsRequestFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/handler/ImsExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/handler/ImsExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/schedule/SendProfileLoadScheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/schedule/SendProfileLoadScheduler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/schedule/ServiceKeyLoadScheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/schedule/ServiceKeyLoadScheduler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/schedule/TemplateLoadScheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/schedule/TemplateLoadScheduler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/AbstractImsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/AbstractImsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/AtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/AtService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/BtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/BtService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/FtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/FtService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-common/src/main/java/org/kimbs/ims/util/RoundRobinUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-common/src/main/java/org/kimbs/ims/util/RoundRobinUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-store/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-store/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-store/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-store/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,14 +88,14 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../humuson/IMC/imc/trunk" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="spring.boot" />
+    <property name="settings.editor.selected.configurable" value="Lombok" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="ReactorSettings">
@@ -170,6 +192,9 @@
     </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpringBootOptions">
+    <option name="showAdditionalConfigNotification" value="false" />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="57480980-59ba-4ec3-a3eb-a18f3aefde39" name="Default Changelist" comment="" />
@@ -197,7 +222,11 @@
       <workItem from="1606568265039" duration="381000" />
       <workItem from="1606568803159" duration="1694000" />
       <workItem from="1606829320494" duration="9989000" />
-      <workItem from="1606914639936" duration="4478000" />
+      <workItem from="1606914639936" duration="4707000" />
+      <workItem from="1606996440121" duration="1477000" />
+      <workItem from="1607073511240" duration="68000" />
+      <workItem from="1607073745115" duration="4235000" />
+      <workItem from="1607077999034" duration="12653000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1605546227057</created>
@@ -325,7 +354,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606839288777</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Add redis-reactive">
+      <created>1606919327628</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1606919327628</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -348,167 +384,11 @@
     <MESSAGE value="....." />
     <MESSAGE value="reactor를 다시한번 시도.." />
     <MESSAGE value=".." />
-    <option name="LAST_COMMIT_MESSAGE" value=".." />
+    <MESSAGE value="Add redis-reactive" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add redis-reactive" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="395" y="91" key="#Inspections" timestamp="1605978467361">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="395" y="91" key="#Inspections/0.0.1536.824/-1680.26.1680.1010@0.0.1536.824" timestamp="1605978467361" />
-    <state x="-1408" y="26" key="#Project_Structure" timestamp="1606229847768">
-      <screen x="-1680" y="26" width="1680" height="1010" />
-    </state>
-    <state x="-1408" y="26" key="#Project_Structure/0.0.1536.824/-1680.26.1680.1010@-1680.26.1680.1010" timestamp="1606229847768" />
-    <state x="249" y="0" key="#Project_Structure/0.0.1536.824/-1680.26.1680.1010@0.0.1536.824" timestamp="1605973402658" />
-    <state x="249" y="0" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1605547085960" />
-    <state x="223" y="0" width="1192" height="1010" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606230395257">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="-1436" y="26" width="1192" height="1010" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/-1680.26.1680.1010@-1680.26.1680.1010" timestamp="1606229588352" />
-    <state x="223" y="0" width="1089" height="824" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/-1680.26.1680.1010@0.0.1536.824" timestamp="1606230395257" />
-    <state x="574" y="66" width="388" height="673" key="#com.intellij.ide.util.MemberChooser" timestamp="1606919129178">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="574" y="66" width="388" height="673" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/-1680.26.1680.1010@0.0.1536.824" timestamp="1606833524691" />
-    <state x="574" y="66" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1606919129178" />
-    <state x="449" y="147" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1606568630931">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="449" y="147" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1536.824@0.0.1536.824" timestamp="1606568630931" />
-    <state x="326" y="335" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1606223548863">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="326" y="335" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1536.824/-1680.26.1680.1010@0.0.1536.824" timestamp="1606223548863" />
-    <state x="436" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1605977167703">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="436" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824/-1680.26.1680.1010@0.0.1536.824" timestamp="1605977167703" />
-    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1606048798640">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1606048798640" />
-    <state x="333" y="0" width="844" height="698" key="CommitChangelistDialog2" timestamp="1606839286819">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="195" y="69" width="844" height="698" key="CommitChangelistDialog2/0.0.1536.824/-1680.26.1680.1010@0.0.1536.824" timestamp="1606835714396" />
-    <state x="333" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1606839286819" />
-    <state x="145" y="69" width="1224" height="690" key="DiffContextDialog" timestamp="1606838974884">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="145" y="65" key="DiffContextDialog/0.0.1536.824/-1680.26.1680.1010@0.0.1536.824" timestamp="1606835712962" />
-    <state x="145" y="69" width="1224" height="690" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1606838974884" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1606917643202">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824/-1680.26.1680.1010@0.0.1536.824" timestamp="1606305053143" />
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1606917643202" />
-    <state width="1183" height="278" key="GridCell.Tab.0.bottom" timestamp="1606918703511">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1637" height="447" key="GridCell.Tab.0.bottom/0.0.1536.824/-1680.26.1680.1010@-1680.26.1680.1010" timestamp="1606229885244" />
-    <state width="1212" height="220" key="GridCell.Tab.0.bottom/0.0.1536.824/-1680.26.1680.1010@0.0.1536.824" timestamp="1606837942713" />
-    <state width="1183" height="278" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1606918703511" />
-    <state width="1183" height="278" key="GridCell.Tab.0.center" timestamp="1606918703511">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1637" height="447" key="GridCell.Tab.0.center/0.0.1536.824/-1680.26.1680.1010@-1680.26.1680.1010" timestamp="1606229885244" />
-    <state width="1212" height="220" key="GridCell.Tab.0.center/0.0.1536.824/-1680.26.1680.1010@0.0.1536.824" timestamp="1606837942713" />
-    <state width="1183" height="278" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1606918703511" />
-    <state width="1183" height="278" key="GridCell.Tab.0.left" timestamp="1606918703511">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1637" height="447" key="GridCell.Tab.0.left/0.0.1536.824/-1680.26.1680.1010@-1680.26.1680.1010" timestamp="1606229885244" />
-    <state width="1212" height="220" key="GridCell.Tab.0.left/0.0.1536.824/-1680.26.1680.1010@0.0.1536.824" timestamp="1606837942713" />
-    <state width="1183" height="278" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1606918703511" />
-    <state width="1183" height="278" key="GridCell.Tab.0.right" timestamp="1606918703511">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1637" height="447" key="GridCell.Tab.0.right/0.0.1536.824/-1680.26.1680.1010@-1680.26.1680.1010" timestamp="1606229885244" />
-    <state width="1212" height="220" key="GridCell.Tab.0.right/0.0.1536.824/-1680.26.1680.1010@0.0.1536.824" timestamp="1606837942713" />
-    <state width="1183" height="278" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1606918703511" />
-    <state width="1183" height="278" key="GridCell.Tab.1.bottom" timestamp="1606918703512">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1203" height="227" key="GridCell.Tab.1.bottom/0.0.1536.824/-1680.26.1680.1010@-1680.26.1680.1010" timestamp="1606229885241" />
-    <state width="1212" height="220" key="GridCell.Tab.1.bottom/0.0.1536.824/-1680.26.1680.1010@0.0.1536.824" timestamp="1606837942714" />
-    <state width="1183" height="278" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1606918703512" />
-    <state width="1183" height="278" key="GridCell.Tab.1.center" timestamp="1606918703511">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1203" height="227" key="GridCell.Tab.1.center/0.0.1536.824/-1680.26.1680.1010@-1680.26.1680.1010" timestamp="1606229885241" />
-    <state width="1212" height="220" key="GridCell.Tab.1.center/0.0.1536.824/-1680.26.1680.1010@0.0.1536.824" timestamp="1606837942714" />
-    <state width="1183" height="278" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1606918703511" />
-    <state width="1183" height="278" key="GridCell.Tab.1.left" timestamp="1606918703511">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1203" height="227" key="GridCell.Tab.1.left/0.0.1536.824/-1680.26.1680.1010@-1680.26.1680.1010" timestamp="1606229885241" />
-    <state width="1212" height="220" key="GridCell.Tab.1.left/0.0.1536.824/-1680.26.1680.1010@0.0.1536.824" timestamp="1606837942714" />
-    <state width="1183" height="278" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1606918703511" />
-    <state width="1183" height="278" key="GridCell.Tab.1.right" timestamp="1606918703512">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1203" height="227" key="GridCell.Tab.1.right/0.0.1536.824/-1680.26.1680.1010@-1680.26.1680.1010" timestamp="1606229885241" />
-    <state width="1212" height="220" key="GridCell.Tab.1.right/0.0.1536.824/-1680.26.1680.1010@0.0.1536.824" timestamp="1606837942714" />
-    <state width="1183" height="278" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1606918703512" />
-    <state width="1176" height="229" key="GridCell.Tab.2.bottom" timestamp="1605973168539">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1176" height="229" key="GridCell.Tab.2.bottom/0.0.1536.824/-1680.26.1680.1010@0.0.1536.824" timestamp="1605973168539" />
-    <state width="1176" height="229" key="GridCell.Tab.2.center" timestamp="1605973168538">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1176" height="229" key="GridCell.Tab.2.center/0.0.1536.824/-1680.26.1680.1010@0.0.1536.824" timestamp="1605973168538" />
-    <state width="1176" height="229" key="GridCell.Tab.2.left" timestamp="1605973168538">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1176" height="229" key="GridCell.Tab.2.left/0.0.1536.824/-1680.26.1680.1010@0.0.1536.824" timestamp="1605973168538" />
-    <state width="1176" height="229" key="GridCell.Tab.2.right" timestamp="1605973168538">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1176" height="229" key="GridCell.Tab.2.right/0.0.1536.824/-1680.26.1680.1010@0.0.1536.824" timestamp="1605973168538" />
-    <state x="299" y="67" key="Maven.ArtifactSearchDialog" timestamp="1606222888416">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="299" y="67" key="Maven.ArtifactSearchDialog/0.0.1536.824/-1680.26.1680.1010@0.0.1536.824" timestamp="1606222888416" />
-    <state x="376" y="0" key="SettingsEditor" timestamp="1606839121310">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="376" y="0" key="SettingsEditor/0.0.1536.824/-1680.26.1680.1010@0.0.1536.824" timestamp="1606230539757" />
-    <state x="376" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1606839121310" />
-    <state width="498" height="448" key="SwitcherDM" timestamp="1606829669447">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="498" height="448" key="SwitcherDM/0.0.1536.824@0.0.1536.824" timestamp="1606829669447" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1606839293849">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1680.26.1680.1010@0.0.1536.824" timestamp="1606311848751" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1606839293849" />
-    <state x="499" y="172" key="extract.method.dialog" timestamp="1606304953714">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="499" y="172" key="extract.method.dialog/0.0.1536.824/-1680.26.1680.1010@0.0.1536.824" timestamp="1606304953714" />
-    <state x="475" y="144" width="585" height="536" key="find.popup" timestamp="1606838338267">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="-1160" y="203" width="640" height="657" key="find.popup/0.0.1536.824/-1680.26.1680.1010@-1680.26.1680.1010" timestamp="1606229530776" />
-    <state x="475" y="144" width="585" height="536" key="find.popup/0.0.1536.824/-1680.26.1680.1010@0.0.1536.824" timestamp="1606305807791" />
-    <state x="475" y="144" width="585" height="536" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1606838338267" />
-    <state x="347" y="73" key="new project wizard" timestamp="1606227986637">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="347" y="73" key="new project wizard/0.0.1536.824/-1680.26.1680.1010@0.0.1536.824" timestamp="1606227986637" />
-    <state x="347" y="73" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1606220347843" />
-    <state x="425" y="187" width="672" height="677" key="run.anything.popup" timestamp="1606829867701">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="425" y="187" width="672" height="677" key="run.anything.popup/0.0.1536.824/-1680.26.1680.1010@0.0.1536.824" timestamp="1606829867701" />
-    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1606829696634" />
-    <state x="431" y="145" width="672" height="679" key="search.everywhere.popup" timestamp="1606573323552">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="-1209" y="204" width="735" height="832" key="search.everywhere.popup/0.0.1536.824/-1680.26.1680.1010@-1680.26.1680.1010" timestamp="1606229550848" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/-1680.26.1680.1010@0.0.1536.824" timestamp="1605968459254" />
-    <state x="431" y="145" width="672" height="679" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1606573323552" />
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

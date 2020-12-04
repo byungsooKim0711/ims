@@ -32,6 +32,15 @@ spring:
             user.name: admin
             user.password: admin12#$
 
+  task:
+    scheduling:
+      pool:
+        size: 10
+      thread-name-prefix: API-KAKAO-
+      shutdown:
+        await-termination: true
+        await-termination-period: 60
+
   # Redis
   redis:
     host: localhost
@@ -61,3 +70,16 @@ ims:
   api:
     kakao:
       service-name: "API-KAKAO"
+      scheduled:
+        redis-load-service-key-info: "30 */1 * * * *"
+        redis-load-template-code-info: "30 */1 * * * *"
+        redis-load-send-profile-info: "30 */1 * * * *"
+
+      # 토픽 리스트
+      topics:
+        recv-at:
+          - RECV-AT
+        recv-ft:
+          - RECV-FT
+        recv-bt:
+          - RECV-BT

@@ -1,7 +1,11 @@
 package org.kimbs.ims.api.kakao.service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.extern.slf4j.Slf4j;
+import org.kimbs.ims.api.kakao.service.cache.ImsServiceKeyCache;
+import org.kimbs.ims.exception.ImsKafkaSendException;
 import org.kimbs.ims.exception.ImsMandatoryException;
+import org.kimbs.ims.exception.ImsServiceKeyException;
 import org.kimbs.ims.exception.ImsTooLongMessageException;
 import org.kimbs.ims.model.kakao.Attachment;
 import org.kimbs.ims.model.kakao.FtMessageReq;
@@ -12,11 +16,24 @@ import org.kimbs.ims.util.RoundRobinUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+import java.util.List;
+
 @Slf4j
 @Service
 public class FtService extends AbstractImsService<ImsBizFtReq, FtMessageReq> {
 
     private final static int FT_MAX_LENGTH_MESSAGE = 1000;
+
+    private final ImsServiceKeyCache imsServiceKeyCache;
+
+    public FtService(ImsServiceKeyCache imsServiceKeyCache) {
+        this.imsServiceKeyCache = imsServiceKeyCache;
+    }
+
+    @Override
+    protected String checkServiceKey(String serviceKey) throws ImsServiceKeyException {
+        return imsServiceKeyCache.findServiceKey(serviceKey);
+    }
 
     @Override
     protected void checkSenderKeyAndTemplate(ImsBizFtReq request) {
@@ -89,7 +106,12 @@ public class FtService extends AbstractImsService<ImsBizFtReq, FtMessageReq> {
 
     @Override
     protected void send(FtMessageReq message) {
-//        super.sendToKafka(RoundRobinUtils.getRoundRobinValue(RoundRobinUtils.RoundRobinKey.RECV_FT, ), message);
+        List<String> ftTopics = config.getTopics().getRecvFt();
+        try {
+            super.sendToKafka(RoundRobinUtils.getRoundRobinValue(RoundRobinUtils.RoundRobinKey.RECV_FT, ftTopics), message);
+        } catch (JsonProcessingException e) {
+            throw new ImsKafkaSendException(e);
+        }
     }
 
     @Override

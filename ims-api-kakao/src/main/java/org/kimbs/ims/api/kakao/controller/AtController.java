@@ -4,9 +4,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.kimbs.ims.api.kakao.controller.annotation.Version1;
 import org.kimbs.ims.api.kakao.service.AtService;
 import org.kimbs.ims.protocol.ImsCommonRes;
-import org.kimbs.ims.protocol.code.ResponseCode;
 import org.kimbs.ims.protocol.v1.ImsBizAtReq;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 
 @Slf4j
@@ -26,14 +28,5 @@ public class AtController extends AbstractImsController<ImsBizAtReq> {
         Mono<ImsCommonRes<Void>> response = atService.sendMessage(serviceKey, request);
 
         return response;
-    }
-
-
-    @RequestMapping("/test")
-    protected Mono<ImsCommonRes<Void>> test(@RequestBody ImsBizAtReq request) {
-
-        log.info("#################");
-
-        return Mono.just(ImsCommonRes.<Void>builder().code(ResponseCode.SUCCESS).build());
     }
 }

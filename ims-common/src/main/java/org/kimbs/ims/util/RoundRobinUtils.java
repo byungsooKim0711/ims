@@ -56,9 +56,9 @@ public final class RoundRobinUtils {
         }
     }
 
-    public static Optional<String> getRoundRobinValue(RoundRobinKey key, List<String> list) {
+    public static String getRoundRobinValue(RoundRobinKey key, List<String> list) {
         if (CollectionUtils.isEmpty(list)) {
-            return Optional.empty();
+            return key.name();
         }
 
         AtomicInteger atomicInteger = roundRobinMap.get(key);
@@ -66,6 +66,6 @@ public final class RoundRobinUtils {
         String value = list.get(atomicInteger.incrementAndGet() % list.size());
         roundRobinMap.put(key, atomicInteger);
 
-        return Optional.ofNullable(value);
+        return value;
     }
 }

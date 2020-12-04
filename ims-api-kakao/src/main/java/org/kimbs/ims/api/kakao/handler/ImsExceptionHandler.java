@@ -1,6 +1,7 @@
 package org.kimbs.ims.api.kakao.handler;
 
 import lombok.extern.slf4j.Slf4j;
+import org.kimbs.ims.exception.ImsKafkaSendException;
 import org.kimbs.ims.exception.ImsMandatoryException;
 import org.kimbs.ims.exception.ImsServiceKeyException;
 import org.kimbs.ims.exception.ImsTooLongMessageException;
@@ -48,12 +49,21 @@ public class ImsExceptionHandler {
                         .build());
     }
 
+    @ExceptionHandler(ImsKafkaSendException.class)
+    public Mono<ImsCommonRes<Void>> handle(ImsKafkaSendException e, ServerWebExchange exchange) {
+        return Mono.just(
+                ImsCommonRes.<Void>builder()
+                        .code(ResponseCode.SERVICE_SERVER_ERROR)
+                        .build());
+    }
+
+
     @ExceptionHandler(Exception.class)
     public Mono<ImsCommonRes<Void>> handle(Exception e, ServerWebExchange exchange) {
         log.error("Unknown exception occurred.", e);
         return Mono.just(
                 ImsCommonRes.<Void>builder()
-                        .code(ResponseCode.SERVICE_SERVER_ERROR)
+                        .code(ResponseCode.SERVICE_SERVER_ETC_ERROR)
                         .build());
     }
 }
