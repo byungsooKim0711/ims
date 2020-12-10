@@ -1,5 +1,8 @@
 package org.kimbs.ims.store.schedule;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.kimbs.ims.model.redis.RedisServiceKey;
 import org.kimbs.ims.model.redis.RedisStoreKey;
@@ -7,7 +10,7 @@ import org.kimbs.ims.store.domain.ServiceKey;
 import org.kimbs.ims.store.repository.ServiceKeyRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.ReactiveRedisTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
@@ -19,18 +22,15 @@ import java.util.List;
 
 
 @Slf4j
+@RequiredArgsConstructor
 @Component
 public class RedisStoreServiceKeySchedule {
 
     private final ServiceKeyRepository serviceKeyRepository;
-    private final RedisTemplate<String, Object> redisTemplate;
+    private final ReactiveRedisTemplate<String, String> redisTemplate;
+    private final ObjectMapper mapper;
 
     private static final String KEY = RedisStoreKey.SERVICE_KEY.name();
-
-    public RedisStoreServiceKeySchedule(ServiceKeyRepository serviceKeyRepository, RedisTemplate<String, Object> redisTemplate) {
-        this.serviceKeyRepository = serviceKeyRepository;
-        this.redisTemplate = redisTemplate;
-    }
 
     @PostConstruct
     public void init() {
@@ -67,8 +67,11 @@ public class RedisStoreServiceKeySchedule {
                         .userId(serviceKey.getWebUser().getId())
                         .build();
 
-
-                redisTemplate.opsForHash().put(KEY, redisServiceKey.getApiKey(), redisServiceKey);
+                try {
+                    redisTemplate.opsForHash().put(KEY, redisServiceKey.getApiKey(), mapper.writeValueAsString(redisServiceKey));
+                } catch (JsonProcessingException e) {
+                    log.error("json parse error. apiKey: {}, type: {}", redisServiceKey.getApiKey(), redisServiceKey.getKeyType());
+                }
             }
             page++;
         }

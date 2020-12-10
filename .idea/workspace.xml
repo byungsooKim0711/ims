@@ -5,26 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="57480980-59ba-4ec3-a3eb-a18f3aefde39" name="Default Changelist" comment="Add redis-reactive">
-      <change afterPath="$PROJECT_DIR$/ims-protocol/src/main/java/org/kimbs/ims/model/redis/RedisServiceKey.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-protocol/src/main/java/org/kimbs/ims/model/redis/RedisStoreKey.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/config/KafkaConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/config/RedisConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/config/StoreConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/consumer/AtHistoryConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/consumer/BtHistoryConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/consumer/EmailHistoryConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/consumer/FtHistoryConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/consumer/MtHistoryConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/consumer/PushHistoryConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/BaseTimeEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/ServiceKey.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/WebUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/code/ServiceKeyType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/converter/BooleanYNConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/converter/LocalDateTimeConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/repository/ServiceKeyRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/repository/WebUserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/schedule/RedisStoreServiceKeySchedule.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/config/RedisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/config/RedisConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/schedule/ServiceKeyLoadScheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/schedule/ServiceKeyLoadScheduler.java" afterDir="false" />
@@ -35,8 +15,8 @@
       <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/cache/ImsCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/cache/ImsCache.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/cache/ImsServiceKeyCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/cache/ImsServiceKeyCache.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ims-store/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-store/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/ImsStoreApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/ImsStoreApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-store/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-store/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/config/RedisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/config/RedisConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/schedule/RedisStoreServiceKeySchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/schedule/RedisStoreServiceKeySchedule.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,16 +102,14 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.ImsApiKakaoApplication">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+  <component name="RunManager" selected="Spring Boot.ImsStoreApplication">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -221,7 +199,8 @@
       <workItem from="1606996440121" duration="1477000" />
       <workItem from="1607073511240" duration="68000" />
       <workItem from="1607073745115" duration="4235000" />
-      <workItem from="1607077999034" duration="17807000" />
+      <workItem from="1607077999034" duration="17973000" />
+      <workItem from="1607605379136" duration="4922000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1605546227057</created>
@@ -363,7 +342,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607092282035</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="store">
+      <created>1607097491050</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1607097491050</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -388,7 +374,8 @@
     <MESSAGE value=".." />
     <MESSAGE value="Add redis-reactive" />
     <MESSAGE value="..." />
-    <option name="LAST_COMMIT_MESSAGE" value="..." />
+    <MESSAGE value="store" />
+    <option name="LAST_COMMIT_MESSAGE" value="store" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
