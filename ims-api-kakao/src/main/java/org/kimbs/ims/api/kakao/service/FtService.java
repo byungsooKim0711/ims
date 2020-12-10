@@ -31,8 +31,9 @@ public class FtService extends AbstractImsService<ImsBizFtReq, FtMessageReq> {
     }
 
     @Override
-    protected String checkServiceKey(String serviceKey) throws ImsServiceKeyException {
-        return imsServiceKeyCache.findServiceKey(serviceKey);
+    protected void checkServiceKey(String serviceKey, ImsBizFtReq request) throws ImsServiceKeyException {
+        Long userId = imsServiceKeyCache.findServiceKey(serviceKey);
+        request.addTraceInfo(TraceInfo.USER_ID, userId);
     }
 
     @Override

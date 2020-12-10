@@ -8,6 +8,7 @@ import org.kimbs.ims.exception.ImsMandatoryException;
 import org.kimbs.ims.exception.ImsServiceKeyException;
 import org.kimbs.ims.exception.ImsTooLongMessageException;
 import org.kimbs.ims.model.kakao.BtMessageReq;
+import org.kimbs.ims.protocol.TraceInfo;
 import org.kimbs.ims.protocol.v1.ImsBizBtReq;
 import org.kimbs.ims.util.RoundRobinUtils;
 import org.springframework.stereotype.Service;
@@ -28,8 +29,9 @@ public class BtService extends AbstractImsService<ImsBizBtReq, BtMessageReq> {
     }
 
     @Override
-    protected String checkServiceKey(String serviceKey) throws ImsServiceKeyException {
-        return imsServiceKeyCache.findServiceKey(serviceKey);
+    protected void checkServiceKey(String serviceKey, ImsBizBtReq request) throws ImsServiceKeyException {
+        Long userId = imsServiceKeyCache.findServiceKey(serviceKey);
+        request.addTraceInfo(TraceInfo.USER_ID, userId);
     }
 
     @Override

@@ -16,6 +16,7 @@ import reactor.core.publisher.Mono;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Map;
 
 @Slf4j
 public abstract class AbstractImsService<R, M> {
@@ -31,18 +32,22 @@ public abstract class AbstractImsService<R, M> {
         // logic, validation, auth, duplicate_key, etc...
         try {
             // check validation
-            String userId = checkServiceKey(serviceKey);
+            checkServiceKey(serviceKey, request);
             checkSenderKeyAndTemplate(request);
             checkMandatory(request);
             checkLength(request);
             checkDuplicateMsgUid(request);
+
+            // get request traceInfo
+            Map<TraceInfo, Object> traceInfoMap = ((AbstractMessage) request).getTraceInfo();
 
             // convert message
             M message = convert(request);
 
             // add trace info
             addTraceInfo(message, TraceInfo.RECEIVED_AT, LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")));
-            addTraceInfo(message, TraceInfo.USER_ID, userId);
+            // set requestTraceInfo
+            ((AbstractMessage) message).addTraceInfo(traceInfoMap);
 
             // send recv topic
             send(message);
@@ -65,7 +70,7 @@ public abstract class AbstractImsService<R, M> {
                 .build());
     }
 
-    protected abstract String checkServiceKey(String serviceKey) throws ImsServiceKeyException;
+    protected abstract void checkServiceKey(String serviceKey, R request) throws ImsServiceKeyException;
     protected abstract void checkSenderKeyAndTemplate(R request);
     protected abstract void checkMandatory(R request) throws ImsMandatoryException;
     protected abstract void checkLength(R request) throws ImsTooLongMessageException;

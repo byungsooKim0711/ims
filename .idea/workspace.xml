@@ -14,9 +14,10 @@
       <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/FtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/FtService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/cache/ImsCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/cache/ImsCache.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/cache/ImsServiceKeyCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/cache/ImsServiceKeyCache.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-store/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-store/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/config/RedisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/config/RedisConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/schedule/RedisStoreServiceKeySchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/schedule/RedisStoreServiceKeySchedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-protocol/src/main/java/org/kimbs/ims/model/kakao/AtMessageReq.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-protocol/src/main/java/org/kimbs/ims/model/kakao/AtMessageReq.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-protocol/src/main/java/org/kimbs/ims/protocol/AbstractMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-protocol/src/main/java/org/kimbs/ims/protocol/AbstractMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-protocol/src/main/java/org/kimbs/ims/protocol/TraceInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-protocol/src/main/java/org/kimbs/ims/protocol/TraceInfo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +64,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../humuson/IMC/imc/trunk" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -102,7 +103,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.ImsStoreApplication">
+  <component name="RunManager" selected="Spring Boot.ImsApiKakaoApplication">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -200,7 +201,7 @@
       <workItem from="1607073511240" duration="68000" />
       <workItem from="1607073745115" duration="4235000" />
       <workItem from="1607077999034" duration="17973000" />
-      <workItem from="1607605379136" duration="4922000" />
+      <workItem from="1607605379136" duration="11595000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1605546227057</created>
@@ -349,7 +350,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607097491050</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="redis -&gt; reactive redis&#10;web -&gt; webflux">
+      <created>1607610621129</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1607610621130</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -375,7 +383,8 @@
     <MESSAGE value="Add redis-reactive" />
     <MESSAGE value="..." />
     <MESSAGE value="store" />
-    <option name="LAST_COMMIT_MESSAGE" value="store" />
+    <MESSAGE value="redis -&gt; reactive redis&#10;web -&gt; webflux" />
+    <option name="LAST_COMMIT_MESSAGE" value="redis -&gt; reactive redis&#10;web -&gt; webflux" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

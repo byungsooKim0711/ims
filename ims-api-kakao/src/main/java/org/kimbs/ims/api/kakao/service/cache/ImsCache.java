@@ -1,5 +1,6 @@
 package org.kimbs.ims.api.kakao.service.cache;
 
+import org.kimbs.ims.model.redis.RedisServiceKey;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -10,7 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class ImsCache {
 
     @Bean(name = "serviceKeyMap")
-    public Map<String, String> serviceKeyMap() {
+    public Map<String, RedisServiceKey> serviceKeyMap() {
         return new ConcurrentHashMap<>();
     }
 

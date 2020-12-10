@@ -10,10 +10,9 @@ public abstract class AbstractMessage implements Serializable {
 
     private static final long serialVersionUID = 2844860809405463902L;
 
-    @JsonProperty("trace_info")
-    private final Map<TraceInfo, String> traceInfoMap = new HashMap<>();
+    private final Map<TraceInfo, Object> traceInfoMap = new HashMap<>();
 
-    public void addTraceInfo(TraceInfo key, String value) {
+    public void addTraceInfo(TraceInfo key, Object value) {
         traceInfoMap.put(key, value);
     }
 
@@ -21,7 +20,15 @@ public abstract class AbstractMessage implements Serializable {
         traceInfoMap.remove(key);
     }
 
-    public String getTraceInfo(TraceInfo key) {
+    public Object getTraceInfo(TraceInfo key) {
         return traceInfoMap.get(key);
+    }
+
+    public Map<TraceInfo, Object> getTraceInfo() {
+        return traceInfoMap;
+    }
+
+    public void addTraceInfo(Map<TraceInfo, Object> traceInfoMap) {
+        this.traceInfoMap.putAll(traceInfoMap);
     }
 }

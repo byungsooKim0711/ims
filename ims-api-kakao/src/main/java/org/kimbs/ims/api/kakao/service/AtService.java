@@ -2,7 +2,6 @@ package org.kimbs.ims.api.kakao.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.extern.slf4j.Slf4j;
-import org.kimbs.ims.api.kakao.config.ApiKakaoConfig;
 import org.kimbs.ims.api.kakao.service.cache.ImsServiceKeyCache;
 import org.kimbs.ims.exception.ImsKafkaSendException;
 import org.kimbs.ims.exception.ImsMandatoryException;
@@ -15,12 +14,10 @@ import org.kimbs.ims.model.kakao.Supplement;
 import org.kimbs.ims.protocol.TraceInfo;
 import org.kimbs.ims.protocol.v1.ImsBizAtReq;
 import org.kimbs.ims.util.RoundRobinUtils;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import java.util.List;
-import java.util.Map;
 
 @Slf4j
 @Service
@@ -35,8 +32,9 @@ public class AtService extends AbstractImsService<ImsBizAtReq, AtMessageReq> {
     }
 
     @Override
-    protected String checkServiceKey(String serviceKey) throws ImsServiceKeyException {
-        return imsServiceKeyCache.findServiceKey(serviceKey);
+    protected void checkServiceKey(String serviceKey, ImsBizAtReq request) throws ImsServiceKeyException {
+        Long userId = imsServiceKeyCache.findServiceKey(serviceKey);
+        request.addTraceInfo(TraceInfo.USER_ID, userId);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package org.kimbs.ims.api.kakao.service.cache;
 
 import org.kimbs.ims.exception.ImsServiceKeyException;
+import org.kimbs.ims.model.redis.RedisServiceKey;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
@@ -10,9 +11,9 @@ import java.util.Map;
 @Component
 public class ImsServiceKeyCache {
 
-    private final Map<String, String> serviceKeyMap;
+    private final Map<String, RedisServiceKey> serviceKeyMap;
 
-    public ImsServiceKeyCache(@Qualifier("serviceKeyMap") Map<String, String> serviceKeyMap) {
+    public ImsServiceKeyCache(@Qualifier("serviceKeyMap") Map<String, RedisServiceKey> serviceKeyMap) {
         this.serviceKeyMap = serviceKeyMap;
     }
 
@@ -20,13 +21,13 @@ public class ImsServiceKeyCache {
     public void init() {
     }
 
-    public String findServiceKey(String serviceKey) {
-        String key = serviceKeyMap.get(serviceKey);
+    public Long findServiceKey(String serviceKey) {
+        RedisServiceKey key = serviceKeyMap.get(serviceKey);
 
         if (key == null) {
             throw new ImsServiceKeyException(serviceKey);
         }
 
-        return key;
+        return key.getUserId();
     }
 }
