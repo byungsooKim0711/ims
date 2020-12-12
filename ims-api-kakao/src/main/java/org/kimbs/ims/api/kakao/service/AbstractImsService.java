@@ -12,6 +12,10 @@ import org.kimbs.ims.protocol.ImsCommonRes;
 import org.kimbs.ims.protocol.TraceInfo;
 import org.kimbs.ims.protocol.code.ResponseCode;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.kafka.support.SendResult;
+import org.springframework.util.concurrent.ListenableFuture;
+import org.springframework.util.concurrent.ListenableFutureCallback;
 import reactor.core.publisher.Mono;
 
 import java.time.LocalDateTime;
@@ -26,6 +30,9 @@ public abstract class AbstractImsService<R, M> {
 
     @Autowired
     protected ApiKakaoConfig config;
+
+    @Autowired
+    protected KafkaTemplate<String, String> kafkaTemplate;
 
     public Mono<ImsCommonRes<Void>> sendMessage(String serviceKey, R request) {
 
@@ -86,14 +93,25 @@ public abstract class AbstractImsService<R, M> {
     protected abstract void onException(R request, Exception e);
 
     protected void sendToKafka(String topic, M message) throws JsonProcessingException {
-        String data = null;
+        final String data;
 
         try {
             data = mapper.writeValueAsString(message);
-            System.out.println(data);
         } catch (JsonProcessingException e) {
             log.error("Json parse error. message: {}", message);
             throw e;
         }
+
+        ListenableFuture<SendResult<String, String>> future = kafkaTemplate.send(topic, data);
+        future.addCallback(new ListenableFutureCallback<SendResult<String, String>>() {
+            @Override
+            public void onSuccess(SendResult<String, String> result) {
+            }
+
+            @Override
+            public void onFailure(Throwable e) {
+                log.error("kafka send failed. topic: {}, data: {}", topic, data, e.getCause());
+            }
+        });
     }
 }

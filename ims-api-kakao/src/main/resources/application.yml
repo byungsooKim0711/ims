@@ -32,6 +32,20 @@ spring:
             user.name: admin
             user.password: admin12#$
 
+  kafka:
+#    bootstrap-servers: "127.0.0.1:9092"
+    bootstrap-servers: "10.147.1.90:9092"
+    producer:
+      client-id: "V1.API.KAKAO"
+      retries: 0
+      batch-size: 20000
+      compression-type: gzip
+      linger-ms: 50
+      buffer-memory: 33554432
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      acks: 1
+
   task:
     scheduling:
       pool:
