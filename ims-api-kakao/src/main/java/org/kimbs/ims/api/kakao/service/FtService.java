@@ -33,7 +33,7 @@ public class FtService extends AbstractImsService<ImsBizFtReq, FtMessageReq> {
     @Override
     protected void checkServiceKey(String serviceKey, ImsBizFtReq request) throws ImsServiceKeyException {
         Long userId = imsServiceKeyCache.findServiceKey(serviceKey);
-        request.addTraceInfo(TraceInfo.USER_ID, userId);
+        request.getTrace().setUserId(userId);
     }
 
     @Override
@@ -98,9 +98,10 @@ public class FtService extends AbstractImsService<ImsBizFtReq, FtMessageReq> {
                 .attachment(attachment)
                 .build();
 
-
-        ftMessageReq.addTraceInfo(TraceInfo.BILL_CODE, billCode);
-        ftMessageReq.addTraceInfo(TraceInfo.MSG_UID, msgUid);
+        TraceInfo traceInfo = request.getTrace();
+        ftMessageReq.setTrace(traceInfo);
+        ftMessageReq.getTrace().setBillCode(billCode);
+        ftMessageReq.getTrace().setMsgUid(msgUid);
 
         return ftMessageReq;
     }
@@ -118,5 +119,11 @@ public class FtService extends AbstractImsService<ImsBizFtReq, FtMessageReq> {
     @Override
     protected void onException(ImsBizFtReq request, Exception e) {
         log.error("exception occurred({}). msgUid: {}, senderKey: {}, phoneNumber: {}", e.getMessage(), request.getMsgUid(), request.getSenderKey(), request.getPhoneNumber());
+    }
+
+    @Override
+    protected void log(FtMessageReq message) {
+        TraceInfo traceInfo = message.getTrace();
+        log.info("msgUid: {}, userId: {}, senderKey: {}, phoneNumber: {}", traceInfo.getMsgUid(), traceInfo.getUserId(), message.getSenderKey(), message.getPhoneNumber());
     }
 }

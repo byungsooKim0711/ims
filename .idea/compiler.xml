@@ -13,6 +13,7 @@
         <module name="ims-common" />
         <module name="ims-api-email" />
         <module name="ims-protocol" />
+        <module name="ims-router" />
         <module name="ims-admin-server" />
         <module name="demo" />
         <module name="ims-api-gateway" />
@@ -29,6 +30,7 @@
       <module name="ims-api-push" target="1.8" />
       <module name="ims-common" target="1.8" />
       <module name="ims-protocol" target="1.8" />
+      <module name="ims-router" target="1.8" />
       <module name="ims-store" target="1.8" />
     </bytecodeTargetLevel>
   </component>
@@ -44,6 +46,7 @@
       <module name="ims-api-push" options="-parameters" />
       <module name="ims-common" options="-parameters" />
       <module name="ims-protocol" options="-parameters" />
+      <module name="ims-router" options="-parameters" />
       <module name="ims-store" options="-parameters" />
     </option>
   </component>

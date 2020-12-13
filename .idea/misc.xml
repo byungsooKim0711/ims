@@ -10,6 +10,7 @@
         <option value="$PROJECT_DIR$/ims-api-email/pom.xml" />
         <option value="$PROJECT_DIR$/ims-api-kakao/pom.xml" />
         <option value="$PROJECT_DIR$/ims-api-push/pom.xml" />
+        <option value="$PROJECT_DIR$/ims-router/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

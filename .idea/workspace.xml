@@ -4,14 +4,46 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57480980-59ba-4ec3-a3eb-a18f3aefde39" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/handler/CommonKafkaBatchErrorHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/handler/CommonKafkaErrorHandler.java" afterDir="false" />
+    <list default="true" id="57480980-59ba-4ec3-a3eb-a18f3aefde39" name="Default Changelist" comment="add kafka">
+      <change afterPath="$PROJECT_DIR$/ims-protocol/src/main/java/org/kimbs/ims/protocol/ImsAnalyzeLog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-router/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-router/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-router/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-router/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-router/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-router/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-router/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-router/src/main/java/org/kimbs/ims/router/ImsRouterApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-router/src/main/java/org/kimbs/ims/router/config/KafkaConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-router/src/main/java/org/kimbs/ims/router/config/RedisConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-router/src/main/java/org/kimbs/ims/router/config/RouterConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-router/src/main/java/org/kimbs/ims/router/consumer/AtMessageConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-router/src/main/java/org/kimbs/ims/router/consumer/BtMessageConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-router/src/main/java/org/kimbs/ims/router/consumer/FtMessageConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-router/src/main/java/org/kimbs/ims/router/handler/CommonKafkaBatchErrorHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-router/src/main/java/org/kimbs/ims/router/handler/CommonKafkaErrorHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-router/src/main/java/org/kimbs/ims/router/service/AbstractMessageRouter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-router/src/main/java/org/kimbs/ims/router/service/AtMessageRouter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-router/src/main/java/org/kimbs/ims/router/service/BtMessageRouter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-router/src/main/java/org/kimbs/ims/router/service/FtMessageRouter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-router/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-router/src/main/resources/banner.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-router/src/main/resources/logback-spring.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-router/src/test/java/org/kimbs/ims/router/ImsRouterApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-api-kakao/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/config/KafkaConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/config/KafkaConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/AbstractImsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/AbstractImsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/AtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/AtService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/BtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/BtService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/FtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/FtService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-protocol/src/main/java/org/kimbs/ims/protocol/AbstractMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-protocol/src/main/java/org/kimbs/ims/protocol/AbstractMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-protocol/src/main/java/org/kimbs/ims/protocol/AbstractTraceInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-protocol/src/main/java/org/kimbs/ims/protocol/TraceInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-protocol/src/main/java/org/kimbs/ims/protocol/TraceInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +88,7 @@
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../humuson/IMC/imc/trunk" />
@@ -72,16 +105,17 @@
     <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\vlakd\Desktop\kimbs\ims\ims-router\src\main\resources" />
+      <recent name="C:\Users\vlakd\Desktop\kimbs\ims\ims-store\src\main\resources" />
+      <recent name="C:\Users\vlakd\Desktop\kimbs\ims\ims-api-gateway\src\main\resources" />
+      <recent name="C:\Users\vlakd\Desktop\kimbs\ims\ims-api-at\src\main\resources" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\vlakd\Desktop\kimbs\ims\ims-api-kakao\src\main\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="org.kimbs.ims.model.kakao" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\vlakd\Desktop\kimbs\ims\ims-store\src\main\resources" />
-      <recent name="C:\Users\vlakd\Desktop\kimbs\ims\ims-api-gateway\src\main\resources" />
-      <recent name="C:\Users\vlakd\Desktop\kimbs\ims\ims-api-at\src\main\resources" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -98,13 +132,15 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.ImsApiKakaoApplication">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -147,6 +183,13 @@
     <configuration name="ImsGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="ims-api-gateway" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.kimbs.ims.api.gateway.ImsGatewayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ImsRouterApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="ims-router" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.kimbs.ims.router.ImsRouterApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -197,7 +240,8 @@
       <workItem from="1607077999034" duration="17973000" />
       <workItem from="1607605379136" duration="12032000" />
       <workItem from="1607618987653" duration="739000" />
-      <workItem from="1607761460771" duration="9525000" />
+      <workItem from="1607761460771" duration="15132000" />
+      <workItem from="1607843479767" duration="10627000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1605546227057</created>
@@ -374,7 +418,21 @@
       <option name="project" value="LOCAL" />
       <updated>1607767336622</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="add kafka">
+      <created>1607776423872</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1607776423872</updated>
+    </task>
+    <task id="LOCAL-00027" summary="store">
+      <created>1607860025348</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1607860025348</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -398,11 +456,12 @@
     <MESSAGE value="reactor를 다시한번 시도.." />
     <MESSAGE value=".." />
     <MESSAGE value="Add redis-reactive" />
-    <MESSAGE value="store" />
     <MESSAGE value="redis -&gt; reactive redis&#10;web -&gt; webflux" />
     <MESSAGE value="gateway 어렵다." />
     <MESSAGE value="..." />
-    <option name="LAST_COMMIT_MESSAGE" value="..." />
+    <MESSAGE value="add kafka" />
+    <MESSAGE value="store" />
+    <option name="LAST_COMMIT_MESSAGE" value="store" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

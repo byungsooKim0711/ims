@@ -34,7 +34,7 @@ public class AtService extends AbstractImsService<ImsBizAtReq, AtMessageReq> {
     @Override
     protected void checkServiceKey(String serviceKey, ImsBizAtReq request) throws ImsServiceKeyException {
         Long userId = imsServiceKeyCache.findServiceKey(serviceKey);
-        request.addTraceInfo(TraceInfo.USER_ID, userId);
+        request.getTrace().setUserId(userId);
     }
 
     @Override
@@ -100,8 +100,10 @@ public class AtService extends AbstractImsService<ImsBizAtReq, AtMessageReq> {
                 .supplement(supplement)
                 .build();
 
-        atMessageReq.addTraceInfo(TraceInfo.BILL_CODE, billCode);
-        atMessageReq.addTraceInfo(TraceInfo.MSG_UID, msgUid);
+        TraceInfo traceInfo = request.getTrace();
+        atMessageReq.setTrace(traceInfo);
+        atMessageReq.getTrace().setBillCode(billCode);
+        atMessageReq.getTrace().setMsgUid(msgUid);
 
         return atMessageReq;
     }
@@ -119,5 +121,11 @@ public class AtService extends AbstractImsService<ImsBizAtReq, AtMessageReq> {
     @Override
     protected void onException(ImsBizAtReq request, Exception e) {
         log.error("exception occurred({}). msgUid: {}, senderKey: {}, phoneNumber: {}", e.getMessage(), request.getMsgUid(), request.getSenderKey(), request.getPhoneNumber());
+    }
+
+    @Override
+    protected void log(AtMessageReq message) {
+        TraceInfo traceInfo = message.getTrace();
+        log.info("msgUid: {}, userId: {}, senderKey: {}, phoneNumber: {}, templateCode: {}", traceInfo.getMsgUid(), traceInfo.getUserId(), message.getSenderKey(), message.getPhoneNumber(), message.getTemplateCode());
     }
 }

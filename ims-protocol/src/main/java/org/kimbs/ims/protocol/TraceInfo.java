@@ -1,69 +1,67 @@
 package org.kimbs.ims.protocol;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
 
-public enum TraceInfo {
+import java.io.Serializable;
+import java.time.LocalDateTime;
+
+@Data
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class TraceInfo implements Serializable {
+
+    private static final long serialVersionUID = -2313086246211220293L;
 
     // 유저 아이디
     @JsonProperty("user_id")
-    USER_ID(Long.class),
+    private Long userId;
 
     // 메시지 UID
     @JsonProperty("msg_uid")
-    MSG_UID(String.class),
+    private String msgUid;
 
     // 트래킹 ID
     @JsonProperty("tracking_id")
-    TRACKING_ID(String.class),
+    private String trackingId;
 
-    // 접수시간
+    // 접수 시간
     @JsonProperty("received_at")
-    RECEIVED_AT(String.class),
+    private LocalDateTime receivedAt;
 
     // 라우팅 시간
-    @JsonProperty("distribution_at")
-    DISTRIBUTION_AT(String.class),
+    @JsonProperty("distributionAt")
+    private LocalDateTime distributionAt;
 
     // 라우팅 토픽
     @JsonProperty("destination_topic")
-    DESTINATION_TOPIC(String.class),
+    private String destinationTopic;
 
     // 카카오 요청/응답
     @JsonProperty("kakao_req_at")
-    KAKAO_REQ_AT(String.class),
+    private LocalDateTime kakaReqAt;
     @JsonProperty("kakao_res_at")
-    KAKAO_RES_AT(String.class),
+    private LocalDateTime kakaResAt;
 
     // 문자 요청/응답
     @JsonProperty("mt_req_at")
-    MT_REQ_AT(String.class),
+    private LocalDateTime mtReqAt;
     @JsonProperty("mt_res_at")
-    MT_RES_AT(String.class),
+    private LocalDateTime mtResAt;
 
     // 이메일 요청/응답
     @JsonProperty("email_req_at")
-    EMAIL_REQ_AT(String.class),
+    private LocalDateTime emailReqAt;
     @JsonProperty("email_res_at")
-    EMAIL_RES_AT(String.class),
+    private LocalDateTime emailResAt;
 
     // 앱푸시 요청/응답
     @JsonProperty("push_req_at")
-    PUSH_REQ_AT(String.class),
+    private LocalDateTime pushReqAt;
     @JsonProperty("push_res_at")
-    PUSH_RES_AT(String.class),
+    private LocalDateTime pushResAt;
 
-    // 사용자 정의 과금 코드
+    // 부서코드
     @JsonProperty("bill_code")
-    BILL_CODE(String.class),
-    ;
-
-    private final Class<?> type;
-
-    TraceInfo(Class<?> type) {
-        this.type = type;
-    }
-
-    public Class<?> getType() {
-        return type;
-    }
+    private String billCode;
 }
