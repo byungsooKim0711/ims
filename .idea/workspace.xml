@@ -5,18 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="57480980-59ba-4ec3-a3eb-a18f3aefde39" name="Default Changelist" comment="Add duplicate msgUid exception.">
+      <change afterPath="$PROJECT_DIR$/ims-channel-kakao/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-channel-kakao/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-channel-kakao/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-channel-kakao/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-channel-kakao/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-channel-kakao/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-channel-kakao/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-channel-kakao/src/main/java/org/kimbs/ims/channel/kakao/ChannelKakaoApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-channel-kakao/src/main/java/org/kimbs/ims/channel/kakao/config/ChannelKakaoConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-channel-kakao/src/main/java/org/kimbs/ims/channel/kakao/config/KafkaConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-channel-kakao/src/main/java/org/kimbs/ims/channel/kakao/config/RedisConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-channel-kakao/src/main/java/org/kimbs/ims/channel/kakao/consumer/AtMessageConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-channel-kakao/src/main/java/org/kimbs/ims/channel/kakao/handler/CommonKafkaBatchErrorHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-channel-kakao/src/main/java/org/kimbs/ims/channel/kakao/handler/CommonKafkaErrorHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-channel-kakao/src/main/java/org/kimbs/ims/channel/kakao/service/AbstractMessageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-channel-kakao/src/main/java/org/kimbs/ims/channel/kakao/service/AtMessageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-channel-kakao/src/main/java/org/kimbs/ims/channel/kakao/service/BtMessageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-channel-kakao/src/main/java/org/kimbs/ims/channel/kakao/service/FtMessageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-channel-kakao/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-channel-kakao/src/main/resources/banner.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-channel-kakao/src/main/resources/logback-spring.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-channel-kakao/src/test/java/org/kimbs/ims/channel/kakao/ChannelKakaoApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/handler/ImsExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/handler/ImsExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/AbstractImsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/AbstractImsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/AtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/AtService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/FtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/FtService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-common/src/main/java/org/kimbs/ims/util/SerialNumberUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-common/src/main/java/org/kimbs/ims/util/SerialNumberUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-router/src/main/java/org/kimbs/ims/router/config/RouterConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-router/src/main/java/org/kimbs/ims/router/config/RouterConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-router/src/main/java/org/kimbs/ims/router/service/AbstractMessageRouter.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-router/src/main/java/org/kimbs/ims/router/service/AbstractMessageRouter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-router/src/main/java/org/kimbs/ims/router/service/AtMessageRouter.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-router/src/main/java/org/kimbs/ims/router/service/AtMessageRouter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-router/src/main/java/org/kimbs/ims/router/service/BtMessageRouter.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-router/src/main/java/org/kimbs/ims/router/service/BtMessageRouter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-router/src/main/java/org/kimbs/ims/router/service/FtMessageRouter.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-router/src/main/java/org/kimbs/ims/router/service/FtMessageRouter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-api-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-gateway/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ims-router/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-router/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +83,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/ims-channel-kakao/src/main/java/org/kimbs/ims/channel/kakao/handler" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -79,10 +98,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\vlakd\Desktop\kimbs\ims\ims-channel-kakao\src\main\java\org\kimbs\ims\channel\kakao\handler" />
+      <recent name="C:\Users\vlakd\Desktop\kimbs\ims\ims-channel-kakao\src\main\resources" />
       <recent name="C:\Users\vlakd\Desktop\kimbs\ims\ims-router\src\main\resources" />
       <recent name="C:\Users\vlakd\Desktop\kimbs\ims\ims-store\src\main\resources" />
       <recent name="C:\Users\vlakd\Desktop\kimbs\ims\ims-api-gateway\src\main\resources" />
-      <recent name="C:\Users\vlakd\Desktop\kimbs\ims\ims-api-at\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\vlakd\Desktop\kimbs\ims\ims-api-kakao\src\main\resources" />
@@ -104,16 +124,34 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.ImsApiKakaoApplication">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+  <component name="RunManager" selected="Spring Boot.ChannelKakaoApplication (1)">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ChannelKakaoApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="ims-channel-kakao" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.kimbs.ims.channel.kakao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.kimbs.ims.channel.kakao.ChannelKakaoApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ChannelKakaoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="channel-kakao" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.kimbs.ims.channel.kakao.ChannelKakaoApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -174,6 +212,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.ChannelKakaoApplication (1)" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SpringBootOptions">
@@ -216,7 +259,8 @@
       <workItem from="1607761460771" duration="15132000" />
       <workItem from="1607843479767" duration="10809000" />
       <workItem from="1607940731599" duration="6972000" />
-      <workItem from="1608036809999" duration="5288000" />
+      <workItem from="1608036809999" duration="5735000" />
+      <workItem from="1608042979771" duration="3062000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1605546227057</created>
@@ -421,7 +465,28 @@
       <option name="project" value="LOCAL" />
       <updated>1607951280144</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="SerialNumber 발번방식 변경... 다시 수정 필요">
+      <created>1608042291627</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1608042291627</updated>
+    </task>
+    <task id="LOCAL-00031" summary="TODO: msgUid 체크 로직 변경해야함&#10;- Mono&lt;Long&gt; flatMap에서 예외 발생 시 ExceptionHandler 로직 안탐..">
+      <created>1608042384343</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1608042384343</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Add default routing...;;">
+      <created>1608046043066</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1608046043066</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -429,7 +494,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="test" />
     <MESSAGE value="common" />
     <MESSAGE value="protocol" />
     <MESSAGE value="ims" />
@@ -452,7 +516,10 @@
     <MESSAGE value="store" />
     <MESSAGE value="router 추가, TraceInfo 변경" />
     <MESSAGE value="Add duplicate msgUid exception." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add duplicate msgUid exception." />
+    <MESSAGE value="SerialNumber 발번방식 변경... 다시 수정 필요" />
+    <MESSAGE value="TODO: msgUid 체크 로직 변경해야함&#10;- Mono&lt;Long&gt; flatMap에서 예외 발생 시 ExceptionHandler 로직 안탐.." />
+    <MESSAGE value="Add default routing...;;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add default routing...;;" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

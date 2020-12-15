@@ -8,8 +8,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ims-store" />
+        <module name="channel-kakao" />
         <module name="ims-api-push" />
         <module name="ims-api-kakao" />
+        <module name="ims-channel-kakao" />
         <module name="ims-common" />
         <module name="ims-api-email" />
         <module name="ims-protocol" />
@@ -20,6 +22,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="channel-kakao" target="1.8" />
       <module name="demo" target="1.8" />
       <module name="ims" target="1.8" />
       <module name="ims-admin-server" target="1.8" />
@@ -28,6 +31,7 @@
       <module name="ims-api-kakao" target="1.8" />
       <module name="ims-api-kakao1" target="1.8" />
       <module name="ims-api-push" target="1.8" />
+      <module name="ims-channel-kakao" target="1.8" />
       <module name="ims-common" target="1.8" />
       <module name="ims-protocol" target="1.8" />
       <module name="ims-router" target="1.8" />
@@ -36,6 +40,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="channel-kakao" options="-parameters" />
       <module name="demo" options="-parameters" />
       <module name="ims" options="-parameters" />
       <module name="ims-admin-server" options="-parameters" />
@@ -44,6 +49,7 @@
       <module name="ims-api-kakao" options="-parameters" />
       <module name="ims-api-kakao1" options="-parameters" />
       <module name="ims-api-push" options="-parameters" />
+      <module name="ims-channel-kakao" options="-parameters" />
       <module name="ims-common" options="-parameters" />
       <module name="ims-protocol" options="-parameters" />
       <module name="ims-router" options="-parameters" />
