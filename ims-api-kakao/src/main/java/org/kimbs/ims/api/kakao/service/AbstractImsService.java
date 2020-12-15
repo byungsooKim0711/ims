@@ -4,12 +4,12 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.kimbs.ims.api.kakao.config.ApiKakaoConfig;
+import org.kimbs.ims.exception.ImsDuplicateMsgUidException;
 import org.kimbs.ims.exception.ImsMandatoryException;
 import org.kimbs.ims.exception.ImsServiceKeyException;
 import org.kimbs.ims.exception.ImsTooLongMessageException;
 import org.kimbs.ims.protocol.AbstractMessage;
 import org.kimbs.ims.protocol.ImsCommonRes;
-import org.kimbs.ims.protocol.TraceInfo;
 import org.kimbs.ims.protocol.code.ResponseCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -61,6 +61,9 @@ public abstract class AbstractImsService<R, M> {
             onException(request, e);
             throw e;
         } catch (ImsTooLongMessageException e) {
+            onException(request, e);
+            throw e;
+        } catch (ImsDuplicateMsgUidException e) {
             onException(request, e);
             throw e;
         } finally {

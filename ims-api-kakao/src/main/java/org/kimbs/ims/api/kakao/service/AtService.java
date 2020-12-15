@@ -14,9 +14,13 @@ import org.kimbs.ims.model.kakao.Supplement;
 import org.kimbs.ims.protocol.TraceInfo;
 import org.kimbs.ims.protocol.v1.ImsBizAtReq;
 import org.kimbs.ims.util.RoundRobinUtils;
+import org.springframework.data.redis.core.ReactiveRedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
+import reactor.core.publisher.Mono;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Slf4j
@@ -26,9 +30,11 @@ public class AtService extends AbstractImsService<ImsBizAtReq, AtMessageReq> {
     private final static int AT_MAX_LENGTH_MESSAGE = 1000;
 
     private final ImsServiceKeyCache imsServiceKeyCache;
+    private final ReactiveRedisTemplate<String, String> reactiveRedisTemplate;
 
-    public AtService(ImsServiceKeyCache imsServiceKeyCache) {
+    public AtService(ImsServiceKeyCache imsServiceKeyCache, ReactiveRedisTemplate<String, String> reactiveRedisTemplate) {
         this.imsServiceKeyCache = imsServiceKeyCache;
+        this.reactiveRedisTemplate = reactiveRedisTemplate;
     }
 
     @Override
@@ -69,7 +75,24 @@ public class AtService extends AbstractImsService<ImsBizAtReq, AtMessageReq> {
 
     @Override
     protected void checkDuplicateMsgUid(ImsBizAtReq request) {
+        LocalDate now = LocalDate.now();
+        Mono<Long> ret;
+        String msgUid = request.getMsgUid();
+        long userId = request.getTrace().getUserId();
+        KakaoMessageType type = KakaoMessageType.AT;
 
+
+        StringBuilder builder = new StringBuilder();
+        builder.append(type)
+                .append(":")
+                .append(now.format(DateTimeFormatter.ofPattern("yyMMdd")))
+                .append(":")
+                .append(userId);
+
+        ret = reactiveRedisTemplate.opsForSet().add(builder.toString(), msgUid);
+
+        // 여기에 중복체크는 어떻게하는건가?
+        // ret == 0 이면 이미 key 존재
     }
 
     @Override

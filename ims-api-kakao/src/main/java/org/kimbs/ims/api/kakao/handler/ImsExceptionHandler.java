@@ -1,10 +1,7 @@
 package org.kimbs.ims.api.kakao.handler;
 
 import lombok.extern.slf4j.Slf4j;
-import org.kimbs.ims.exception.ImsKafkaSendException;
-import org.kimbs.ims.exception.ImsMandatoryException;
-import org.kimbs.ims.exception.ImsServiceKeyException;
-import org.kimbs.ims.exception.ImsTooLongMessageException;
+import org.kimbs.ims.exception.*;
 import org.kimbs.ims.protocol.ImsCommonRes;
 import org.kimbs.ims.protocol.code.ResponseCode;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -38,6 +35,14 @@ public class ImsExceptionHandler {
         return Mono.just(
                 ImsCommonRes.<Void>builder()
                         .code(ResponseCode.MANDATORY_EXCEPTION)
+                        .build());
+    }
+
+    @ExceptionHandler(ImsDuplicateMsgUidException.class)
+    public Mono<ImsCommonRes<Void>> handle(ImsDuplicateMsgUidException e, ServerWebExchange exchange) {
+        return Mono.just(
+                ImsCommonRes.<Void>builder()
+                        .code(ResponseCode.IMS_DUPLICATE_MSG_UID_EXCEPTION)
                         .build());
     }
 
