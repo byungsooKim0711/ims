@@ -3,7 +3,7 @@
 ################################################################################################################
 
 server:
-  port: 40000
+  port: 40001
 
 logging:
   #config: file:${user.dir}/logback-spring.xml
@@ -32,8 +32,7 @@ spring:
             user.password: admin12#$
 
   kafka:
-#    bootstrap-servers: "127.0.0.1:9092"
-    bootstrap-servers: "10.147.1.90:9092"
+    bootstrap-servers: "127.0.0.1:9092"
     producer:
       client-id: "ROUTER"
       retries: 0
@@ -107,9 +106,32 @@ ims:
 
     # 토픽 리스트
     topics:
+      # 접수(RECV) 토픽 컨슘
       recv-at:
         - RECV-AT
       recv-ft:
         - RECV-FT
       recv-bt:
         - RECV-BT
+
+      # 발송(SEND) 토픽으로 전송 (기본은 default, 그 외 라우팅 - DB, Redis 정보로 설정한다)
+      send-at:
+        - SEND-AT-DEFAULT
+      send-ft:
+        - SEND-FT-DEFAULT
+      send-bt:
+        - SEND-BT-DEFAULT
+      send-sm:
+        - SEND-SM-DEFAULT
+      send-lm:
+        - SEND-LM-DEFAULT
+      send-mm:
+        - SEND-MM-DEFAULT
+      send-pu:
+        - SEND-PU-DEFAULT
+      send-em:
+        - SEND-EM-DEFAULT
+
+      # 로깅 토픽
+      analyze-log:
+        - ANALYZE-LOG

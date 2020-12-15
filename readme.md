@@ -45,17 +45,24 @@ _대충적는 초안_
 API(GATEWAY, MESSAGE) / router / kako, mt, email, push, rcs / report(callback_uri) / store / analyzer / sba / data-flow / admin, user admin / common, protocol
 
 
-| Application   | PORT (web)    |      |
-| ------------- | ------------- | ---- |
-| IMS-SBA       | 29000         |      |
-| IMS-GATEWAY   | 39000         |      |
-| IMS-API-KAKAO | 39001 ~ 39099 |      |
-| IMS-API-MT    | 39100 ~ 39199 |      |
-| IMS-API-EMAIL | 39200 ~ 39299 |      |
-| IMS-API-PUSH  | 39300 ~ 39399 |      |
-|               |               |      |
-| IMS-ROUTER    | 40000         |      |
-|               |               |      |
+| Application       | PORT (web)    |      |
+| ----------------- | ------------- | ---- |
+| IMS-SBA           | 29000         |      |
+|                   |               |      |
+| IMS-GATEWAY       | 30001 ~ 30100 |      |
+| IMS-API-KAKAO     | 30101 ~ 30200 |      |
+| IMS-API-EMAIL     | 30201 ~ 30300 |      |
+| IMS-API-PUSH      | 30301 ~ 30400 |      |
+| IMS-API-MT        | 30401 ~ 30500 |      |
+|                   |               |      |
+| IMS-ROUTER        | 40001 ~ 40100 |      |
+| IMS-CHANNEL-KAKAO | 40101 ~ 40200 |      |
+| IMS-CHANNEL-EMAIL | 40201 ~ 40300 |      |
+| IMS-CHANNEL-PUSH  | 40301 ~ 40400 |      |
+| IMS-CHANNEL-MT    | 40401 ~ 40500 |      |
+|                   |               |      |
+
+
 
 
 
