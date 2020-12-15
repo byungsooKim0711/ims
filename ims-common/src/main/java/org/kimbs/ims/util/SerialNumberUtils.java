@@ -8,11 +8,12 @@ public final class SerialNumberUtils {
 
     private static final AtomicInteger aiSerialNumberKey = new AtomicInteger();
 
-    public static String generateSerialNumber(String prefix, String serverName, String msgUid) {
+    public static String generateSerialNumber(String prefix, String msgUid) {
         return new StringBuilder(prefix)
-                .append(serverName).append("_")
+                .append("_")
                 .append(LocalDateTime.now().format(DateTimeFormatter.ofPattern("ddHHmmssSSS")))
                 .append((aiSerialNumberKey.incrementAndGet() % 900 + 100)).append("_")
-                .append(msgUid).toString();
+                .append(msgUid)
+                .toString();
     }
 }
