@@ -104,6 +104,9 @@ ims:
   channel:
     kakao:
       service-name: "CHANNEL-KAKAO"
+      at-base-url: "http://localhost:40101/sendMmessage"
+      bt-base-url: "http://localhost:40101/sendMmessage"
+      ft-base-url: "http://localhost:40101/sendMmessage"
 
       # \uD1A0\uD53D \uB9AC\uC2A4\uD2B8
       topics:

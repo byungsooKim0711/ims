@@ -19,6 +19,13 @@ import java.util.List;
 public class ChannelKakaoConfig {
 
     private String serviceName;
+    @NotEmpty
+    private String atBaseUrl;
+    @NotEmpty
+    private String btBaseUrl;
+    @NotEmpty
+    private String ftBaseUrl;
+
     private Topics topics = new Topics();
 
     @Data

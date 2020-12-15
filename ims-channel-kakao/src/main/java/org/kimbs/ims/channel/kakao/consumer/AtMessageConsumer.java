@@ -31,6 +31,7 @@ public class AtMessageConsumer {
 
         try {
             AtMessageReq message = mapper.readValue(value, AtMessageReq.class);
+
             atMessageService.sendMessage(message);
         } catch (JsonProcessingException e) {
             log.error("json parse error. data: {}", value);
@@ -41,6 +42,6 @@ public class AtMessageConsumer {
             throw new RuntimeException(e);
         }
 
-//        ack.acknowledge();
+        ack.acknowledge();
     }
 }
