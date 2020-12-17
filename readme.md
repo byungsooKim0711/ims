@@ -98,6 +98,9 @@ API(GATEWAY, MESSAGE) / router / kako, mt, email, push, rcs / report(callback_ur
 ## 프로젝트 아키텍처
 
 
+## 테이블 설계
+https://aquerytool.com:443/aquerymain/index/?rurl=4308e55d-5bdb-49df-9b26-4000992e60c7 / 2i3i2w
+
 
 ## 팀 소개
 

@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57480980-59ba-4ec3-a3eb-a18f3aefde39" name="Default Changelist" comment="webflux 테스트 진행중...... 어렵넹">
+    <list default="true" id="57480980-59ba-4ec3-a3eb-a18f3aefde39" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-channel-kakao/src/main/java/org/kimbs/ims/channel/kakao/consumer/AtMessageConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-channel-kakao/src/main/java/org/kimbs/ims/channel/kakao/consumer/AtMessageConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-channel-kakao/src/main/java/org/kimbs/ims/channel/kakao/service/AbstractMessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-channel-kakao/src/main/java/org/kimbs/ims/channel/kakao/service/AbstractMessageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-channel-kakao/src/main/java/org/kimbs/ims/channel/kakao/service/AtMessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-channel-kakao/src/main/java/org/kimbs/ims/channel/kakao/service/AtMessageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-channel-kakao/src/main/resources/logback-spring.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-channel-kakao/src/main/resources/logback-spring.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,17 +96,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.ChannelKakaoApplication (1)">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="ChannelKakaoApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="ims-channel-kakao" />
       <extension name="coverage">
@@ -236,7 +222,8 @@
       <workItem from="1608036809999" duration="5735000" />
       <workItem from="1608042979771" duration="9448000" />
       <workItem from="1608123603855" duration="1754000" />
-      <workItem from="1608211682492" duration="5168000" />
+      <workItem from="1608211682492" duration="5572000" />
+      <workItem from="1608217475933" duration="302000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1605546227057</created>
@@ -490,7 +477,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608052412124</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="1. 에러 발생시 ack 안주는 방법 확인필요&#10;2. reactor-kafka 검토 필요">
+      <created>1608216931145</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1608216931145</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -498,7 +492,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="ims-kakao" />
     <MESSAGE value="." />
     <MESSAGE value="init" />
     <MESSAGE value="...." />
@@ -523,7 +516,8 @@
     <MESSAGE value="알림톡 발송모듈 껍데기.. (구현해야함.)" />
     <MESSAGE value="카카오 응답 protocl 추가" />
     <MESSAGE value="webflux 테스트 진행중...... 어렵넹" />
-    <option name="LAST_COMMIT_MESSAGE" value="webflux 테스트 진행중...... 어렵넹" />
+    <MESSAGE value="1. 에러 발생시 ack 안주는 방법 확인필요&#10;2. reactor-kafka 검토 필요" />
+    <option name="LAST_COMMIT_MESSAGE" value="1. 에러 발생시 ack 안주는 방법 확인필요&#10;2. reactor-kafka 검토 필요" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
