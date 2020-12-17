@@ -4,16 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57480980-59ba-4ec3-a3eb-a18f3aefde39" name="Default Changelist" comment="카카오 응답 protocl 추가">
+    <list default="true" id="57480980-59ba-4ec3-a3eb-a18f3aefde39" name="Default Changelist" comment="webflux 테스트 진행중...... 어렵넹">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-channel-kakao/src/main/java/org/kimbs/ims/channel/kakao/ChannelKakaoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-channel-kakao/src/main/java/org/kimbs/ims/channel/kakao/ChannelKakaoApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-channel-kakao/src/main/java/org/kimbs/ims/channel/kakao/config/ChannelKakaoConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-channel-kakao/src/main/java/org/kimbs/ims/channel/kakao/config/ChannelKakaoConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ims-channel-kakao/src/main/java/org/kimbs/ims/channel/kakao/consumer/AtMessageConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-channel-kakao/src/main/java/org/kimbs/ims/channel/kakao/consumer/AtMessageConsumer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ims-channel-kakao/src/main/java/org/kimbs/ims/channel/kakao/service/AbstractMessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-channel-kakao/src/main/java/org/kimbs/ims/channel/kakao/service/AbstractMessageService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ims-channel-kakao/src/main/java/org/kimbs/ims/channel/kakao/service/AtMessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-channel-kakao/src/main/java/org/kimbs/ims/channel/kakao/service/AtMessageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-channel-kakao/src/main/java/org/kimbs/ims/channel/kakao/service/BtMessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-channel-kakao/src/main/java/org/kimbs/ims/channel/kakao/service/BtMessageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-channel-kakao/src/main/java/org/kimbs/ims/channel/kakao/service/FtMessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-channel-kakao/src/main/java/org/kimbs/ims/channel/kakao/service/FtMessageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-channel-kakao/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-channel-kakao/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-channel-kakao/src/main/resources/logback-spring.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-channel-kakao/src/main/resources/logback-spring.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -238,7 +234,9 @@
       <workItem from="1607843479767" duration="10809000" />
       <workItem from="1607940731599" duration="6972000" />
       <workItem from="1608036809999" duration="5735000" />
-      <workItem from="1608042979771" duration="9252000" />
+      <workItem from="1608042979771" duration="9448000" />
+      <workItem from="1608123603855" duration="1754000" />
+      <workItem from="1608211682492" duration="5168000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1605546227057</created>
@@ -485,7 +483,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608050203023</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="webflux 테스트 진행중...... 어렵넹">
+      <created>1608052412124</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1608052412124</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -493,7 +498,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="ims-gateway" />
     <MESSAGE value="ims-kakao" />
     <MESSAGE value="." />
     <MESSAGE value="init" />
@@ -518,7 +522,8 @@
     <MESSAGE value="서비스 포트 다시 정리.." />
     <MESSAGE value="알림톡 발송모듈 껍데기.. (구현해야함.)" />
     <MESSAGE value="카카오 응답 protocl 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="카카오 응답 protocl 추가" />
+    <MESSAGE value="webflux 테스트 진행중...... 어렵넹" />
+    <option name="LAST_COMMIT_MESSAGE" value="webflux 테스트 진행중...... 어렵넹" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

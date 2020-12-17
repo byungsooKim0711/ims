@@ -12,13 +12,11 @@ public abstract class AbstractMessageService<REQ, RES> {
     protected ChannelKakaoConfig config;
 
     public void sendMessage(REQ request) {
-
         request(request)
                 .flatMap(res -> report(request, res))
                 .flatMap(res -> history(request, res))
-                .doOnError(error -> log.error("### error: {}", error.getMessage(), error))
+                .doOnError(error -> log.error("### error: {}", error.getMessage()))
                 .doOnSuccess(success -> log.info("### success: {}", success))
-                .log()
                 .subscribe(res -> log(request, res));
     }
 

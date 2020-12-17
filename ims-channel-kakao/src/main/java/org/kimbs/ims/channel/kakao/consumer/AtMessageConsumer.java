@@ -25,9 +25,9 @@ public class AtMessageConsumer {
         int partition = record.partition();
         String topic = record.topic();
 
-//        if (log.isDebugEnabled()) {
-            log.info("received message={} with topic={}-{}", value, topic, partition);
-//        }
+        if (log.isDebugEnabled()) {
+            log.debug("received message={} with topic={}-{}", value, topic, partition);
+        }
 
         try {
             AtMessageReq message = mapper.readValue(value, AtMessageReq.class);

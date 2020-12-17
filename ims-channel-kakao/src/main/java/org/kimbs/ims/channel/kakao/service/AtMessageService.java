@@ -10,6 +10,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
 import javax.annotation.PostConstruct;
+import java.time.LocalDateTime;
 
 @Slf4j
 @Service
@@ -28,6 +29,7 @@ public class AtMessageService extends AbstractMessageService<AtMessageReq, AtMes
     @Override
     protected Mono<AtMessageRes> request(AtMessageReq request) {
         // 요청시간 추가
+        request.getTrace().setKakaReqAt(LocalDateTime.now());
         return webClient.get()
                 .exchangeToMono(exchange -> exchange.bodyToMono(AtMessageRes.class));
     }
@@ -35,6 +37,7 @@ public class AtMessageService extends AbstractMessageService<AtMessageReq, AtMes
     @Override
     protected Mono<AtMessageRes> report(AtMessageReq request, AtMessageRes response) {
         // 결과시간 추가
+        request.getTrace().setKakaResAt(LocalDateTime.now());
         log.info("[AT] report. serialNumber: {}", request.getSerialNumber());
         return Mono.just(response);
     }
