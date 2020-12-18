@@ -11,7 +11,9 @@ _대충적는 초안_
 - Rest-docs
 - Spring boot >= 2.4.x
 - Spring cloud
-- Api gateway
+- gateway
+  - circuit breaker
+  - fallback
 
 ### Database
 
@@ -45,22 +47,31 @@ _대충적는 초안_
 API(GATEWAY, MESSAGE) / router / kako, mt, email, push, rcs / report(callback_uri) / store / analyzer / sba / data-flow / admin, user admin / common, protocol
 
 
-| Application       | PORT (web)    |      |
-| ----------------- | ------------- | ---- |
-| IMS-SBA           | 29000         |      |
-|                   |               |      |
-| IMS-GATEWAY       | 30001 ~ 30100 |      |
-| IMS-API-KAKAO     | 30101 ~ 30200 |      |
-| IMS-API-EMAIL     | 30201 ~ 30300 |      |
-| IMS-API-PUSH      | 30301 ~ 30400 |      |
-| IMS-API-MT        | 30401 ~ 30500 |      |
-|                   |               |      |
-| IMS-ROUTER        | 40001 ~ 40100 |      |
-| IMS-CHANNEL-KAKAO | 40101 ~ 40200 |      |
-| IMS-CHANNEL-EMAIL | 40201 ~ 40300 |      |
-| IMS-CHANNEL-PUSH  | 40301 ~ 40400 |      |
-| IMS-CHANNEL-MT    | 40401 ~ 40500 |      |
-|                   |               |      |
+| Application       |      | PORT (web)    | 설명                                                 |
+| ----------------- | ---- | ------------- | ---------------------------------------------------- |
+| IMS-SBA           |      | 29000         | 스프링 부트 어플리케이션 모니터링                    |
+|                   |      |               |                                                      |
+| IMS-GATEWAY       |      | 30001 ~ 30100 | API GATEWAY                                          |
+| IMS-API-KAKAO     |      | 30101 ~ 30200 | 카카오 메시지 접수 API 모듈                          |
+| IMS-API-EMAIL     |      | 30201 ~ 30300 | 이메일 메시지 접수 API 모듈                          |
+| IMS-API-PUSH      |      | 30301 ~ 30400 | 앱푸시 메시지 접수 API 모듈                          |
+| IMS-API-MT        |      | 30401 ~ 30500 | 문자 메시지 접수 API 모듈                            |
+|                   |      |               |                                                      |
+| IMS-ROUTER        |      | 40001 ~ 40100 | 접수메시지 분배 모듈 (인증, 실시간, 대량, 광고, 등), |
+| IMS-CHANNEL-KAKAO |      | 40101 ~ 40200 | 카카오 메시지 발송 모듈                              |
+| IMS-CHANNEL-EMAIL |      | 40201 ~ 40300 | 이메일 메시지 발송 모듈                              |
+| IMS-CHANNEL-PUSH  |      | 40301 ~ 40400 | 앱푸시 메시지 발송 모듈                              |
+| IMS-CHANNEL-MT    |      | 40401 ~ 40500 | 문자 메시지 발송 모듈                                |
+|                   |      |               |                                                      |
+| IMS-STORE         |      |               | 모든 DB 처리                                         |
+| IMS-ANALYZER      |      |               | log 분석 등..                                        |
+| IMS-REPORT        |      |               | 클라이언트 결과 전달(callback 방식으로 지원)         |
+|                   |      |               |                                                      |
+| IMS-ADMIN         |      |               | IMS 시스템 통합 관리 어드민                          |
+| IMS-CONSOLE       |      |               |                                                      |
+|                   |      |               |                                                      |
+|                   |      |               |                                                      |
+|                   |      |               |                                                      |
 
 
 
@@ -83,9 +94,9 @@ API(GATEWAY, MESSAGE) / router / kako, mt, email, push, rcs / report(callback_ur
 ## 알람 (Notification)
 
 - 내부알람
-  - 슬랙(slack) 연동, 문자
+  - 슬랙(SBA 연동) 연동, 문자 메시지
 - API 사용자 알람
-  - 문자
+  - 미정
 
 
 
@@ -96,6 +107,10 @@ API(GATEWAY, MESSAGE) / router / kako, mt, email, push, rcs / report(callback_ur
 
 
 ## 프로젝트 아키텍처
+
+## API 데이터 샘플
+
+## KAFKA Topic 별 
 
 
 ## 테이블 설계
