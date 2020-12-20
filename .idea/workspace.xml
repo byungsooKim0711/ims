@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57480980-59ba-4ec3-a3eb-a18f3aefde39" name="Default Changelist" comment="">
+    <list default="true" id="57480980-59ba-4ec3-a3eb-a18f3aefde39" name="Default Changelist" comment="문서 언제작성하지?">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-admin-server/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-admin-server/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-api-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-gateway/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-channel-kakao/src/main/java/org/kimbs/ims/channel/kakao/config/ChannelKakaoConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-channel-kakao/src/main/java/org/kimbs/ims/channel/kakao/config/ChannelKakaoConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-channel-kakao/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-channel-kakao/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-router/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-router/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-store/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-store/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,6 +102,17 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.ChannelKakaoApplication (1)">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ChannelKakaoApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="ims-channel-kakao" />
       <extension name="coverage">
@@ -224,7 +241,8 @@
       <workItem from="1608123603855" duration="1754000" />
       <workItem from="1608211682492" duration="5572000" />
       <workItem from="1608217475933" duration="335000" />
-      <workItem from="1608290610350" duration="2706000" />
+      <workItem from="1608290610350" duration="3504000" />
+      <workItem from="1608457800153" duration="5767000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1605546227057</created>
@@ -492,7 +510,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608217803334</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="문서 언제작성하지?">
+      <created>1608294681388</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1608294681388</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -500,7 +525,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="init" />
     <MESSAGE value="...." />
     <MESSAGE value="브랜드톡 일반형 요청 모델 추가" />
     <MESSAGE value="메시지 타입 추가" />
@@ -525,7 +549,8 @@
     <MESSAGE value="webflux 테스트 진행중...... 어렵넹" />
     <MESSAGE value="1. 에러 발생시 ack 안주는 방법 확인필요&#10;2. reactor-kafka 검토 필요" />
     <MESSAGE value="ERD 링크 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="ERD 링크 추가" />
+    <MESSAGE value="문서 언제작성하지?" />
+    <option name="LAST_COMMIT_MESSAGE" value="문서 언제작성하지?" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

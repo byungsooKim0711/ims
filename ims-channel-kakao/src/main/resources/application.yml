@@ -1,9 +1,10 @@
 ################################################################################################################
-# IMS Router
+# IMS CHANNEL-KAKAO
 ################################################################################################################
 
 server:
   port: 40101
+  shutdown: graceful
 
 logging:
   #config: file:${user.dir}/logback-spring.xml
@@ -34,7 +35,7 @@ spring:
   kafka:
     bootstrap-servers: "127.0.0.1:9092"
     producer:
-      client-id: "ROUTER"
+      client-id: "CHANNEL-KAKAO"
       retries: 0
       batch-size: 20000
       compression-type: gzip
@@ -44,7 +45,7 @@ spring:
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
       acks: 1
     consumer:
-      group-id: "ROUTER"
+      group-id: "CHANNEL-KAKAO"
       enable-auto-commit: false
       max-poll-records: 500
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
@@ -53,7 +54,7 @@ spring:
       concurrency: 5
       ack-mode: manual_immediate
       poll-timeout: 3000
-      #      type: single
+      # type: single
       # Custom setting - batch listener
       batch: false
       # Custom setting - auto startup listener

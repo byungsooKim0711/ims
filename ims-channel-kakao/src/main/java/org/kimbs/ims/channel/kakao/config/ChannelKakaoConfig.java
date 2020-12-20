@@ -44,6 +44,6 @@ public class ChannelKakaoConfig {
         config.append("service-name", serviceName)
                 .append("topics", topics);
 
-        log.info("IMS-ROUTER-CONFIG: {}", config.toString());
+        log.info("IMS-CHANNEL-KAKAO: {}", config.toString());
     }
 }

@@ -4,6 +4,7 @@
 
 server:
   port: 30101
+  shutdown: graceful
 
 logging:
   #config: file:${user.dir}/logback-spring.xml

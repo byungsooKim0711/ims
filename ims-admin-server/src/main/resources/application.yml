@@ -5,6 +5,7 @@
 
 server:
   port: 29000
+  shutdown: graceful
   servlet:
     session:
       timeout: 60m
