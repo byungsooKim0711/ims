@@ -96,7 +96,8 @@ API(GATEWAY, MESSAGE) / router / kako, mt, email, push, rcs / report(callback_ur
 - 내부알람
   - 슬랙(SBA 연동) 연동, 문자 메시지
 - API 사용자 알람
-  - 미정
+  - 발송 실패에 대한 사유를 일 배치 08:30분에 api 사용 유저에게 전송 예정
+  - 
 
 
 
@@ -108,9 +109,45 @@ API(GATEWAY, MESSAGE) / router / kako, mt, email, push, rcs / report(callback_ur
 
 ## 프로젝트 아키텍처
 
-## API 데이터 샘플
+## API 호출 데이터
+### 연동 규약
+```json
 
-## KAFKA Topic 별 
+```
+### CURL 샘플
+```json
+
+```
+
+## KAFKA Topic
+
+| Topic Name       | # Partition | # Replica | Description               |
+| ---------------- | ----------- | --------- | ------------------------- |
+| RECV-AT          | 20          | 1         | 알림톡 접수 큐            |
+| RECV-FT          | 20          | 1         | 친구톡 접수 큐            |
+| RECV-BT          | 20          | 1         | 브랜드톡 접수 큐          |
+| RECV-MT          | 20          | 1         | 문자메시지 접수 큐        |
+| RECV-EM          | 20          | 1         | 이메일 접수 큐            |
+| RECV-PU          | 20          | 1         | 앱푸시 접수 큐            |
+|                  |             |           |                           |
+| SEND-AF-DEFAULT  | 20          | 1         | [일반] 알림톡 발송 큐     |
+| SEND-FT-DEFAULT  | 20          | 1         | [일반] 친구톡 발송 큐     |
+| SEND-BT-DEFAULT  | 20          | 1         | [일반] 브랜드톡 발송 큐   |
+| SEND-AT-REALTIME | 20          | 1         | [실시간] 알림톡 발송 큐   |
+| SEND-FT-REALTIME | 20          | 1         | [실시간] 친구톡 발송 큐   |
+| SEND-BT-REALTIME | 20          | 1         | [실시간] 브랜드톡 발송 큐 |
+| SEND-AT-AUTH     |             |           | [인증] 알림톡 발송 큐     |
+| SEND-AT-MASS     |             |           | [대량] 알림톡 발송 큐     |
+| SEND-FT-MASS     |             |           | [대량] 친구톡 발송 큐     |
+| SEND-BT-MASS0    |             |           | [대량] 브랜드톡 발송 큐   |
+|                  |             |           |                           |
+|                  |             |           |                           |
+|                  |             |           |                           |
+|                  |             |           |                           |
+|                  |             |           |                           |
+|                  |             |           |                           |
+
+
 
 
 ## 테이블 설계
