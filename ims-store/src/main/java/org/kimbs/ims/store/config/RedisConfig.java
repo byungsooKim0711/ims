@@ -10,7 +10,6 @@ import org.springframework.data.redis.core.ReactiveRedisTemplate;
 import org.springframework.data.redis.serializer.RedisSerializationContext;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
-
 @Configuration
 public class RedisConfig {
 
@@ -26,7 +25,6 @@ public class RedisConfig {
     @Value("${spring.redis.database}")
     private int redisDatabase;
 
-
     @Primary
     @Bean
     public ReactiveRedisConnectionFactory reactiveRedisConnectionFactory() {
@@ -36,7 +34,6 @@ public class RedisConfig {
         return factory;
     }
 
-    @Primary
     @Bean
     public ReactiveRedisTemplate<String, String> reactiveRedisTemplate(ReactiveRedisConnectionFactory cf) {
         RedisSerializationContext<String, String> redisSerializationContext = RedisSerializationContext
@@ -49,5 +46,5 @@ public class RedisConfig {
 
         return new ReactiveRedisTemplate<>(cf, redisSerializationContext);
     }
-
 }
+

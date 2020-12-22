@@ -6,7 +6,6 @@ import org.springframework.util.CollectionUtils;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public final class RoundRobinUtils {
@@ -44,7 +43,7 @@ public final class RoundRobinUtils {
         HIST_EMAIL,
         HIST_PUSH,
 
-        COMMON_LOG,
+        ANALYZE_LOG,
         ;
     }
 
