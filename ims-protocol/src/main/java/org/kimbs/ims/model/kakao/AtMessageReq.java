@@ -52,6 +52,12 @@ public class AtMessageReq extends AbstractMessage implements Serializable {
     @JsonProperty("title")
     private String title;
 
+    @JsonProperty("currency_type")
+    private String currencyType;
+
+    @JsonProperty("price")
+    private Long price;
+
     @Builder
     public AtMessageReq(KakaoMessageType messageType, String senderKey, String phoneNumber, String appUserId, String templateCode, String message, String title, Attachment attachment, Supplement supplement) {
         this.messageType = messageType;

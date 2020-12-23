@@ -46,8 +46,8 @@ public class ImsBizAtReq extends AbstractMessage implements Serializable {
     private String billCode;
 
     // 강조 타이틀 (최대 50자)
-    @JsonProperty("template_title")
-    private String templateTitle;
+    @JsonProperty("title")
+    private String title;
 
     // 버튼 정보
     @JsonProperty("attachment")
@@ -56,4 +56,12 @@ public class ImsBizAtReq extends AbstractMessage implements Serializable {
     // 바로가기 정보
     @JsonProperty("supplement")
     private Supplement supplement;
+
+    // 금액 단위
+    @JsonProperty("currency_type")
+    private String currencyType;
+
+    // 금액
+    @JsonProperty("price")
+    private Long price;
 }
