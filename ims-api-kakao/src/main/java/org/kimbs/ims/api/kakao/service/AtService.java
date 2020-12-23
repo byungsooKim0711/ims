@@ -38,24 +38,24 @@ public class AtService extends AbstractImsService<ImsBizAtReq, AtMessageReq> {
     }
 
     @Override
-    protected void checkServiceKey(String serviceKey, ImsBizAtReq request) throws ImsServiceKeyException {
+    protected void checkServiceKey(String serviceKey, AtMessageReq atMessageReq) throws ImsServiceKeyException {
         Long userId = imsServiceKeyCache.findServiceKey(serviceKey);
-        request.getTrace().setUserId(userId);
+        atMessageReq.getTrace().setUserId(userId);
     }
 
     @Override
-    protected void checkSenderKeyAndTemplate(ImsBizAtReq request) {
+    protected void checkSenderKeyAndTemplate(AtMessageReq atMessageReq) {
 //        redis -> findTemplate
 //        request.getSenderKey(), request.getTemplateCode()
     }
 
     @Override
-    protected void checkMandatory(ImsBizAtReq request) {
-        String contents = request.getContents();
-        String appUserId = request.getAppUserId();
-        String phoneNumber = request.getPhoneNumber();
+    protected void checkMandatory(AtMessageReq atMessageReq) {
+        String message = atMessageReq.getMessage();
+        String appUserId = atMessageReq.getAppUserId();
+        String phoneNumber = atMessageReq.getPhoneNumber();
 
-        if (!StringUtils.hasText(contents)) {
+        if (!StringUtils.hasText(message)) {
             throw new ImsMandatoryException("contents is empty.");
         }
 
@@ -65,20 +65,20 @@ public class AtService extends AbstractImsService<ImsBizAtReq, AtMessageReq> {
     }
 
     @Override
-    protected void checkLength(ImsBizAtReq request) {
-        String message = request.getContents();
+    protected void checkLength(AtMessageReq atMessageReq) {
+        String message = atMessageReq.getMessage();
 
         if (StringUtils.hasText(message) && message.length() > AT_MAX_LENGTH_MESSAGE) {
-            throw new ImsTooLongMessageException("Too long message. " + request.getContents().length());
+            throw new ImsTooLongMessageException("Too long message. " + message.length());
         }
     }
 
     @Override
-    protected void checkDuplicateMsgUid(ImsBizAtReq request) {
+    protected void checkDuplicateMsgUid(AtMessageReq atMessageReq) {
         LocalDate now = LocalDate.now();
         Mono<Long> ret;
-        String msgUid = request.getMsgUid();
-        long userId = request.getTrace().getUserId();
+        String msgUid = atMessageReq.getTrace().getMsgUid();
+        long userId = atMessageReq.getTrace().getUserId();
         KakaoMessageType type = KakaoMessageType.AT;
 
 
@@ -103,7 +103,7 @@ public class AtService extends AbstractImsService<ImsBizAtReq, AtMessageReq> {
         String message = request.getContents();
         String phoneNumber = request.getPhoneNumber();
         String appUserId = request.getAppUserId();
-        String title = request.getTemplateTitle();
+        String title = request.getTitle();
 
         String billCode = request.getBillCode();
         String msgUid = request.getMsgUid();
@@ -132,10 +132,10 @@ public class AtService extends AbstractImsService<ImsBizAtReq, AtMessageReq> {
     }
 
     @Override
-    protected void send(AtMessageReq message) {
+    protected void send(AtMessageReq atMessageReq) {
         List<String> atTopics = config.getTopics().getRecvAt();
         try {
-            super.sendToKafka(RoundRobinUtils.getRoundRobinValue(RoundRobinUtils.RoundRobinKey.RECV_AT, atTopics), message);
+            super.sendToKafka(RoundRobinUtils.getRoundRobinValue(RoundRobinUtils.RoundRobinKey.RECV_AT, atTopics), atMessageReq);
         } catch (JsonProcessingException e) {
             throw new ImsKafkaSendException(e);
         }
@@ -143,12 +143,14 @@ public class AtService extends AbstractImsService<ImsBizAtReq, AtMessageReq> {
 
     @Override
     protected void onException(ImsBizAtReq request, Exception e) {
-        log.error("exception occurred({}). msgUid: {}, senderKey: {}, phoneNumber: {}", e.getMessage(), request.getMsgUid(), request.getSenderKey(), request.getPhoneNumber());
+        log.error("exception occurred({}). msgUid: {}, senderKey: {}, phoneNumber: {}",
+                e.getMessage(), request.getMsgUid(), request.getSenderKey(), request.getPhoneNumber());
     }
 
     @Override
-    protected void log(AtMessageReq message) {
-        TraceInfo traceInfo = message.getTrace();
-        log.info("msgUid: {}, userId: {}, senderKey: {}, phoneNumber: {}, templateCode: {}", traceInfo.getMsgUid(), traceInfo.getUserId(), message.getSenderKey(), message.getPhoneNumber(), message.getTemplateCode());
+    protected void log(AtMessageReq atMessageReq) {
+        TraceInfo traceInfo = atMessageReq.getTrace();
+        log.info("msgUid: {}, userId: {}, senderKey: {}, phoneNumber: {}, templateCode: {}",
+                traceInfo.getMsgUid(), traceInfo.getUserId(), atMessageReq.getSenderKey(), atMessageReq.getPhoneNumber(), atMessageReq.getTemplateCode());
     }
 }

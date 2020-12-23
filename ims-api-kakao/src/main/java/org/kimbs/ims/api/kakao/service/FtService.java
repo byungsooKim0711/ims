@@ -37,21 +37,21 @@ public class FtService extends AbstractImsService<ImsBizFtReq, FtMessageReq> {
     }
 
     @Override
-    protected void checkServiceKey(String serviceKey, ImsBizFtReq request) throws ImsServiceKeyException {
+    protected void checkServiceKey(String serviceKey, FtMessageReq ftMessageReq) throws ImsServiceKeyException {
         Long userId = imsServiceKeyCache.findServiceKey(serviceKey);
-        request.getTrace().setUserId(userId);
+        ftMessageReq.getTrace().setUserId(userId);
     }
 
     @Override
-    protected void checkSenderKeyAndTemplate(ImsBizFtReq request) {
+    protected void checkSenderKeyAndTemplate(FtMessageReq ftMessageReq) {
 
     }
 
     @Override
-    protected void checkMandatory(ImsBizFtReq request) {
-        String contents = request.getContents();
-        String appUserId = request.getAppUserId();
-        String phoneNumber = request.getPhoneNumber();
+    protected void checkMandatory(FtMessageReq ftMessageReq) {
+        String contents = ftMessageReq.getMessage();
+        String appUserId = ftMessageReq.getAppUserId();
+        String phoneNumber = ftMessageReq.getPhoneNumber();
 
         if (!StringUtils.hasText(contents)) {
             throw new ImsMandatoryException("contents is empty.");
@@ -63,20 +63,20 @@ public class FtService extends AbstractImsService<ImsBizFtReq, FtMessageReq> {
     }
 
     @Override
-    protected void checkLength(ImsBizFtReq request) {
-        String message = request.getContents();
+    protected void checkLength(FtMessageReq ftMessageReq) {
+        String message = ftMessageReq.getMessage();
 
         if (StringUtils.hasText(message) && message.length() > FT_MAX_LENGTH_MESSAGE) {
-            throw new ImsTooLongMessageException("Too long message. " + request.getContents().length());
+            throw new ImsTooLongMessageException("Too long message. " + message.length());
         }
     }
 
     @Override
-    protected void checkDuplicateMsgUid(ImsBizFtReq request) {
+    protected void checkDuplicateMsgUid(FtMessageReq message) {
         LocalDate now = LocalDate.now();
         Mono<Long> ret;
-        String msgUid = request.getMsgUid();
-        long userId = request.getTrace().getUserId();
+        String msgUid = message.getTrace().getMsgUid();
+        long userId = message.getTrace().getUserId();
         KakaoMessageType type = KakaoMessageType.FT;
 
 
@@ -138,12 +138,14 @@ public class FtService extends AbstractImsService<ImsBizFtReq, FtMessageReq> {
 
     @Override
     protected void onException(ImsBizFtReq request, Exception e) {
-        log.error("exception occurred({}). msgUid: {}, senderKey: {}, phoneNumber: {}", e.getMessage(), request.getMsgUid(), request.getSenderKey(), request.getPhoneNumber());
+        log.error("exception occurred({}). msgUid: {}, senderKey: {}, phoneNumber: {}",
+                e.getMessage(), request.getMsgUid(), request.getSenderKey(), request.getPhoneNumber());
     }
 
     @Override
     protected void log(FtMessageReq message) {
         TraceInfo traceInfo = message.getTrace();
-        log.info("msgUid: {}, userId: {}, senderKey: {}, phoneNumber: {}", traceInfo.getMsgUid(), traceInfo.getUserId(), message.getSenderKey(), message.getPhoneNumber());
+        log.info("msgUid: {}, userId: {}, senderKey: {}, phoneNumber: {}",
+                traceInfo.getMsgUid(), traceInfo.getUserId(), message.getSenderKey(), message.getPhoneNumber());
     }
 }

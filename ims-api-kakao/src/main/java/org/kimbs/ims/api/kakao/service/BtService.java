@@ -28,21 +28,21 @@ public class BtService extends AbstractImsService<ImsBizBtReq, BtMessageReq> {
     }
 
     @Override
-    protected void checkServiceKey(String serviceKey, ImsBizBtReq request) throws ImsServiceKeyException {
+    protected void checkServiceKey(String serviceKey, BtMessageReq btMessageReq) throws ImsServiceKeyException {
         Long userId = imsServiceKeyCache.findServiceKey(serviceKey);
-        request.getTrace().setUserId(userId);
+        btMessageReq.getTrace().setUserId(userId);
     }
 
     @Override
-    protected void checkSenderKeyAndTemplate(ImsBizBtReq request) {
+    protected void checkSenderKeyAndTemplate(BtMessageReq btMessageReq) {
 
     }
 
     @Override
-    protected void checkMandatory(ImsBizBtReq request) {
-        String contents = request.getContents();
-//        String appUserId = request.getAppUserId();
-        String phoneNumber = request.getPhoneNumber();
+    protected void checkMandatory(BtMessageReq btMessageReq) {
+        String contents = btMessageReq.getMessage();
+//        String appUserId = btMessageReq.getAppUserId();
+        String phoneNumber = btMessageReq.getPhoneNumber();
 
         if (!StringUtils.hasText(contents)) {
             throw new ImsMandatoryException("contents is empty.");
@@ -54,21 +54,21 @@ public class BtService extends AbstractImsService<ImsBizBtReq, BtMessageReq> {
     }
 
     @Override
-    protected void checkLength(ImsBizBtReq request) {
-        String message = request.getContents();
+    protected void checkLength(BtMessageReq btMessageReq) {
+        String message = btMessageReq.getMessage();
 
         if (StringUtils.hasText(message) && message.length() > BT_MAX_LENGTH_MESSAGE) {
-            throw new ImsTooLongMessageException("Too long message. " + request.getContents().length());
+            throw new ImsTooLongMessageException("Too long message. " + message.length());
         }
     }
 
     @Override
-    protected void checkDuplicateMsgUid(ImsBizBtReq request) {
+    protected void checkDuplicateMsgUid(BtMessageReq message) {
 
     }
 
     @Override
-    protected BtMessageReq convert(ImsBizBtReq request) {
+    protected BtMessageReq convert(ImsBizBtReq message) {
         return null;
     }
 
@@ -84,7 +84,8 @@ public class BtService extends AbstractImsService<ImsBizBtReq, BtMessageReq> {
 
     @Override
     protected void onException(ImsBizBtReq request, Exception e) {
-        log.error("exception occurred({}). msgUid: {}, senderKey: {}, phoneNumber: {}", e.getMessage(), request.getMsgUid(), request.getSenderKey(), request.getPhoneNumber());
+        log.error("exception occurred({}). msgUid: {}, senderKey: {}, phoneNumber: {}",
+                e.getMessage(), request.getMsgUid(), request.getSenderKey(), request.getPhoneNumber());
     }
 
     @Override

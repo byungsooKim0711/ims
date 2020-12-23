@@ -36,18 +36,15 @@ public abstract class AbstractImsService<R, M> {
 
         // logic, validation, auth, duplicate_key, etc...
         try {
-            // check validation
-            checkServiceKey(serviceKey, request);
-            checkSenderKeyAndTemplate(request);
-            checkMandatory(request);
-            checkLength(request);
-            checkDuplicateMsgUid(request);
-
             // convert message
             M message = convert(request);
 
-            // add received_at
-            ((AbstractMessage) message).getTrace().setReceivedAt(LocalDateTime.now());
+            // check validation
+            checkServiceKey(serviceKey, message);
+            checkSenderKeyAndTemplate(message);
+            checkMandatory(message);
+            checkLength(message);
+            checkDuplicateMsgUid(message);
 
             // send recv topic
             send(message);
@@ -76,17 +73,17 @@ public abstract class AbstractImsService<R, M> {
                 .build());
     }
 
-    protected abstract void checkServiceKey(String serviceKey, R request) throws ImsServiceKeyException;
-    protected abstract void checkSenderKeyAndTemplate(R request);
-    protected abstract void checkMandatory(R request) throws ImsMandatoryException;
-    protected abstract void checkLength(R request) throws ImsTooLongMessageException;
-    protected abstract void checkDuplicateMsgUid(R request);
     protected abstract M convert(R request);
+    protected abstract void checkServiceKey(String serviceKey, M request) throws ImsServiceKeyException;
+    protected abstract void checkSenderKeyAndTemplate(M request);
+    protected abstract void checkMandatory(M request) throws ImsMandatoryException;
+    protected abstract void checkLength(M request) throws ImsTooLongMessageException;
+    protected abstract void checkDuplicateMsgUid(M request);
     protected abstract void send(M message);
     protected abstract void onException(R request, Exception e);
     protected abstract void log(M message);
 
-    protected void sendToKafka(String topic, M message) throws JsonProcessingException {
+    protected void sendToKafka(String topic, Object message) throws JsonProcessingException {
         final String data;
 
         try {
