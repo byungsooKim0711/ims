@@ -8,9 +8,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.annotation.EnableKafka;
-import org.springframework.kafka.core.DefaultKafkaProducerFactory;
-import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.kafka.core.ProducerFactory;
+import org.springframework.kafka.core.reactive.ReactiveKafkaProducerTemplate;
+import reactor.kafka.sender.SenderOptions;
 
 import javax.annotation.PostConstruct;
 import java.util.HashMap;
@@ -53,7 +52,7 @@ public class KafkaConfig {
     }
 
     @Bean
-    public Map<String, Object> producerConfigs() {
+    public SenderOptions<String, String> senderOptions() {
         Map<String, Object> props = new HashMap<>();
 
         props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
@@ -65,16 +64,11 @@ public class KafkaConfig {
         props.put(ProducerConfig.BUFFER_MEMORY_CONFIG, producerBufferMemory);
         props.put(ProducerConfig.LINGER_MS_CONFIG, producerLingerMs);
 
-        return props;
+        return SenderOptions.create(props);
     }
 
     @Bean
-    public ProducerFactory<String, String> producerFactory() {
-        return new DefaultKafkaProducerFactory<>(producerConfigs());
-    }
-
-    @Bean
-    public KafkaTemplate<String, String> kafkaTemplate() {
-        return new KafkaTemplate<>(producerFactory());
+    public ReactiveKafkaProducerTemplate<String, String> reactiveKafkaProducerTemplate() {
+        return new ReactiveKafkaProducerTemplate<>(senderOptions());
     }
 }

@@ -37,6 +37,12 @@
 			<artifactId>spring-kafka</artifactId>
 		</dependency>
 
+		<!-- Reactor kafka -->
+		<dependency>
+			<groupId>io.projectreactor.kafka</groupId>
+			<artifactId>reactor-kafka</artifactId>
+		</dependency>
+
 		<!--Spring Boot Admin Client -->
 		<dependency>
 			<groupId>de.codecentric</groupId>

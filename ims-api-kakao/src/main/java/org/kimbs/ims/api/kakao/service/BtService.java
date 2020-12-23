@@ -2,6 +2,7 @@ package org.kimbs.ims.api.kakao.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.kafka.clients.producer.RecordMetadata;
 import org.kimbs.ims.api.kakao.service.cache.ImsServiceKeyCache;
 import org.kimbs.ims.exception.ImsKafkaSendException;
 import org.kimbs.ims.exception.ImsMandatoryException;
@@ -89,7 +90,7 @@ public class BtService extends AbstractImsService<ImsBizBtReq, BtMessageReq> {
     }
 
     @Override
-    protected void log(BtMessageReq message) {
+    protected void log(BtMessageReq message, RecordMetadata metadata) {
 
     }
 }

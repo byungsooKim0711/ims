@@ -3,22 +3,18 @@ package org.kimbs.ims.api.kakao.service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.kafka.clients.producer.RecordMetadata;
 import org.kimbs.ims.api.kakao.config.ApiKakaoConfig;
 import org.kimbs.ims.exception.ImsDuplicateMsgUidException;
 import org.kimbs.ims.exception.ImsMandatoryException;
 import org.kimbs.ims.exception.ImsServiceKeyException;
 import org.kimbs.ims.exception.ImsTooLongMessageException;
-import org.kimbs.ims.protocol.AbstractMessage;
 import org.kimbs.ims.protocol.ImsCommonRes;
 import org.kimbs.ims.protocol.code.ResponseCode;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.kafka.support.SendResult;
-import org.springframework.util.concurrent.ListenableFuture;
-import org.springframework.util.concurrent.ListenableFutureCallback;
+import org.springframework.kafka.core.reactive.ReactiveKafkaProducerTemplate;
 import reactor.core.publisher.Mono;
-
-import java.time.LocalDateTime;
+import reactor.kafka.sender.SenderResult;
 
 @Slf4j
 public abstract class AbstractImsService<R, M> {
@@ -30,7 +26,7 @@ public abstract class AbstractImsService<R, M> {
     protected ApiKakaoConfig config;
 
     @Autowired
-    protected KafkaTemplate<String, String> kafkaTemplate;
+    protected ReactiveKafkaProducerTemplate<String, String> reactiveKafkaProducerTemplate;
 
     public Mono<ImsCommonRes<Void>> sendMessage(String serviceKey, R request) {
 
@@ -48,9 +44,6 @@ public abstract class AbstractImsService<R, M> {
 
             // send recv topic
             send(message);
-
-            // logging
-            log(message);
         } catch (ImsServiceKeyException e) {
             onException(request, e);
             throw e;
@@ -81,9 +74,9 @@ public abstract class AbstractImsService<R, M> {
     protected abstract void checkDuplicateMsgUid(M request);
     protected abstract void send(M message);
     protected abstract void onException(R request, Exception e);
-    protected abstract void log(M message);
+    protected abstract void log(M message, RecordMetadata metadata);
 
-    protected void sendToKafka(String topic, Object message) throws JsonProcessingException {
+    protected void sendToKafka(String topic, M message) throws JsonProcessingException {
         final String data;
 
         try {
@@ -93,16 +86,9 @@ public abstract class AbstractImsService<R, M> {
             throw e;
         }
 
-        ListenableFuture<SendResult<String, String>> future = kafkaTemplate.send(topic, data);
-        future.addCallback(new ListenableFutureCallback<SendResult<String, String>>() {
-            @Override
-            public void onSuccess(SendResult<String, String> result) {
-            }
-
-            @Override
-            public void onFailure(Throwable e) {
-                log.error("kafka send failed. topic: {}, data: {}", topic, data, e.getCause());
-            }
-        });
+        Mono<SenderResult<Void>> sendResult = reactiveKafkaProducerTemplate.send(topic, data);
+        sendResult.doOnNext(result -> log(message, result.recordMetadata()))
+                .doOnError(e -> log.error("exception occurred. topic: {}, data: {}", topic, data, e))
+                .subscribe();
     }
 }

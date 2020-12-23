@@ -2,6 +2,7 @@ package org.kimbs.ims.api.kakao.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.kafka.clients.producer.RecordMetadata;
 import org.kimbs.ims.api.kakao.service.cache.ImsServiceKeyCache;
 import org.kimbs.ims.exception.ImsKafkaSendException;
 import org.kimbs.ims.exception.ImsMandatoryException;
@@ -148,9 +149,9 @@ public class AtService extends AbstractImsService<ImsBizAtReq, AtMessageReq> {
     }
 
     @Override
-    protected void log(AtMessageReq atMessageReq) {
+    protected void log(AtMessageReq atMessageReq, RecordMetadata metadata) {
         TraceInfo traceInfo = atMessageReq.getTrace();
-        log.info("msgUid: {}, userId: {}, senderKey: {}, phoneNumber: {}, templateCode: {}",
-                traceInfo.getMsgUid(), traceInfo.getUserId(), atMessageReq.getSenderKey(), atMessageReq.getPhoneNumber(), atMessageReq.getTemplateCode());
+        log.info("topic: {}-{}@{}, msgUid: {}, userId: {}, senderKey: {}, phoneNumber: {}, templateCode: {}",
+                metadata.topic(), metadata.partition(), metadata.offset(), traceInfo.getMsgUid(), traceInfo.getUserId(), atMessageReq.getSenderKey(), atMessageReq.getPhoneNumber(), atMessageReq.getTemplateCode());
     }
 }
