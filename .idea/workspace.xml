@@ -4,15 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57480980-59ba-4ec3-a3eb-a18f3aefde39" name="Default Changelist" comment="문서 언제작성하지?">
+    <list default="true" id="57480980-59ba-4ec3-a3eb-a18f3aefde39" name="Default Changelist" comment="Add shutdown graceful">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-admin-server/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-admin-server/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-api-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-gateway/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-channel-kakao/src/main/java/org/kimbs/ims/channel/kakao/config/ChannelKakaoConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-channel-kakao/src/main/java/org/kimbs/ims/channel/kakao/config/ChannelKakaoConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-channel-kakao/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-channel-kakao/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-router/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-router/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-store/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-store/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/AbstractImsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/AbstractImsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-channel-kakao/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-channel-kakao/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-router/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-router/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-router/src/main/java/org/kimbs/ims/router/service/AbstractMessageRouter.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-router/src/main/java/org/kimbs/ims/router/service/AbstractMessageRouter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-store/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-store/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +58,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../humuson/IMC/imc/trunk" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -101,18 +99,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.ChannelKakaoApplication (1)">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Spring Boot.ImsApiKakaoApplication">
     <configuration name="ChannelKakaoApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="ims-channel-kakao" />
       <extension name="coverage">
@@ -242,7 +229,12 @@
       <workItem from="1608211682492" duration="5572000" />
       <workItem from="1608217475933" duration="335000" />
       <workItem from="1608290610350" duration="3504000" />
-      <workItem from="1608457800153" duration="5767000" />
+      <workItem from="1608457800153" duration="6649000" />
+      <workItem from="1608553126288" duration="6066000" />
+      <workItem from="1608648039982" duration="954000" />
+      <workItem from="1608727930655" duration="7906000" />
+      <workItem from="1608809511605" duration="2014000" />
+      <workItem from="1608895825979" duration="687000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1605546227057</created>
@@ -517,7 +509,63 @@
       <option name="project" value="LOCAL" />
       <updated>1608294681388</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Add shutdown graceful">
+      <created>1608463944252</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1608463944252</updated>
+    </task>
+    <task id="LOCAL-00041" summary="TODO: push protocol 구성해아함">
+      <created>1608556360694</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1608556360694</updated>
+    </task>
+    <task id="LOCAL-00042" summary="TODO: Email protocol 구성해야함.">
+      <created>1608556380308</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1608556380308</updated>
+    </task>
+    <task id="LOCAL-00043" summary="readme 수정">
+      <created>1608648935549</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1608648935549</updated>
+    </task>
+    <task id="LOCAL-00044" summary="불필요한 내용 제거">
+      <created>1608648975528</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1608648975528</updated>
+    </task>
+    <task id="LOCAL-00045" summary="프로토콜 추가 (title, price, currencyType)">
+      <created>1608731430037</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1608731430037</updated>
+    </task>
+    <task id="LOCAL-00046" summary="convert 순서 변경">
+      <created>1608731509293</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1608731509294</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Reactor Kafka로 변경... 어렵다:alien:">
+      <created>1608735660752</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1608735660752</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -525,14 +573,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="...." />
-    <MESSAGE value="브랜드톡 일반형 요청 모델 추가" />
-    <MESSAGE value="메시지 타입 추가" />
-    <MESSAGE value="....." />
-    <MESSAGE value="reactor를 다시한번 시도.." />
-    <MESSAGE value=".." />
-    <MESSAGE value="Add redis-reactive" />
-    <MESSAGE value="redis -&gt; reactive redis&#10;web -&gt; webflux" />
     <MESSAGE value="gateway 어렵다." />
     <MESSAGE value="..." />
     <MESSAGE value="add kafka" />
@@ -550,7 +590,15 @@
     <MESSAGE value="1. 에러 발생시 ack 안주는 방법 확인필요&#10;2. reactor-kafka 검토 필요" />
     <MESSAGE value="ERD 링크 추가" />
     <MESSAGE value="문서 언제작성하지?" />
-    <option name="LAST_COMMIT_MESSAGE" value="문서 언제작성하지?" />
+    <MESSAGE value="Add shutdown graceful" />
+    <MESSAGE value="TODO: push protocol 구성해아함" />
+    <MESSAGE value="TODO: Email protocol 구성해야함." />
+    <MESSAGE value="readme 수정" />
+    <MESSAGE value="불필요한 내용 제거" />
+    <MESSAGE value="프로토콜 추가 (title, price, currencyType)" />
+    <MESSAGE value="convert 순서 변경" />
+    <MESSAGE value="Reactor Kafka로 변경... 어렵다:alien:" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reactor Kafka로 변경... 어렵다:alien:" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.kimbs.ims.protocol.AbstractMessage;
 import org.kimbs.ims.protocol.ImsAnalyzeLog;
 import org.kimbs.ims.router.config.RouterConfig;
+import org.kimbs.ims.util.RoundRobinUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
@@ -26,7 +27,7 @@ public abstract class AbstractMessageRouter<M> {
     @Autowired
     private KafkaTemplate<String, String> kafkaTemplate;
 
-    public void routeAndSend(M message) {
+    public void routeAndSend(M message) throws Exception {
 
         try {
             ((AbstractMessage) message).getTrace().setDistributionAt(LocalDateTime.now());
@@ -53,7 +54,7 @@ public abstract class AbstractMessageRouter<M> {
             log.setUserId(((AbstractMessage) message).getTrace().getUserId());
 
             System.out.println(log);
-//            this.sendToKafka();
+            this.sendToKafka(RoundRobinUtils.getRoundRobinValue(RoundRobinUtils.RoundRobinKey.ANALYZE_LOG, config.getTopics().getAnalyzeLog()), log);
         }
     }
 
@@ -62,9 +63,8 @@ public abstract class AbstractMessageRouter<M> {
     protected abstract void send(M message);
     protected abstract void log(M message);
     protected abstract ImsAnalyzeLog analyzeLog(M message);
-
-
-    protected void sendToKafka(String topic, M message) throws JsonProcessingException, Exception {
+    
+    protected void sendToKafka(String topic, Object message) throws JsonProcessingException, Exception {
         final String data;
 
         try {
