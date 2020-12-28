@@ -30,7 +30,7 @@ public class TraceInfo implements Serializable {
     private LocalDateTime receivedAt;
 
     // 라우팅 시간
-    @JsonProperty("distributionAt")
+    @JsonProperty("distribution_at")
     private LocalDateTime distributionAt;
 
     // 라우팅 토픽
