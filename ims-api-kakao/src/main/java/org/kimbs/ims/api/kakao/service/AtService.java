@@ -15,6 +15,7 @@ import org.kimbs.ims.model.kakao.Supplement;
 import org.kimbs.ims.protocol.TraceInfo;
 import org.kimbs.ims.protocol.v1.ImsBizAtReq;
 import org.kimbs.ims.util.RoundRobinUtils;
+import org.kimbs.ims.util.SerialNumberUtils;
 import org.springframework.data.redis.core.ReactiveRedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -108,11 +109,13 @@ public class AtService extends AbstractImsService<ImsBizAtReq, AtMessageReq> {
 
         String billCode = request.getBillCode();
         String msgUid = request.getMsgUid();
+        String serialNumber = SerialNumberUtils.generateSerialNumber(KakaoMessageType.AT.getType(), msgUid);
 
         Attachment attachment = request.getAttachment();
         Supplement supplement = request.getSupplement();
 
         AtMessageReq atMessageReq = AtMessageReq.builder()
+                .serialNumber(serialNumber)
                 .messageType(messageType)
                 .senderKey(senderKey)
                 .templateCode(templateCode)

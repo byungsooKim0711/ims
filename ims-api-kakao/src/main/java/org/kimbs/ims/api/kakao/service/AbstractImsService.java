@@ -88,6 +88,7 @@ public abstract class AbstractImsService<R, M> {
 
         Mono<SenderResult<Void>> sendResult = reactiveKafkaProducerTemplate.send(topic, data);
         sendResult.doOnNext(result -> log(message, result.recordMetadata()))
+                // doOnError에서 onException 호출, R 대신 M 사용
                 .doOnError(e -> log.error("exception occurred. topic: {}, data: {}", topic, data, e))
                 .subscribe();
     }

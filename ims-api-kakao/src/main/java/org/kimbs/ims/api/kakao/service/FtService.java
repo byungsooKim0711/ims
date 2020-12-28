@@ -14,6 +14,7 @@ import org.kimbs.ims.model.kakao.KakaoMessageType;
 import org.kimbs.ims.protocol.TraceInfo;
 import org.kimbs.ims.protocol.v1.ImsBizFtReq;
 import org.kimbs.ims.util.RoundRobinUtils;
+import org.kimbs.ims.util.SerialNumberUtils;
 import org.springframework.data.redis.core.ReactiveRedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -104,10 +105,12 @@ public class FtService extends AbstractImsService<ImsBizFtReq, FtMessageReq> {
 
         String billCode = request.getBillCode();
         String msgUid = request.getMsgUid();
+        String serialNumber = SerialNumberUtils.generateSerialNumber(KakaoMessageType.FT.getType(), msgUid);
 
         Attachment attachment = request.getAttachment();
 
         FtMessageReq ftMessageReq = FtMessageReq.builder()
+                .serialNumber(serialNumber)
                 .messageType(messageType)
                 .senderKey(senderKey)
                 .phoneNumber(phoneNumber)
