@@ -4,10 +4,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.extern.slf4j.Slf4j;
 import org.kimbs.ims.exception.ImsKafkaSendException;
 import org.kimbs.ims.model.kakao.AtMessageReq;
-import org.kimbs.ims.model.kakao.KakaoMessageType;
 import org.kimbs.ims.protocol.ImsAnalyzeLog;
 import org.kimbs.ims.util.RoundRobinUtils;
-import org.kimbs.ims.util.SerialNumberUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,12 +13,6 @@ import java.util.List;
 @Slf4j
 @Service
 public class AtMessageRouter extends AbstractMessageRouter<AtMessageReq> {
-
-    @Override
-    protected void getSerialNumber(AtMessageReq message) {
-        String serialNumber = SerialNumberUtils.generateSerialNumber(KakaoMessageType.AT.getType(), message.getTrace().getMsgUid());
-        message.setSerialNumber(serialNumber);
-    }
 
     @Override
     protected void getSendTopic(AtMessageReq message) {

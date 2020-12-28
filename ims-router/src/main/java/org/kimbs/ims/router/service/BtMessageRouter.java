@@ -11,11 +11,6 @@ import java.util.List;
 public class BtMessageRouter extends AbstractMessageRouter<BtMessageReq> {
 
     @Override
-    protected void getSerialNumber(BtMessageReq message) {
-        return ;
-    }
-
-    @Override
     protected void getSendTopic(BtMessageReq message) {
         List<String> defaultSendTopicList = config.getTopics().getSendBt();
         String destinationTopic = RoundRobinUtils.getRoundRobinValue(RoundRobinUtils.RoundRobinKey.SEND_BT, defaultSendTopicList);

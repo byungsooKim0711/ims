@@ -59,7 +59,8 @@ public class AtMessageReq extends AbstractMessage implements Serializable {
     private Long price;
 
     @Builder
-    public AtMessageReq(KakaoMessageType messageType, String senderKey, String phoneNumber, String appUserId, String templateCode, String message, String title, Attachment attachment, Supplement supplement) {
+    public AtMessageReq(String serialNumber, KakaoMessageType messageType, String senderKey, String phoneNumber, String appUserId, String templateCode, String message, String title, Attachment attachment, Supplement supplement) {
+        this.serialNumber = serialNumber;
         this.messageType = messageType;
         this.senderKey = senderKey;
         this.phoneNumber = phoneNumber;

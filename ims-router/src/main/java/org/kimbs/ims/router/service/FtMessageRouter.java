@@ -1,22 +1,14 @@
 package org.kimbs.ims.router.service;
 
 import org.kimbs.ims.model.kakao.FtMessageReq;
-import org.kimbs.ims.model.kakao.KakaoMessageType;
 import org.kimbs.ims.protocol.ImsAnalyzeLog;
 import org.kimbs.ims.util.RoundRobinUtils;
-import org.kimbs.ims.util.SerialNumberUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class FtMessageRouter extends AbstractMessageRouter<FtMessageReq> {
-
-    @Override
-    protected void getSerialNumber(FtMessageReq message) {
-        String serialNumber = SerialNumberUtils.generateSerialNumber(KakaoMessageType.FT.getType(), message.getTrace().getMsgUid());
-        message.setSerialNumber(serialNumber);
-    }
 
     @Override
     protected void getSendTopic(FtMessageReq message) {

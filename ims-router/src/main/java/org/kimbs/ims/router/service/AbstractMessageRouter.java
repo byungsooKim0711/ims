@@ -32,7 +32,6 @@ public abstract class AbstractMessageRouter<M> {
         try {
             ((AbstractMessage) message).getTrace().setDistributionAt(LocalDateTime.now());
 
-            getSerialNumber(message);
             // default routing
             // pattern routing
             // setting routing
@@ -58,7 +57,6 @@ public abstract class AbstractMessageRouter<M> {
         }
     }
 
-    protected abstract void getSerialNumber(M message);
     protected abstract void getSendTopic(M message);
     protected abstract void send(M message);
     protected abstract void log(M message);

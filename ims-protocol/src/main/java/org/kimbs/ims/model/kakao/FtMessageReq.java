@@ -51,7 +51,8 @@ public class FtMessageReq extends AbstractMessage implements Serializable {
 	private Attachment attachment;
 
 	@Builder
-	public FtMessageReq(KakaoMessageType messageType, String senderKey, String phoneNumber, String appUserId, String userKey, String message, String adFlag, String wide, Attachment attachment) {
+	public FtMessageReq(String serialNumber, KakaoMessageType messageType, String senderKey, String phoneNumber, String appUserId, String userKey, String message, String adFlag, String wide, Attachment attachment) {
+		this.serialNumber = serialNumber;
 		this.messageType = messageType;
 		this.senderKey = senderKey;
 		this.phoneNumber = phoneNumber;
