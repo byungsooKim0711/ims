@@ -21,6 +21,7 @@
     </appender>
 
     <logger name="org.kimbs.ims" level="DEBUG"/>
+    <logger name="reactor.netty.http" level="DEBUG"/>
 
     <root level="INFO">
         <appender-ref ref="CONSOLE" />

@@ -5,9 +5,11 @@ import org.kimbs.ims.model.kakao.FtMessageReq;
 import org.kimbs.ims.model.kakao.FtMessageRes;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
+import org.springframework.http.client.reactive.ReactorClientHttpConnector;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
+import reactor.netty.http.client.HttpClient;
 
 import javax.annotation.PostConstruct;
 
@@ -19,7 +21,10 @@ public class FtMessageService extends AbstractMessageService<FtMessageReq, FtMes
 
     @PostConstruct
     public void init() {
+        HttpClient httpClient = HttpClient.create().wiretap(true);
+
         webClient = WebClient.builder()
+                .clientConnector(new ReactorClientHttpConnector(httpClient))
                 .baseUrl(config.getFtBaseUrl())
                 .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                 .build();
