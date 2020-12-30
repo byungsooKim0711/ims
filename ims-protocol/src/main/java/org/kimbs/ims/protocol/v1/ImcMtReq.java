@@ -24,6 +24,10 @@ public class ImcMtReq extends AbstractMessage implements Serializable {
     @JsonProperty("message_type")
     private String messageType;
 
+    // 광고 여부, 기본값은 Y
+    @JsonProperty("ad_flag")
+    private String adFlag;
+
     // 수신자번호
     @JsonProperty("phone_number")
     private String phoneNumber;
