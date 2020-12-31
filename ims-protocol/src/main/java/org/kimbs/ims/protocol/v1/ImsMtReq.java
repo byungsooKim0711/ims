@@ -12,7 +12,7 @@ import java.util.List;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class ImcMtReq extends AbstractMessage implements Serializable {
+public class ImsMtReq extends AbstractMessage implements Serializable {
 
     private static final long serialVersionUID = 8214461813187362878L;
 
