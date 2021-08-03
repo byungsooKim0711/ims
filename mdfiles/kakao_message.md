@@ -10,6 +10,7 @@
   "x-ims-key": "Base64.encode(username:secret_key)"
 }
 ```
+---
 ### 알림톡 발송
 #### URL: /ims/{serviceKey}/at/sendMessage
 #### HttpMethod: POST
@@ -89,3 +90,6 @@
   "data": "message_id"
 }
 ```
+---
+### 결과코드 표
+[결과코드 보기](./report_code.md)

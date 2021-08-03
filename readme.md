@@ -22,8 +22,7 @@ _대충적는 초안_
 - MongoDB > =4.x (analyzer)
   - Replica
 - Flyway
-- Redis
-  - Standalon
+- Redis (Cluster)
   - Lettuce
 
 ### Message broker
@@ -37,8 +36,8 @@ _대충적는 초안_
 - docker & k8s(kubernetes)
 
 ### WEB
-
-- Vue.js OR React.js(미정)
+#### Admin, Console
+- Vue.js
 
 
 
@@ -83,7 +82,7 @@ API(GATEWAY, MESSAGE) / router / kako, mt, email, push, rcs / report(callback_ur
 
 ### 어플리케이션 모니터링
 
-1. Spring boot → Spring Boot Admin(SBA)
+1. Spring boot → Spring Boot Admin(SBA) → slack 연동.
 2. KAFKA → 카프카 매니저(CMAK), 프로메테우스 + jmx exporter + grafana
 3. Redis → redis stat
 4. job → Spring cloud data flow ?
@@ -96,7 +95,7 @@ API(GATEWAY, MESSAGE) / router / kako, mt, email, push, rcs / report(callback_ur
 - 내부알람
   - 슬랙(SBA 연동) 연동, 문자 메시지(sigar ??)
 - API 사용자 알람
-  - 발송 실패에 대한 사유를 일 배치 08:30분에 api 사용 유저에게 전송 예정
+  - 발송 실패건수 일 배치 08:30분에 api 사용 유저에게 전송 예정
   - 
 
 
@@ -119,6 +118,8 @@ API(GATEWAY, MESSAGE) / router / kako, mt, email, push, rcs / report(callback_ur
 - [문자 메시지 연동규약 보기](./mdfiles/mt_message.md)
 - [앱푸시 메시지 연동규약 보기](./mdfiles/push_message.md)
 - [이메일 메시지 연동규약 보기](./mdfiles/email_message.md)
+- [관리항목 연동규약 보기](./mdfiles/center_api.md)
+- [별첨 - 결과코드 표](./mdfiles/report_code.md)
 
 
 ## KAFKA Topic
@@ -134,7 +135,7 @@ API(GATEWAY, MESSAGE) / router / kako, mt, email, push, rcs / report(callback_ur
 
 
 #### 기타
-- 배너사용 (https://devops.datenkollektiv.de/banner.txt/ - jerusalem)
+- 배너사용 (https://devops.datenkollektiv.de/banner.txt/ - jerusalem, 대문자만 사용)
 - _이슈관리 템플릿_, 
 ---
 
