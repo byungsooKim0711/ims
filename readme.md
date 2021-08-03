@@ -114,49 +114,19 @@ API(GATEWAY, MESSAGE) / router / kako, mt, email, push, rcs / report(callback_ur
 #### (정리중) 센터 API 구성도
 ![센터 API 구성도](./images/center_api_architecture.png)
 
-## API 호출 데이터
-### 연동 규약
-```json
+### API 연동규약서
+- [알림톡 연동규약 보기](./mdfiles/kakao_message.md)
+- [문자 메시지 연동규약 보기](./mdfiles/mt_message.md)
+- [앱푸시 메시지 연동규약 보기](./mdfiles/push_message.md)
+- [이메일 메시지 연동규약 보기](./mdfiles/email_message.md)
 
-```
-### CURL 샘플
-```json
-
-```
 
 ## KAFKA Topic
-
-| Topic Name       | # Partition | # Replica | Description               |
-| ---------------- | ----------- | --------- | ------------------------- |
-| RECV-AT          | 20          | 1         | 알림톡 접수 큐            |
-| RECV-FT          | 20          | 1         | 친구톡 접수 큐            |
-| RECV-BT          | 20          | 1         | 브랜드톡 접수 큐          |
-| RECV-MT          | 20          | 1         | 문자메시지 접수 큐        |
-| RECV-EM          | 20          | 1         | 이메일 접수 큐            |
-| RECV-PU          | 20          | 1         | 앱푸시 접수 큐            |
-|                  |             |           |                           |
-| SEND-AF-DEFAULT  | 20          | 1         | [일반] 알림톡 발송 큐     |
-| SEND-FT-DEFAULT  | 20          | 1         | [일반] 친구톡 발송 큐     |
-| SEND-BT-DEFAULT  | 20          | 1         | [일반] 브랜드톡 발송 큐   |
-| SEND-AT-REALTIME | 20          | 1         | [실시간] 알림톡 발송 큐   |
-| SEND-FT-REALTIME | 20          | 1         | [실시간] 친구톡 발송 큐   |
-| SEND-BT-REALTIME | 20          | 1         | [실시간] 브랜드톡 발송 큐 |
-| SEND-AT-AUTH     |             |           | [인증] 알림톡 발송 큐     |
-| SEND-AT-MASS     |             |           | [대량] 알림톡 발송 큐     |
-| SEND-FT-MASS     |             |           | [대량] 친구톡 발송 큐     |
-| SEND-BT-MASS0    |             |           | [대량] 브랜드톡 발송 큐   |
-|                  |             |           |                           |
-|                  |             |           |                           |
-|                  |             |           |                           |
-|                  |             |           |                           |
-|                  |             |           |                           |
-|                  |             |           |                           |
-
-
+- [카프카 토픽 리스트](./mdfiles/kafka_topic_list.md)
 
 
 ## 테이블 설계
-https://aquerytool.com:443/aquerymain/index/?rurl=4308e55d-5bdb-49df-9b26-4000992e60c7 / 2i3i2w
+- https://aquerytool.com:443/aquerymain/index/?rurl=4308e55d-5bdb-49df-9b26-4000992e60c7 / 2i3i2w
 
 
 ## 팀 소개
