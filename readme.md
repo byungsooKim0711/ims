@@ -9,7 +9,7 @@ _대충적는 초안_
 - Java8
 - Junit5
 - Rest-docs
-- Spring boot >= 2.4.x
+- Spring boot >= 2.4.5
 - Spring cloud
 - gateway
   - circuit breaker
@@ -94,7 +94,7 @@ API(GATEWAY, MESSAGE) / router / kako, mt, email, push, rcs / report(callback_ur
 ## 알람 (Notification)
 
 - 내부알람
-  - 슬랙(SBA 연동) 연동, 문자 메시지
+  - 슬랙(SBA 연동) 연동, 문자 메시지(sigar ??)
 - API 사용자 알람
   - 발송 실패에 대한 사유를 일 배치 08:30분에 api 사용 유저에게 전송 예정
   - 
@@ -108,6 +108,8 @@ API(GATEWAY, MESSAGE) / router / kako, mt, email, push, rcs / report(callback_ur
 
 
 ## 프로젝트 아키텍처
+![(정리중) 발송 API 구성도](./images/발송 구성도.png)
+![(정리중) 센터 API 구성도](./images/센터API 구성도.png)
 
 ## API 호출 데이터
 ### 연동 규약
