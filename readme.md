@@ -108,8 +108,11 @@ API(GATEWAY, MESSAGE) / router / kako, mt, email, push, rcs / report(callback_ur
 
 
 ## 프로젝트 아키텍처
-![(정리중) 발송 API 구성도](./images/발송 구성도.png)
-![(정리중) 센터 API 구성도](./images/센터API 구성도.png)
+#### (정리중) 메시지 발송 API 구성도
+![발송 API 구성도](images/message_api_architecture.png)
+
+#### (정리중) 센터 API 구성도
+![센터 API 구성도](./images/center_api_architecture.png)
 
 ## API 호출 데이터
 ### 연동 규약
