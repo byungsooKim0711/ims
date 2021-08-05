@@ -107,6 +107,35 @@ API(GATEWAY, MESSAGE) / router / kako, mt, email, push, rcs / report(callback_ur
 
 
 ## 프로젝트 아키텍처
+### Callback Report (미확정)
+#### 콜백 시점
+- 최초 report 가 발생 했을 경우
+- report 전달이 실패했을 경우 재시도
+#### 재시도 정책
+- callback report 가 실패했을 경우 재시도
+- 최대 횟수 10회
+- 재시도 시간 - (너무 빠른가?)
+  - 1회: 리포트 발생 즉시
+  - 2회: (1*10) * 2 = 20초 이후
+  - 3회: (2*10) * 3 = 60초 이후
+  - 4회: (3*10) * 4 = 120초 이후
+  - 5회: (4*10) * 5 = 200초 이후
+  - 6회: (5*10) * 6 = 300초 이후
+  - n회: ((n-1)*10)*n = 10n^2 - 10n
+  - 10회: (9*10) * 10 = 900초 이후
+  
+#### 재시도 방법
+- 리포트가 발생한 데이터를 Redis 에 아래와 같이 저장
+  - db0
+  - key: username:channelType:messageId
+  - value: 리포트 내려줄 형태의 json
+- 재시도 정책에 따라 expired time 을 입력하여 redis db1 에 key(username:channelType:messageId) 만 저장
+- key 가 expired 될 때의 이벤트를 report 모듈에서 받아 db0 에서 report 데이터 조회하여 callback
+- callback 실패시 재시도 횟수가 몇번 쨰 인지 확인하여 expired time 계산하여 set
+- 최대 재시도 횟수(10회)가 끝나면 db0 에서 리포트 제거
+  - 이후에는 message_id 로 결과조회 요청하여 확인
+  
+
 #### (정리중) 메시지 발송 API 구성도
 ![발송 API 구성도](images/message_api_architecture.png)
 
