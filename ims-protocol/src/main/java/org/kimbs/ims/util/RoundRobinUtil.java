@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public final class RoundRobinUtils {
+public final class RoundRobinUtil {
 
     @Getter
     public enum RoundRobinKey {

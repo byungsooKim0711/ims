@@ -14,11 +14,20 @@ import java.util.stream.Collectors;
 @Getter
 public enum KakaoMessageType {
 
-    // 알림톡
+    // 알림톡 텍스트
     AT("AT"),
+
+    // 알림톡 이미지
+    AI("AI"),
     
-    // 친구톡
+    // 친구톡 텍스트
     FT("FT"),
+
+    // 친구톡 이미지
+    FI("FI"),
+
+    // 친구톡 와이드 이미지
+    FW("FW"),
     
     // 브랜드톡 이미지
     BI("BI"),

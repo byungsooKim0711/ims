@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public final class SerialNumberUtils {
+public final class SerialNumberUtil {
 
     private static final AtomicInteger aiSerialNumberKey = new AtomicInteger();
 

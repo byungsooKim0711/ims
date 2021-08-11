@@ -52,14 +52,16 @@ public class AtMessageReq extends AbstractMessage implements Serializable {
     @JsonProperty("title")
     private String title;
 
-    @JsonProperty("currency_type")
-    private String currencyType;
-
-    @JsonProperty("price")
-    private Long price;
+    @JsonProperty("header")
+    private String header;
 
     @Builder
-    public AtMessageReq(String serialNumber, KakaoMessageType messageType, String senderKey, String phoneNumber, String appUserId, String templateCode, String message, String title, Attachment attachment, Supplement supplement) {
+    public AtMessageReq(String serialNumber, KakaoMessageType messageType,
+                        String senderKey, String phoneNumber,
+                        String appUserId, String templateCode,
+                        String message, String title,
+                        Attachment attachment, Supplement supplement,
+                        String header) {
         this.serialNumber = serialNumber;
         this.messageType = messageType;
         this.senderKey = senderKey;
@@ -70,6 +72,7 @@ public class AtMessageReq extends AbstractMessage implements Serializable {
         this.title = title;
         this.attachment = attachment;
         this.supplement = supplement;
+        this.header = header;
     }
 
     public void setSerialNumber(String serialNumber) {

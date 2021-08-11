@@ -1,4 +1,4 @@
-package org.kimbs.ims.protocol.v1;
+package org.kimbs.ims.protocol.v1.email;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
