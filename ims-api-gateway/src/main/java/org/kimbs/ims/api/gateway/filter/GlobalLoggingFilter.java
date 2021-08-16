@@ -12,14 +12,13 @@ public class GlobalLoggingFilter {
 
     @Bean
     public GlobalFilter postGlobalFilter() {
-        return ((exchange, chain) -> {
-            return chain.filter(exchange)
-                    .then(Mono.fromRunnable(() -> {
-                        String requestPath = exchange.getRequest().getPath().toString();
-                        String requestId = exchange.getRequest().getId();
+        return ((exchange, chain) -> chain.filter(exchange)
+                .then(Mono.fromRunnable(() -> {
+                    String requestPath = exchange.getRequest().getPath().toString();
+                    String requestId = exchange.getRequest().getId();
 
-                        log.info("Global logging filter. path: {}, id: {}", requestPath, requestId);
-                    }));
-        });
+                    log.info("Global logging filter. path: {}, id: {}", requestPath, requestId);
+                }))
+        );
     }
 }

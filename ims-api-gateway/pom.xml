@@ -15,22 +15,40 @@
 
 	<properties>
 		<java.version>1.8</java.version>
-		<spring-cloud.version>2020.0.0-M5</spring-cloud.version>
+		<spring-cloud.version>2020.0.2</spring-cloud.version>
 		<spring-boot-admin.version>2.3.1</spring-boot-admin.version>
 	</properties>
 
 	<dependencies>
 		<!-- Spring Cloud -->
-		<!-- CircuitBreaker resilience4j -->
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-circuitbreaker-resilience4j</artifactId>
-		</dependency>
-
-		<!-- Gateway -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-gateway</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-loadbalancer</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-bootstrap</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-circuitbreaker-resilience4j</artifactId>
 		</dependency>
 
 		<!-- Reactive redis -->
@@ -52,12 +70,6 @@
 			<version>1.0.0</version>
 		</dependency>
 
-		<!-- IMS Common -->
-		<dependency>
-			<groupId>org.kimbs.ims</groupId>
-			<artifactId>ims-common</artifactId>
-			<version>1.0.0</version>
-		</dependency>
 	</dependencies>
 
 	<dependencyManagement>
