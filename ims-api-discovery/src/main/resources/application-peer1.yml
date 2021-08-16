@@ -1,0 +1,50 @@
+server:
+  port: 8761
+  shutdown: graceful
+
+logging:
+  # logback 설정
+  #config: file:${user.dir}/logback-spring.xml
+  config: classpath:logback-spring.xml
+
+spring:
+  application:
+    name: "DISCOVERY-SERVER"
+  banner:
+#    location: file:${user.dir}/banner.txt
+    location: classpath:banner.txt
+
+  ## boot admin config
+  boot:
+    admin:
+      client:
+        # spring boot admin 서버 설정
+        url: http://127.0.0.1:59001
+        username: admin
+        password: admin12#$
+        instance:
+          prefer-ip: true
+        enabled: false
+
+## eureka
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka,http://127.0.0.1:8761/eureka
+    region: cluster-1
+  instance:
+    prefer-ip-address: true
+
+## actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
+    shutdown:
+      enabled: true
