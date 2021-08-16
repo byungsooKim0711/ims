@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.kimbs.ims.model.redis.RedisServiceKey;
-import org.kimbs.ims.model.redis.RedisStoreKey;
+import org.kimbs.ims.model.redis.RedisKey;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.redis.core.ReactiveRedisTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -36,7 +36,7 @@ public class ServiceKeyLoadScheduler extends AbstractLoadScheduler {
     @Override
     public void scheduled() {
         reactiveRedisTemplate.opsForHash()
-                .entries(RedisStoreKey.SERVICE_KEY.name())
+                .entries(RedisKey.SERVICE_KEY.name())
                 .subscribe(serviceKey -> {
                     try {
                         String key = (String) serviceKey.getKey();

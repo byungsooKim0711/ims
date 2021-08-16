@@ -39,32 +39,25 @@ spring:
       retries: 0
       batch-size: 20000
       compression-type: gzip
-      linger-ms: 50
       buffer-memory: 33554432
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
       acks: 1
+      properties:
+        linger.ms: 50
     consumer:
       group-id: "ROUTER"
       enable-auto-commit: false
       max-poll-records: 500
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: '*'
     listener:
       concurrency: 5
       ack-mode: manual_immediate
       poll-timeout: 3000
-#      type: single
-      # Custom setting - batch listener
-      batch: false
-      # Custom setting - auto startup listener
-      auto-startup: true
-    # Custom setting - retries
-    retry:
-      max-attempts: 10
-      initial-interval: 1000
-      multiplier: 2
-      max-interval: 10000
+      type: single
 
   task:
     scheduling:
@@ -109,11 +102,17 @@ ims:
     topics:
       # 접수(RECV) 토픽 컨슘
       recv-at:
-        - RECV-AT
+        - kbstest
       recv-ft:
         - RECV-FT
       recv-bt:
         - RECV-BT
+      recv-em:
+        - RECV-EM
+      recv-pu:
+        - RECV-PU
+      recv-mt:
+        - RECV-MT
 
       # 발송(SEND) 토픽으로 전송 (기본은 default, 그 외 라우팅 - DB, Redis 정보로 설정한다)
       send-at:

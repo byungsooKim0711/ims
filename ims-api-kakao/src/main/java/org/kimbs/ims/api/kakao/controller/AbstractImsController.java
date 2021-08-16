@@ -1,6 +1,6 @@
 package org.kimbs.ims.api.kakao.controller;
 
-import org.kimbs.ims.protocol.ImsCommonRes;
+import org.kimbs.ims.protocol.ImsApiResult;
 import reactor.core.publisher.Mono;
 
 public abstract class AbstractImsController<R> {
@@ -10,5 +10,5 @@ public abstract class AbstractImsController<R> {
      * RequestType: R
      * @return
      */
-    protected abstract Mono<ImsCommonRes<Void>> sendMessage(String serviceKey, R request);
+    protected abstract Mono<ImsApiResult<Void>> sendMessage(R request);
 }

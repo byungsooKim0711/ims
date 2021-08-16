@@ -1,18 +1,17 @@
 package org.kimbs.ims.api.kakao.controller;
 
 import lombok.extern.slf4j.Slf4j;
-import org.kimbs.ims.api.kakao.controller.annotation.Version1;
 import org.kimbs.ims.api.kakao.service.FtService;
-import org.kimbs.ims.protocol.ImsCommonRes;
-import org.kimbs.ims.protocol.v1.ImsBizFtReq;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.kimbs.ims.protocol.ImsApiResult;
+import org.kimbs.ims.protocol.v1.kakao.ft.ImsBizFtReq;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 
+import javax.validation.Valid;
+
 @Slf4j
-@Version1
 @RestController
 public class FtController extends AbstractImsController<ImsBizFtReq> {
 
@@ -22,10 +21,10 @@ public class FtController extends AbstractImsController<ImsBizFtReq> {
         this.ftService = ftService;
     }
 
-    @PostMapping("/ft/sendMessage")
     @Override
-    protected Mono<ImsCommonRes<Void>> sendMessage(@PathVariable String serviceKey, @RequestBody ImsBizFtReq request) {
-        Mono<ImsCommonRes<Void>> response = ftService.sendMessage(serviceKey, request);
+    @PostMapping("/ft/sendMessage")
+    public Mono<ImsApiResult<Void>> sendMessage(@Valid @RequestBody ImsBizFtReq request) {
+        Mono<ImsApiResult<Void>> response = ftService.sendMessage(request);
 
         return response;
     }

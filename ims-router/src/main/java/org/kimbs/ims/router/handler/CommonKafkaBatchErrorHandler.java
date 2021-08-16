@@ -16,12 +16,12 @@ public class CommonKafkaBatchErrorHandler implements BatchErrorHandler {
     private static final Logger logger = LoggerFactory.getLogger(CommonKafkaErrorHandler.class);
 
     @Override
-    public void handle(Exception thrownException, ConsumerRecords<?, ?> records) {
+    public void handle(Exception exception, ConsumerRecords<?, ?> records) {
         String value = null;
         for (TopicPartition partition : records.partitions()) {
             for (ConsumerRecord<?, ?> record : records.records(partition)) {
                 value = (String) record.value();
-                logger.error("error received message='{}' with partition-offset='{}', key='{}'", value, partition, record.key());
+                logger.error("error received message='{}' with partition-offset='{}', key='{}'", value, partition, record.key(), exception);
             }
         }
     }

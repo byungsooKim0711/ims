@@ -2,38 +2,40 @@ package org.kimbs.ims.router.service;
 
 import org.kimbs.ims.model.kakao.BtMessageReq;
 import org.kimbs.ims.protocol.ImsAnalyzeLog;
-import org.kimbs.ims.util.RoundRobinUtils;
+import org.kimbs.ims.protocol.ImsPacket;
+import org.kimbs.ims.util.RoundRobinUtil;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class BtMessageRouter extends AbstractMessageRouter<BtMessageReq> {
+public class BtMessageRouter extends AbstractMessageRouter<ImsPacket<BtMessageReq>> {
 
     @Override
-    protected void getSendTopic(BtMessageReq message) {
+    protected void getSendTopic(ImsPacket<BtMessageReq> message) {
         List<String> defaultSendTopicList = config.getTopics().getSendBt();
-        String destinationTopic = RoundRobinUtils.getRoundRobinValue(RoundRobinUtils.RoundRobinKey.SEND_BT, defaultSendTopicList);
+        String destinationTopic = RoundRobinUtil.getRoundRobinValue(RoundRobinUtil.RoundRobinKey.SEND_BT, defaultSendTopicList);
 
-        message.getTrace().setDestinationTopic(destinationTopic);
+        message.getTraceInfo().setDestinationTopic(destinationTopic);
     }
 
     @Override
-    protected void send(BtMessageReq message) {
-
-    }
-
-    @Override
-    protected void log(BtMessageReq message) {
+    protected void send(ImsPacket<BtMessageReq> message) {
 
     }
 
     @Override
-    protected ImsAnalyzeLog analyzeLog(BtMessageReq message) {
+    protected void log(ImsPacket<BtMessageReq> message) {
+
+    }
+
+    @Override
+    protected ImsAnalyzeLog analyzeLog(ImsPacket<BtMessageReq> message) {
+        BtMessageReq data = message.getData();
         ImsAnalyzeLog log = new ImsAnalyzeLog();
-        log.setMessage(message.getMessage());
-        log.setPhoneNumber(message.getPhoneNumber());
-        log.setSerialNumber(message.getSerialNumber());
+        log.setMessage(data.getMessage());
+        log.setPhoneNumber(data.getPhoneNumber());
+        log.setSerialNumber(data.getSerialNumber());
 
         return log;
     }

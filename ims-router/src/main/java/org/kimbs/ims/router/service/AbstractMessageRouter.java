@@ -5,8 +5,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.kimbs.ims.protocol.AbstractMessage;
 import org.kimbs.ims.protocol.ImsAnalyzeLog;
+import org.kimbs.ims.protocol.ImsPacket;
 import org.kimbs.ims.router.config.RouterConfig;
-import org.kimbs.ims.util.RoundRobinUtils;
+import org.kimbs.ims.util.RoundRobinUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
@@ -25,12 +26,12 @@ public abstract class AbstractMessageRouter<M> {
     private ObjectMapper mapper;
 
     @Autowired
-    private KafkaTemplate<String, String> kafkaTemplate;
+    private KafkaTemplate<String, ImsPacket<?>> kafkaTemplate;
 
     public void routeAndSend(M message) throws Exception {
 
         try {
-            ((AbstractMessage) message).getTrace().setDistributionAt(LocalDateTime.now());
+            ((ImsPacket<?>) message).getTraceInfo().setDistributionAt(LocalDateTime.now());
 
             // default routing
             // pattern routing
@@ -50,36 +51,28 @@ public abstract class AbstractMessageRouter<M> {
         } finally {
             ImsAnalyzeLog log = this.analyzeLog(message);
             log.setDate(LocalDateTime.now());
-            log.setUserId(((AbstractMessage) message).getTrace().getUserId());
+            log.setUserId(((ImsPacket<?>) message).getTraceInfo().getCustomerId());
 
             System.out.println(log);
-            this.sendToKafka(RoundRobinUtils.getRoundRobinValue(RoundRobinUtils.RoundRobinKey.ANALYZE_LOG, config.getTopics().getAnalyzeLog()), log);
+//            this.sendToKafka(RoundRobinUtil.getRoundRobinValue(RoundRobinUtil.RoundRobinKey.ANALYZE_LOG, config.getTopics().getAnalyzeLog()), log);
         }
     }
 
-    protected abstract void getSendTopic(M message);
-    protected abstract void send(M message);
-    protected abstract void log(M message);
-    protected abstract ImsAnalyzeLog analyzeLog(M message);
+    protected abstract void getSendTopic(M messagePacket);
+    protected abstract void send(M messagePacket);
+    protected abstract void log(M messagePacket);
+    protected abstract ImsAnalyzeLog analyzeLog(M messagePacket);
     
-    protected void sendToKafka(String topic, Object message) throws JsonProcessingException, Exception {
-        final String data;
-
-        try {
-            data = mapper.writeValueAsString(message);
-        } catch (JsonProcessingException e) {
-            throw e;
-        }
-
-        ListenableFuture<SendResult<String, String>> future = kafkaTemplate.send(topic, data);
-        future.addCallback(new ListenableFutureCallback<SendResult<String, String>>() {
+    protected void sendToKafka(String topic, ImsPacket<?> message) throws JsonProcessingException, Exception {
+        ListenableFuture<SendResult<String, ImsPacket<?>>> future = kafkaTemplate.send(topic, message);
+        future.addCallback(new ListenableFutureCallback<SendResult<String, ImsPacket<?>>>() {
             @Override
-            public void onSuccess(SendResult<String, String> result) {
+            public void onSuccess(SendResult<String, ImsPacket<?>> result) {
             }
 
             @Override
             public void onFailure(Throwable e) {
-                log.error("kafka send failed. topic: {}, data: {}", topic, data, e.getCause());
+                log.error("kafka send failed. topic: {}, data: {}", topic, message, e.getCause());
             }
         });
     }

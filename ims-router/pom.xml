@@ -56,12 +56,6 @@
             <version>1.0.0</version>
         </dependency>
 
-        <!-- IMS Common -->
-        <dependency>
-            <groupId>org.kimbs.ims</groupId>
-            <artifactId>ims-common</artifactId>
-            <version>1.0.0</version>
-        </dependency>
     </dependencies>
 
     <dependencyManagement>

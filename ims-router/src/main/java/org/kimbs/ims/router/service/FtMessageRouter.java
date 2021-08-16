@@ -2,38 +2,40 @@ package org.kimbs.ims.router.service;
 
 import org.kimbs.ims.model.kakao.FtMessageReq;
 import org.kimbs.ims.protocol.ImsAnalyzeLog;
-import org.kimbs.ims.util.RoundRobinUtils;
+import org.kimbs.ims.protocol.ImsPacket;
+import org.kimbs.ims.util.RoundRobinUtil;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class FtMessageRouter extends AbstractMessageRouter<FtMessageReq> {
+public class FtMessageRouter extends AbstractMessageRouter<ImsPacket<FtMessageReq>> {
 
     @Override
-    protected void getSendTopic(FtMessageReq message) {
+    protected void getSendTopic(ImsPacket<FtMessageReq> message) {
         List<String> defaultSendTopicList = config.getTopics().getSendFt();
-        String destinationTopic = RoundRobinUtils.getRoundRobinValue(RoundRobinUtils.RoundRobinKey.SEND_FT, defaultSendTopicList);
+        String destinationTopic = RoundRobinUtil.getRoundRobinValue(RoundRobinUtil.RoundRobinKey.SEND_FT, defaultSendTopicList);
 
-        message.getTrace().setDestinationTopic(destinationTopic);
+        message.getTraceInfo().setDestinationTopic(destinationTopic);
     }
 
     @Override
-    protected void send(FtMessageReq message) {
-
-    }
-
-    @Override
-    protected void log(FtMessageReq message) {
+    protected void send(ImsPacket<FtMessageReq> message) {
 
     }
 
     @Override
-    protected ImsAnalyzeLog analyzeLog(FtMessageReq message) {
+    protected void log(ImsPacket<FtMessageReq> message) {
+
+    }
+
+    @Override
+    protected ImsAnalyzeLog analyzeLog(ImsPacket<FtMessageReq> message) {
+        FtMessageReq data = message.getData();
         ImsAnalyzeLog log = new ImsAnalyzeLog();
-        log.setMessage(message.getMessage());
-        log.setPhoneNumber(message.getPhoneNumber());
-        log.setSerialNumber(message.getSerialNumber());
+        log.setMessage(data.getMessage());
+        log.setPhoneNumber(data.getPhoneNumber());
+        log.setSerialNumber(data.getSerialNumber());
 
         return log;
     }

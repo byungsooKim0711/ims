@@ -10,6 +10,6 @@ import java.lang.annotation.*;
 @Documented
 @Target(value = { ElementType.TYPE, ElementType.METHOD })
 @Retention(RetentionPolicy.RUNTIME)
-@RequestMapping(value = "/ims/v1/{serviceKey}")
+@RequestMapping(value = "/kakao")
 public @interface Version1 {
 }

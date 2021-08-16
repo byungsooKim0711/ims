@@ -13,8 +13,6 @@ public class ImsRequestFilter implements WebFilter {
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, WebFilterChain chain) {
-        String serviceKey = exchange.getRequest().getHeaders().getFirst("IMS-SERVICE-KEY");
-
         return chain.filter(exchange);
     }
 }

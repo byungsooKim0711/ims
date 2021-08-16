@@ -30,6 +30,12 @@ public class RouterConfig {
         private List<String> recvFt;
         @NotEmpty
         private List<String> recvBt;
+        @NotEmpty
+        private List<String> recvEm;
+        @NotEmpty
+        private List<String> recvPu;
+        @NotEmpty
+        private List<String> recvMt;
 
         @NotEmpty
         private List<String> sendAt;

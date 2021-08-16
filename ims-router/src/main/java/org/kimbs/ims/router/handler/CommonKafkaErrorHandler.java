@@ -16,11 +16,8 @@ public class CommonKafkaErrorHandler implements ErrorHandler {
     private static final Logger logger = LoggerFactory.getLogger(CommonKafkaErrorHandler.class);
 
     @Override
-    public void handle(Exception thrownException, ConsumerRecord<?, ?> record) {
-        String value = (String) record.value();
-        int partition = record.partition();
-
-        logger.error("error received message='{}' with partition-offset='{}', key='{}'", value, partition, record.key());
+    public void handle(Exception exception, ConsumerRecord<?, ?> record) {
+        logger.error("error received record: {}", record, exception);
     }
 
 }

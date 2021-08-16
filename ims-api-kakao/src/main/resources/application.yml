@@ -36,15 +36,16 @@ spring:
   kafka:
     bootstrap-servers: "127.0.0.1:9092"
     producer:
-      client-id: "V1.API.KAKAO"
+      client-id: "API-KAKAO"
       retries: 0
       batch-size: 20000
       compression-type: gzip
-      linger-ms: 50
       buffer-memory: 33554432
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
       acks: 1
+      properties:
+        linger.ms: 50
 
   task:
     scheduling:
@@ -74,6 +75,25 @@ spring:
   jackson:
     property-naming-strategy: SNAKE_CASE
 
+## eureka
+eureka:
+  client:
+    enabled: true
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka
+    should-unregister-on-shutdown: true
+
+  instance:
+    prefer-ip-address: true
+    ## Heart beat option
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 2
+
+    ## 랜덤포트 사용 시 eureka 등록할 인스턴스 ID를 직접 지정
+    instance-id: ${spring.cloud.client.hostname}:${spring.application.instance_id:${random.value}}
+
 # Actuator
 management:
   endpoints:
@@ -96,7 +116,7 @@ ims:
       # 토픽 리스트
       topics:
         recv-at:
-          - RECV-AT
+          - kbstest
         recv-ft:
           - RECV-FT
         recv-bt:
