@@ -56,14 +56,7 @@
 			<scope>runtime</scope>
 		</dependency>
 
-		<!-- IMS COMMON-->
-		<dependency>
-			<groupId>org.kimbs.ims</groupId>
-			<artifactId>ims-common</artifactId>
-			<version>1.0.0</version>
-		</dependency>
-
-		<!-- IMS PROTOCOL -->
+		<!-- IMS protocol -->
 		<dependency>
 			<groupId>org.kimbs.ims</groupId>
 			<artifactId>ims-protocol</artifactId>

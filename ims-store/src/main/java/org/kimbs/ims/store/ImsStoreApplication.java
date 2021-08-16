@@ -6,6 +6,8 @@ import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
+import java.util.TimeZone;
+
 @EnableScheduling
 @SpringBootApplication
 public class ImsStoreApplication {
@@ -16,6 +18,6 @@ public class ImsStoreApplication {
 
 	@EventListener(ApplicationReadyEvent.class)
 	public void init() {
-
+		TimeZone.setDefault(TimeZone.getTimeZone("Asia/Seoul"));
 	}
 }
