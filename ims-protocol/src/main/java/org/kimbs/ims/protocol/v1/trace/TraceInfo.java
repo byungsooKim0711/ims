@@ -1,4 +1,4 @@
-package org.kimbs.ims.protocol;
+package org.kimbs.ims.protocol.v1.trace;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -14,12 +14,12 @@ public class TraceInfo implements Serializable {
     private static final long serialVersionUID = -2313086246211220293L;
 
     // 유저 아이디
-    @JsonProperty("user_id")
-    private Long userId;
+    @JsonProperty("customer_id")
+    private Long customerId;
 
     // 메시지 UID
-    @JsonProperty("msg_uid")
-    private String msgUid;
+    @JsonProperty("message_id")
+    private String messageId;
 
     // 트래킹 ID
     @JsonProperty("tracking_id")
@@ -38,28 +38,28 @@ public class TraceInfo implements Serializable {
     private String destinationTopic;
 
     // 카카오 요청/응답
-    @JsonProperty("kakao_req_at")
-    private LocalDateTime kakaReqAt;
-    @JsonProperty("kakao_res_at")
-    private LocalDateTime kakaResAt;
+    @JsonProperty("kakao_request_at")
+    private LocalDateTime kakaoRequestAt;
+    @JsonProperty("kakao_response_at")
+    private LocalDateTime kakaoResponseAt;
 
     // 문자 요청/응답
-    @JsonProperty("mt_req_at")
-    private LocalDateTime mtReqAt;
-    @JsonProperty("mt_res_at")
-    private LocalDateTime mtResAt;
+    @JsonProperty("mt_request_at")
+    private LocalDateTime mtRequestAt;
+    @JsonProperty("mt_response_at")
+    private LocalDateTime mtResponseAt;
 
     // 이메일 요청/응답
-    @JsonProperty("email_req_at")
-    private LocalDateTime emailReqAt;
-    @JsonProperty("email_res_at")
-    private LocalDateTime emailResAt;
+    @JsonProperty("email_request_at")
+    private LocalDateTime emailRequestAt;
+    @JsonProperty("email_response_at")
+    private LocalDateTime emailResponseAt;
 
     // 앱푸시 요청/응답
-    @JsonProperty("push_req_at")
-    private LocalDateTime pushReqAt;
-    @JsonProperty("push_res_at")
-    private LocalDateTime pushResAt;
+    @JsonProperty("push_request_at")
+    private LocalDateTime pushRequestAt;
+    @JsonProperty("push_response_at")
+    private LocalDateTime pushResponseAt;
 
     // 부서코드
     @JsonProperty("bill_code")

@@ -1,26 +1,28 @@
 package org.kimbs.ims.protocol;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Builder;
-import lombok.Getter;
+import lombok.*;
+import org.kimbs.ims.protocol.v1.trace.TraceInfo;
 
 @Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class ImsPacket<T> {
 
     @JsonProperty("command")
-    private final ImsPacketCommand command;
+    private ImsPacketCommand command;
 
     @JsonProperty("data")
-    private final T data;
+    private T data;
 
     @JsonProperty("trace_info")
-    private final TraceInfo traceInfo;
+    private TraceInfo traceInfo;
 
-    @Builder
-    public ImsPacket(ImsPacketCommand command, T data, TraceInfo traceInfo) {
-        this.command = command;
-        this.data = data;
-        this.traceInfo = traceInfo;
-    }
-
+//    @Builder
+//    public ImsPacket(ImsPacketCommand command, T data, TraceInfo traceInfo) {
+//        this.command = command;
+//        this.data = data;
+//        this.traceInfo = traceInfo;
+//    }
 }

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.Getter;
 import org.kimbs.ims.exception.NotSupportButtonType;
+import org.kimbs.ims.exception.NotSupportMessageType;
 
 import java.util.Arrays;
 import java.util.Map;
@@ -55,7 +56,7 @@ public enum KakaoMessageType {
     public static KakaoMessageType fromValue(String type) {
         return Optional
                 .ofNullable(messageTypeMap.get(type))
-                .orElseThrow(() -> new NotSupportButtonType("Not support buttonType : " + type));
+                .orElseThrow(() -> new NotSupportMessageType("Not support buttonType : " + type));
     }
 
 }

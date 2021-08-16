@@ -3,16 +3,10 @@ package org.kimbs.ims.protocol.v1.kakao.at;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.hibernate.validator.constraints.Length;
 import org.kimbs.ims.model.kakao.Attachment;
 import org.kimbs.ims.model.kakao.Supplement;
 import org.kimbs.ims.protocol.AbstractMessage;
-import org.kimbs.ims.protocol.TraceInfo;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import java.io.Serializable;
 import java.util.Map;
 
 @Data

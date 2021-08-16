@@ -13,6 +13,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.List;
 
@@ -47,24 +48,14 @@ public class ImsBizAtMultiReq extends AbstractMessage implements Serializable {
     // 수신자 리스트 최대 1000 건
     @Valid
     @NotEmpty
-    @Length(min = 1, max = 1000)
-    @JsonProperty("template_code")
+    @Size(min = 1, max = 1000)
+    @JsonProperty("receiver_list")
     private List<Receiver> receiverList;
-
-    // 국가번호 포함 수신자번호
-    @Length(min = 1, max = 20)
-    @JsonProperty("phone_number")
-    private String phoneNumber;
-
-    // 앱 유저 아이디
-    @Length(min = 1, max = 20)
-    @JsonProperty("app_user_id")
-    private String appUserId;
 
     // 메시지 내용
     @Length(min = 1, max = 1000)
-    @JsonProperty("contents")
-    private String contents;
+    @JsonProperty("message")
+    private String message;
 
     // 과금코드
     @Length(min = 1, max = 20)

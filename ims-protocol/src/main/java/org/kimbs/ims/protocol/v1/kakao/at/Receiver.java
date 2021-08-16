@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
+import java.util.Map;
+
 @Data
 public class Receiver {
 
@@ -16,4 +18,12 @@ public class Receiver {
     @Length(min = 1, max = 20)
     @JsonProperty("app_user_id")
     private String appUserId;
+
+    // 국가코드
+    @Length(max = 10, message = "country_code 값은 10자 이하여야 합니다.")
+    @JsonProperty("country_code")
+    private String countryCode;
+
+    @JsonProperty("mapping")
+    private Map<String, String> mapping;
 }

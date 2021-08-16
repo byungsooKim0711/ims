@@ -21,7 +21,7 @@ public class ImsBizAtReq extends AbstractMessage {
     // 메시지 유니크 키
     @NotNull
     @NotBlank(message = "message_id 는 필수값입니다.")
-    @Length(min = 1, max = 30, message = "message_id 는 30자 이하여야 합니다.")
+    @Length(min = 1, max = 19, message = "message_id 는 19자 이하여야 합니다.")
     @JsonProperty("message_id")
     private String messageId;
 
