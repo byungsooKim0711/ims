@@ -7,17 +7,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="ims-store" />
-        <module name="channel-kakao" />
         <module name="ims-api-push" />
-        <module name="ims-api-kakao" />
         <module name="ims-channel-kakao" />
-        <module name="ims-common" />
+        <module name="demo" />
+        <module name="ims-store" />
+        <module name="ims-api-discovery" />
+        <module name="channel-kakao" />
+        <module name="ims-api-kakao" />
         <module name="ims-api-email" />
         <module name="ims-protocol" />
         <module name="ims-router" />
         <module name="ims-admin-server" />
-        <module name="demo" />
         <module name="ims-api-gateway" />
       </profile>
     </annotationProcessing>
@@ -26,6 +26,7 @@
       <module name="demo" target="1.8" />
       <module name="ims" target="1.8" />
       <module name="ims-admin-server" target="1.8" />
+      <module name="ims-api-discovery" target="1.8" />
       <module name="ims-api-email" target="1.8" />
       <module name="ims-api-gateway" target="1.8" />
       <module name="ims-api-kakao" target="1.8" />
@@ -44,6 +45,7 @@
       <module name="demo" options="-parameters" />
       <module name="ims" options="-parameters" />
       <module name="ims-admin-server" options="-parameters" />
+      <module name="ims-api-discovery" options="-parameters" />
       <module name="ims-api-email" options="-parameters" />
       <module name="ims-api-gateway" options="-parameters" />
       <module name="ims-api-kakao" options="-parameters" />

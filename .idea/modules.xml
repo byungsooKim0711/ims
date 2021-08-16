@@ -4,12 +4,12 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ims.iml" filepath="$PROJECT_DIR$/ims.iml" />
       <module fileurl="file://$PROJECT_DIR$/ims-admin-server/ims-admin-server.iml" filepath="$PROJECT_DIR$/ims-admin-server/ims-admin-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ims-api-discovery/ims-api-discovery.iml" filepath="$PROJECT_DIR$/ims-api-discovery/ims-api-discovery.iml" />
       <module fileurl="file://$PROJECT_DIR$/ims-api-email/ims-api-email.iml" filepath="$PROJECT_DIR$/ims-api-email/ims-api-email.iml" />
       <module fileurl="file://$PROJECT_DIR$/ims-api-gateway/ims-api-gateway.iml" filepath="$PROJECT_DIR$/ims-api-gateway/ims-api-gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/ims-api-kakao/ims-api-kakao.iml" filepath="$PROJECT_DIR$/ims-api-kakao/ims-api-kakao.iml" />
       <module fileurl="file://$PROJECT_DIR$/ims-api-push/ims-api-push.iml" filepath="$PROJECT_DIR$/ims-api-push/ims-api-push.iml" />
       <module fileurl="file://$PROJECT_DIR$/ims-channel-kakao/ims-channel-kakao.iml" filepath="$PROJECT_DIR$/ims-channel-kakao/ims-channel-kakao.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ims-common/ims-common.iml" filepath="$PROJECT_DIR$/ims-common/ims-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/ims-protocol/ims-protocol.iml" filepath="$PROJECT_DIR$/ims-protocol/ims-protocol.iml" />
       <module fileurl="file://$PROJECT_DIR$/ims-router/ims-router.iml" filepath="$PROJECT_DIR$/ims-router/ims-router.iml" />
       <module fileurl="file://$PROJECT_DIR$/ims-store/ims-store.iml" filepath="$PROJECT_DIR$/ims-store/ims-store.iml" />
