@@ -11,14 +11,13 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class ImsMtReq extends AbstractMessage implements Serializable {
+public class ImsMtReq extends AbstractMessage {
 
     private static final long serialVersionUID = 8214461813187362878L;
 

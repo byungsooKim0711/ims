@@ -1,14 +1,10 @@
 package org.kimbs.ims.protocol;
 
-import lombok.Data;
-
 import java.io.Serializable;
 
-@Data
 public abstract class AbstractMessage implements Serializable {
 
-    private static final long serialVersionUID = -6437664215015324020L;
+    private static final long serialVersionUID = 3395541184181274097L;
 
-    // TODO: 뭔가 필요할 때 추가합시다.
-
+    // TODO: 나중에 필요한거 있으면 추가하지 뭐..
 }

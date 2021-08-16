@@ -2,16 +2,12 @@ package org.kimbs.ims.protocol.v1.push;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import org.kimbs.ims.protocol.AbstractMessage;
 
-import java.io.Serializable;
-
 @Getter
-@EqualsAndHashCode(callSuper = true)
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class ImsPushReq extends AbstractMessage implements Serializable {
+public class ImsPushReq extends AbstractMessage {
 
     private static final long serialVersionUID = -3057506793548665520L;
 

@@ -4,16 +4,12 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import org.kimbs.ims.protocol.AbstractMessage;
 
-import java.io.Serializable;
-
 @Getter
-@EqualsAndHashCode(callSuper = true)
 @JsonInclude(Include.NON_EMPTY)
-public class FtMessageReq extends AbstractMessage implements Serializable {
+public class FtMessageReq extends AbstractMessage {
 
 	private static final long serialVersionUID = -1142822831531186105L;
 

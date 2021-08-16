@@ -6,12 +6,10 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.kimbs.ims.protocol.AbstractMessage;
 
-import java.io.Serializable;
-
 @Data
 @EqualsAndHashCode(callSuper = true)
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class ImsBizBtReq extends AbstractMessage implements Serializable {
+public class ImsBizBtReq extends AbstractMessage {
 
     private static final long serialVersionUID = 3021368390494639638L;
 

@@ -5,108 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="57480980-59ba-4ec3-a3eb-a18f3aefde39" name="Default Changelist" comment="loggin">
-      <change afterPath="$PROJECT_DIR$/ims-api-discovery/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-api-discovery/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-api-discovery/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-api-discovery/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-api-discovery/src/main/java/org/kimbs/ims/api/discovery/ImsApiDiscoveryApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-api-discovery/src/main/resources/application-local.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-api-discovery/src/main/resources/application-peer1.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-api-discovery/src/main/resources/application-peer2.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-api-discovery/src/main/resources/application-peer3.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-api-discovery/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-api-discovery/src/main/resources/logback-spring.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-api-discovery/src/test/java/org/kimbs/ims/api/discovery/ImsApiDiscoveryApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-api-gateway/src/main/java/org/kimbs/ims/api/gateway/config/ContextClosedEventListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-api-gateway/src/main/java/org/kimbs/ims/api/gateway/config/Resilience4JConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-api-gateway/src/main/java/org/kimbs/ims/api/gateway/filter/AuthFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-api-gateway/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/config/KafkaProducerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/AbstractKakaoService.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/KafkaService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-router/src/main/java/org/kimbs/ims/router/consumer/AbstractMessageConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-router/src/main/java/org/kimbs/ims/router/consumer/EmMessageConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-router/src/main/java/org/kimbs/ims/router/consumer/MtMessageConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-router/src/main/java/org/kimbs/ims/router/consumer/PuMessageConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ims-router/src/main/java/org/kimbs/ims/router/service/EmMessageRouter.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/ims-router/src/main/java/org/kimbs/ims/router/service/MtMessageRouter.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/ims-router/src/main/java/org/kimbs/ims/router/service/PuMessageRouter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/AgentInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/ApiInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/ApiRouting.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/Customer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/CustomerRouting.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/KakaoTemplate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/KakaoTemplateRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/RoutingGroup.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/RoutingTopic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/converter/CryptoConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/hist/AgentBizSendHist.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/hist/AgentEmailSendHist.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/hist/AgentMtSendHist.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/hist/AgentPushSendHist.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/hist/ApiBizSendHist.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/hist/ApiEmailSendHist.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/hist/ApiMtSendHist.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/hist/ApiPushSendHist.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/stat/AgentBizSendStat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/stat/AgentEmailSendStat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/stat/AgentMtSendStat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/stat/AgentPushSendStat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/stat/ApiBizSendStat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/stat/ApiEmailSendStat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/stat/ApiMtSendStat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/stat/ApiPushSendStat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/repository/ApiRoutingRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/repository/CustomerRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/repository/CustomerRoutingRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/repository/KakaoTemplateRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/repository/KakaoTemplateRequestRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/repository/RoutingGroupRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/repository/RoutingTopicRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/repository/SendProfileRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/repository/hist/AgentBizSendHistRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/repository/hist/AgentEmailSendHistRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/repository/hist/AgentMtSendHistRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/repository/hist/AgentPushSendHistRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/repository/hist/ApiBizSendHistRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/repository/hist/ApiEmailSendHistRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/repository/hist/ApiMtSendHistRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/repository/hist/ApiPushSendHistRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/repository/stat/AgentBizSendStatRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/repository/stat/AgentEmailSendStatRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/repository/stat/AgentMtSendStatRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/repository/stat/AgentPushSendStatRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/repository/stat/ApiBizSendStatRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/repository/stat/ApiEmailSendStatRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/repository/stat/ApiMtSendStatRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/repository/stat/ApiPushSendStatRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_11_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_11_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_11_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jdk8_2_11_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_11_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_parameter_names_2_11_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_10_18.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_agent_1_10_18.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_5_7_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_7_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_7_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_params_5_7_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_7_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_7_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_thymeleaf_3_0_11_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_thymeleaf_spring5_3_0_11_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-admin-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-admin-server/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-api-email/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-email/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-api-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-gateway/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-api-gateway/src/main/java/org/kimbs/ims/api/gateway/ImsGatewayApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-gateway/src/main/java/org/kimbs/ims/api/gateway/ImsGatewayApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-api-gateway/src/main/java/org/kimbs/ims/api/gateway/config/CircuitBreakerConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-api-gateway/src/main/java/org/kimbs/ims/api/gateway/config/RedisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-gateway/src/main/java/org/kimbs/ims/api/gateway/config/RedisConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-api-gateway/src/main/java/org/kimbs/ims/api/gateway/filter/GlobalLoggingFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-gateway/src/main/java/org/kimbs/ims/api/gateway/filter/GlobalLoggingFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-api-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-gateway/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ims-api-kakao/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/ImsApiKakaoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/ImsApiKakaoApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/config/KafkaConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/config/KafkaConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/config/KafkaConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/controller/AbstractImsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/controller/AbstractImsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/controller/AtController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/controller/AtController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/controller/BtController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/controller/BtController.java" afterDir="false" />
@@ -117,17 +28,27 @@
       <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/handler/CommonKafkaErrorHandler.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/handler/ImsExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/handler/ImsExceptionHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/schedule/ServiceKeyLoadScheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/schedule/ServiceKeyLoadScheduler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/AbstractImsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/AbstractKakaoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/AbstractImsService.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/AtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/AtService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/BtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/BtService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/FtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/java/org/kimbs/ims/api/kakao/service/FtService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ims-api-kakao/src/main/resources/logback-spring.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-kakao/src/main/resources/logback-spring.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-api-push/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-api-push/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-channel-kakao/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-channel-kakao/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-common/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-protocol/src/main/java/org/kimbs/ims/model/email/EmailMessageReq.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-protocol/src/main/java/org/kimbs/ims/model/email/EmailMessageReq.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-protocol/src/main/java/org/kimbs/ims/model/kakao/AtMessageReq.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-protocol/src/main/java/org/kimbs/ims/model/kakao/AtMessageReq.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-protocol/src/main/java/org/kimbs/ims/model/kakao/BtMessageReq.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-protocol/src/main/java/org/kimbs/ims/model/kakao/BtMessageReq.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-protocol/src/main/java/org/kimbs/ims/model/kakao/FtMessageReq.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-protocol/src/main/java/org/kimbs/ims/model/kakao/FtMessageReq.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-protocol/src/main/java/org/kimbs/ims/model/push/PushMessageReq.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-protocol/src/main/java/org/kimbs/ims/model/push/PushMessageReq.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-protocol/src/main/java/org/kimbs/ims/protocol/AbstractMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-protocol/src/main/java/org/kimbs/ims/protocol/AbstractMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-protocol/src/main/java/org/kimbs/ims/protocol/ImsPacket.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-protocol/src/main/java/org/kimbs/ims/protocol/ImsPacket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-protocol/src/main/java/org/kimbs/ims/protocol/v1/email/ImsEmailReq.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-protocol/src/main/java/org/kimbs/ims/protocol/v1/email/ImsEmailReq.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-protocol/src/main/java/org/kimbs/ims/protocol/v1/kakao/at/ImsBizAtMultiReq.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-protocol/src/main/java/org/kimbs/ims/protocol/v1/kakao/at/ImsBizAtMultiReq.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-protocol/src/main/java/org/kimbs/ims/protocol/v1/kakao/bt/ImsBizBtReq.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-protocol/src/main/java/org/kimbs/ims/protocol/v1/kakao/bt/ImsBizBtReq.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-protocol/src/main/java/org/kimbs/ims/protocol/v1/mt/ImsMtReq.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-protocol/src/main/java/org/kimbs/ims/protocol/v1/mt/ImsMtReq.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-protocol/src/main/java/org/kimbs/ims/protocol/v1/push/ImsPushReq.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-protocol/src/main/java/org/kimbs/ims/protocol/v1/push/ImsPushReq.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ims-router/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-router/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ims-router/src/main/java/org/kimbs/ims/router/config/KafkaConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-router/src/main/java/org/kimbs/ims/router/config/KafkaConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-router/src/main/java/org/kimbs/ims/router/config/RouterConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-router/src/main/java/org/kimbs/ims/router/config/RouterConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ims-router/src/main/java/org/kimbs/ims/router/consumer/AtMessageConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-router/src/main/java/org/kimbs/ims/router/consumer/AtMessageConsumer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ims-router/src/main/java/org/kimbs/ims/router/consumer/BtMessageConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-router/src/main/java/org/kimbs/ims/router/consumer/BtMessageConsumer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ims-router/src/main/java/org/kimbs/ims/router/consumer/FtMessageConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-router/src/main/java/org/kimbs/ims/router/consumer/FtMessageConsumer.java" afterDir="false" />
@@ -138,24 +59,10 @@
       <change beforePath="$PROJECT_DIR$/ims-router/src/main/java/org/kimbs/ims/router/service/BtMessageRouter.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-router/src/main/java/org/kimbs/ims/router/service/BtMessageRouter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ims-router/src/main/java/org/kimbs/ims/router/service/FtMessageRouter.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-router/src/main/java/org/kimbs/ims/router/service/FtMessageRouter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ims-router/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-router/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-store/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-store/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/ImsStoreApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/ImsStoreApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/consumer/EmailHistoryConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/consumer/PuHistoryConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/consumer/PushHistoryConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/consumer/EmHistoryConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/BaseTimeEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/BaseTimeEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/SendProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/SendProfile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/ServiceKey.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/Template.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/WebUser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/code/ServiceKeyType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/repository/ServiceKeyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/repository/AgentInfoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/repository/WebUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/repository/ApiInfoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/schedule/RedisStoreServiceKeySchedule.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ims-store/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ims-store/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/hist/ApiBizSendHist.java" beforeDir="false" afterPath="$PROJECT_DIR$/ims-store/src/main/java/org/kimbs/ims/store/domain/hist/ApiBizSendHist.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mdfiles/email_message.md" beforeDir="false" afterPath="$PROJECT_DIR$/mdfiles/email_message.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mdfiles/kakao_message.md" beforeDir="false" afterPath="$PROJECT_DIR$/mdfiles/kakao_message.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mdfiles/mt_message.md" beforeDir="false" afterPath="$PROJECT_DIR$/mdfiles/mt_message.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -456,35 +363,7 @@
       <workItem from="1628831999100" duration="1392000" />
       <workItem from="1628833923638" duration="13086000" />
       <workItem from="1629029622491" duration="1089000" />
-      <workItem from="1629113952646" duration="8211000" />
-    </task>
-    <task id="LOCAL-00016" summary=".....">
-      <created>1606481914488</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1606481914488</updated>
-    </task>
-    <task id="LOCAL-00017" summary="reactor를 다시한번 시도..">
-      <created>1606838991948</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1606838991948</updated>
-    </task>
-    <task id="LOCAL-00018" summary="..">
-      <created>1606839288777</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1606839288777</updated>
-    </task>
-    <task id="LOCAL-00019" summary="Add redis-reactive">
-      <created>1606919327628</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1606919327628</updated>
+      <workItem from="1629113952646" duration="16900000" />
     </task>
     <task id="LOCAL-00020" summary="...">
       <created>1607092282035</created>
@@ -801,7 +680,35 @@
       <option name="project" value="LOCAL" />
       <updated>1629122304956</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="ims-common 제거">
+      <created>1629122431126</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1629122431126</updated>
+    </task>
+    <task id="LOCAL-00066" summary="discovery-server 추가">
+      <created>1629122492360</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1629122492360</updated>
+    </task>
+    <task id="LOCAL-00067" summary="ims-common 제거&#10;spring-cloud 버전 변경&#10;기타 설정 변경 및 리팩토링">
+      <created>1629122686600</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1629122686601</updated>
+    </task>
+    <task id="LOCAL-00068" summary="ims-common 제거&#10;설정 변경&#10;entity 추가 및 수정">
+      <created>1629122893928</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1629122893928</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -819,10 +726,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="ERD 링크 추가" />
-    <MESSAGE value="문서 언제작성하지?" />
-    <MESSAGE value="Add shutdown graceful" />
-    <MESSAGE value="TODO: push protocol 구성해아함" />
     <MESSAGE value="TODO: Email protocol 구성해야함." />
     <MESSAGE value="readme 수정" />
     <MESSAGE value="불필요한 내용 제거" />
@@ -844,7 +747,11 @@
     <MESSAGE value="오타수정" />
     <MESSAGE value="리포트 정책 추가, 테스트 필요" />
     <MESSAGE value="프로토콜 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="프로토콜 수정" />
+    <MESSAGE value="ims-common 제거" />
+    <MESSAGE value="discovery-server 추가" />
+    <MESSAGE value="ims-common 제거&#10;spring-cloud 버전 변경&#10;기타 설정 변경 및 리팩토링" />
+    <MESSAGE value="ims-common 제거&#10;설정 변경&#10;entity 추가 및 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="ims-common 제거&#10;설정 변경&#10;entity 추가 및 수정" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

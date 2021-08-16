@@ -12,11 +12,16 @@
 ```
 ---
 ### 이메일 메시지 발송
-#### URL: /ims/{serviceKey}/email/sendMessage
-#### HttpMethod: POST
-#### Request Body
+> #### **URL**: /ims/{serviceKey}/email/sendMessage 
+> #### **HttpMethod**: POST
 ```json
 {
+  "from_email": "string(100)",
+  "from_name": "string(100)",
+  "message_type": "string(4)",
+  "subject": "string(255)",
+  "message": "string",
+  "attach_file_list": [],
   
   "template_code": "string(30)",
   "mapping": {}

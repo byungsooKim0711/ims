@@ -13,8 +13,8 @@
 ---
 
 ### 문자 메시지 발송
-#### URL: /ims/{serviceKey}/mt/sendMessage
-#### HttpMethod: POST
+> #### **URL**: /ims/{serviceKey}/email/sendMessage
+> #### **HttpMethod**: POST
 #### Request Body
 ```json
 {
@@ -41,15 +41,15 @@
 ```
 | Key              | Type         | Required | Description                                   | Example            | 비고                                 |
 | ---------------- | ------------ | -------- | --------------------------------------------- | ------------------ | ------------------------------------ |
-| message_id       | String(30)   | Y        | 문자메시지 발송에 대한 유니크한 메시지 아이디 | "1"                |                                      |
-| meaage_type      | String(3)    | Y        | 문자메시지 발송 타입                          | "SMS"              | "SMS", "LMS", "MMS"                  |
-| title            | String(50)   | N        | euc-kr 기준 50바이트 까지 사용 가능           | "문자 제목"        | LMS, MMS 에서만 사용 가능            |
-| message          | String(2000) | N        | euc-kr 기준 2000 바이트 까지 사용 가능        | "문자 내용"        |    SMS: 90byte 이하, LMS/MMS 2000byte 이하                                  |
-| callback         | String(20)   | Y        | 발신번호                                      | "01049492891"      | 사전에 등록한 발신번호로만 발송 가능 |
-| attach_file_list | List(3)      | N        | MMS 발송 시 첨부할 이미지 (최대 3개)          | ["key1", "key2"]   | MMS 에서만 사용 가능 (사전에 업로드한 image file key 만 사용가능)                 |
-| phone_number     | String(20)   | Y        | 수신자 번호                                   | "01049492891"      |                                      |
-| template_code    | String(30)   | N        | 문자메시지 템플릿 코드                        | "TEMPLATE_001"     |                                      |
-| mapping          | Json         | N        | 템플릿 사용 또는 개인화 변수 사용 시          | {"key1": "value1"} |                                      |
+| message_id       | String(30)   | Y        | 문자메시지 발송에 대한 유니크한 메시지 아이디 | "message_id":1"                |                                      |
+| message_type      | String(3)    | Y        | 문자메시지 발송 타입                          | "message_type":"SMS"              | "SMS", "LMS", "MMS"                  |
+| title            | String(50)   | N        | euc-kr 기준 50바이트 까지 사용 가능           | "title":"문자 제목"        | LMS, MMS 에서만 사용 가능            |
+| message          | String(2000) | N        | euc-kr 기준 2000 바이트 까지 사용 가능        | "message":"문자 내용"        |    SMS: 90byte 이하, LMS/MMS 2000byte 이하                                  |
+| callback         | String(20)   | Y        | 발신번호                                      | "callback":"01049492891"      | 사전에 등록한 발신번호로만 발송 가능 |
+| phone_number     | String(20)   | Y        | 수신자 번호                                   | "phone_number":"01049492891"      |                                      |
+| template_code    | String(30)   | N        | 문자메시지 템플릿 코드                        | "template_code":"TEMPLATE_001"     |                                      |
+| mapping          | Json         | N        | 템플릿 사용 또는 개인화 변수 사용 시          | "mapping":{"key1": "value1"} |                                      |
+| attach_file_list | List(3)      | N        | MMS 발송 시 첨부할 이미지 (최대 3개)          | "attach_file_list":["key1", "key2"]   | MMS 에서만 사용 가능 (사전에 업로드한 image file key 만 사용가능)                 |
 |                  |              |          |                                               |                    |                                      |
 
 ---
