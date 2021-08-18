@@ -11,12 +11,16 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @RequiredArgsConstructor
 @Component
-
 public class EmMessageConsumer extends AbstractMessageConsumer<EmailMessageReq> {
 
     @KafkaListener(topics = "#{routerConfig.topics.recvEm}")
     @Override
     public void consume(ImsPacket<EmailMessageReq> messagePacket, Acknowledgment ack) {
 
+    }
+
+    @Override
+    public EmailMessageReq convert(Object data) {
+        return null;
     }
 }

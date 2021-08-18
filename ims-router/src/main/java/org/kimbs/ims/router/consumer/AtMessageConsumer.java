@@ -1,5 +1,6 @@
 package org.kimbs.ims.router.consumer;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,24 +24,19 @@ public class AtMessageConsumer extends AbstractMessageConsumer<AtMessageReq> {
     @Override
     public void consume(ImsPacket<AtMessageReq> messagePacket, Acknowledgment ack) {
 
-        log.info("{}", messagePacket);
+        messagePacket.updateData(this.convert(messagePacket.getData()));
 
-//        if (log.isDebugEnabled()) {
-//            log.debug("received message={} with topic={}-{}", value, topic, partition);
-//        }
-//
-//        try {
-//            AtMessageReq request = mapper.readValue(value, AtMessageReq.class);
-//
-//            router.routeAndSend(request);
-//        } catch (JsonProcessingException e) {
-//            log.error("json parse error. data: {}", value);
-//        } catch (Exception e) {
-//            log.error("Exception occurred.", e);
-//
-//            throw new RuntimeException(e);
-//        }
+        try {
+            router.routeAndSend(messagePacket);
+        } catch (Exception e) {
+            log.error("", e);
+        }
 
         ack.acknowledge();
+    }
+
+    @Override
+    public AtMessageReq convert(Object data) {
+        return mapper.convertValue(data, new TypeReference<AtMessageReq>() {}) ;
     }
 }

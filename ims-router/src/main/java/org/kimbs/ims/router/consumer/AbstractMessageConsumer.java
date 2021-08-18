@@ -7,4 +7,6 @@ import org.springframework.kafka.support.Acknowledgment;
 public abstract class AbstractMessageConsumer<T extends AbstractMessage> {
 
     public abstract void consume(ImsPacket<T> messagePacket, Acknowledgment ack);
+
+    public abstract T convert(Object data);
 }

@@ -16,6 +16,17 @@ public enum ImsPacketCommand {
     RECEIVE_MT("", Object.class),
     RECEIVE_PU("", PushMessageReq.class),
     RECEIVE_EM("", EmailMessageReq.class),
+
+    SEND_AT("", Object.class),
+    SEND_FT("", Object.class),
+    SEND_BT("", Object.class),
+    SEND_SMS("", Object.class),
+    SEND_LMS("", Object.class),
+    SEND_MMS("", Object.class),
+    SEND_PUSH("", Object.class),
+    SEND_EM("", Object.class),
+
+    ANALYZE_LOG("", ImsAnalyzeLog.class),
     ;
 
     private final String command;

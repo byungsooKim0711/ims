@@ -35,6 +35,11 @@ public class ImsExceptionHandler {
         return Mono.just(ImsApiResult.failed(ResponseCode.BAD_REQUEST));
     }
 
+    @ExceptionHandler(NotSupportMessageType.class)
+    public Mono<ImsApiResult<Void>> handle(NotSupportMessageType e, ServerWebExchange exchange) {
+        return Mono.just(ImsApiResult.failed(ResponseCode.NOT_SUPPORT_MESSAGE_TYPE_EXCEPTION, e.getMessage()));
+    }
+
     @ExceptionHandler(ImsServiceKeyException.class)
     public Mono<ImsApiResult<Void>> handle(ImsServiceKeyException e, ServerWebExchange exchange) {
         return Mono.just(ImsApiResult.failed(ResponseCode.UNKNOWN_SERVICE_KEY_EXCEPTION));
@@ -47,7 +52,7 @@ public class ImsExceptionHandler {
 
     @ExceptionHandler(ImsMandatoryException.class)
     public Mono<ImsApiResult<Void>> handle(ImsMandatoryException e, ServerWebExchange exchange) {
-        return Mono.just(ImsApiResult.failed(ResponseCode.MANDATORY_EXCEPTION));
+        return Mono.just(ImsApiResult.failed(ResponseCode.MANDATORY_EXCEPTION, e.getMessage()));
     }
 
     @ExceptionHandler(ImsDuplicateMsgUidException.class)

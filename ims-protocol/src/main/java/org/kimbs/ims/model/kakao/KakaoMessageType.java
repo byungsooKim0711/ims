@@ -56,7 +56,7 @@ public enum KakaoMessageType {
     public static KakaoMessageType fromValue(String type) {
         return Optional
                 .ofNullable(messageTypeMap.get(type))
-                .orElseThrow(() -> new NotSupportMessageType("Not support buttonType : " + type));
+                .orElseThrow(() -> new NotSupportMessageType("Not support message_type : " + type));
     }
 
 }

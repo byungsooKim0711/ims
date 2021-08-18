@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.kimbs.ims.model.kakao.AtMessageReq;
 import org.kimbs.ims.protocol.ImsAnalyzeLog;
 import org.kimbs.ims.protocol.ImsPacket;
+import org.kimbs.ims.protocol.ImsPacketCommand;
 import org.kimbs.ims.util.RoundRobinUtil;
 import org.springframework.stereotype.Service;
 
@@ -14,35 +15,36 @@ import java.util.List;
 public class AtMessageRouter extends AbstractMessageRouter<ImsPacket<AtMessageReq>> {
 
     @Override
-    protected void getSendTopic(ImsPacket<AtMessageReq> message) {
+    protected void getSendTopic(ImsPacket<AtMessageReq> packet) {
         List<String> defaultSendTopicList = config.getTopics().getSendAt();
         String destinationTopic = RoundRobinUtil.getRoundRobinValue(RoundRobinUtil.RoundRobinKey.SEND_AT, defaultSendTopicList);
 
-        message.getTraceInfo().setDestinationTopic(destinationTopic);
+        packet.getTraceInfo().setDestinationTopic(destinationTopic);
     }
 
     @Override
-    protected void send(ImsPacket<AtMessageReq> message) {
+    protected void send(ImsPacket<AtMessageReq> packet) {
+        packet.updateCommand(ImsPacketCommand.SEND_AT);
 //        try {
-//            super.sendToKafka(message.getTrace().getDestinationTopic(), message);
+//            super.sendToKafka(message.getTrace().getDestinationTopic(), packet);
 //        } catch (JsonProcessingException e) {
-//            log.error("json parse error. serialNumber: {}, message: {}", message.getSerialNumber(), message, e);
+//            log.error("json parse error. serialNumber: {}, message: {}", packet.getSerialNumber(), packet, e);
 //            throw new ImsKafkaSendException(e);
 //        } catch (Exception e) {
-//            log.error("exception occurred({}). serialNumber: {}", e.getMessage(), message.getSerialNumber(), e);
+//            log.error("exception occurred({}). serialNumber: {}", e.getMessage(), packet.getSerialNumber(), e);
 //            throw new ImsKafkaSendException(e);
 //        }
 
     }
 
     @Override
-    protected void log(ImsPacket<AtMessageReq> message) {
+    protected void log(ImsPacket<AtMessageReq> packet) {
 
     }
 
     @Override
-    protected ImsAnalyzeLog analyzeLog(ImsPacket<AtMessageReq> message) {
-        AtMessageReq data = message.getData();
+    protected ImsAnalyzeLog analyzeLog(ImsPacket<AtMessageReq> packet) {
+        AtMessageReq data = packet.getData();
         ImsAnalyzeLog log = new ImsAnalyzeLog();
         log.setMessage(data.getMessage());
         log.setPhoneNumber(data.getPhoneNumber());

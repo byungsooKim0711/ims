@@ -21,4 +21,9 @@ public class PuMessageConsumer extends AbstractMessageConsumer<PushMessageReq> {
     public void consume(ImsPacket<PushMessageReq> messagePacket, Acknowledgment ack) {
 
     }
+
+    @Override
+    public PushMessageReq convert(Object data) {
+        return null;
+    }
 }

@@ -34,14 +34,8 @@ public class FtMessageReq extends AbstractMessage {
 	@JsonProperty("message")
 	private String message;
 	
-	@JsonProperty("response_method")
-	private ResponseMethod responseMethod;
-	
 	@JsonProperty("ad_flag")
 	private String adFlag = "Y";
-	
-	@JsonProperty("wide")
-	private String wide = "N";
 	
 	@JsonProperty("attachment")
 	private Attachment attachment;
@@ -56,7 +50,6 @@ public class FtMessageReq extends AbstractMessage {
 		this.userKey = userKey;
 		this.message = message;
 		this.adFlag = adFlag;
-		this.wide = wide;
 		this.attachment = attachment;
 	}
 

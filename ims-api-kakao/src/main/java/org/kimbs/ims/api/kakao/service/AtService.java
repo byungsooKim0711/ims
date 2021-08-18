@@ -5,24 +5,20 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.kimbs.ims.exception.ImsKafkaSendException;
 import org.kimbs.ims.exception.ImsMandatoryException;
+import org.kimbs.ims.exception.NotSupportMessageType;
 import org.kimbs.ims.model.kakao.AtMessageReq;
-import org.kimbs.ims.model.kakao.Attachment;
 import org.kimbs.ims.model.kakao.KakaoMessageType;
-import org.kimbs.ims.model.kakao.Supplement;
 import org.kimbs.ims.protocol.ImsPacket;
 import org.kimbs.ims.protocol.ImsPacketCommand;
-import org.kimbs.ims.protocol.v1.trace.TraceInfo;
 import org.kimbs.ims.protocol.v1.kakao.at.ImsBizAtReq;
+import org.kimbs.ims.protocol.v1.trace.TraceInfo;
 import org.kimbs.ims.util.RoundRobinUtil;
 import org.kimbs.ims.util.SerialNumberUtil;
 import org.springframework.data.redis.core.ReactiveRedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
-import reactor.core.publisher.Mono;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Slf4j
@@ -35,32 +31,20 @@ public class AtService extends AbstractKakaoService<ImsBizAtReq, ImsPacket<AtMes
     @Override
     protected ImsPacket<AtMessageReq> convert(ImsBizAtReq request) {
         KakaoMessageType messageType = KakaoMessageType.fromValue(request.getMessageType());
-        String senderKey = request.getSenderKey();
-        String templateCode = request.getTemplateCode();
-        String message = request.getMessage();
-        String phoneNumber = request.getPhoneNumber();
-        String appUserId = request.getAppUserId();
-        String title = request.getTitle();
-        String header = request.getHeader();
-
         String messageId = request.getMessageId();
-        String serialNumber = SerialNumberUtil.generateSerialNumber(messageType.getType(), messageId);
-
-        Attachment attachment = request.getAttachment();
-        Supplement supplement = request.getSupplement();
 
         AtMessageReq atMessageReq = AtMessageReq.builder()
-                .serialNumber(serialNumber)
+                .serialNumber(SerialNumberUtil.generateSerialNumber(messageType.getType(), messageId))
                 .messageType(messageType)
-                .senderKey(senderKey)
-                .templateCode(templateCode)
-                .message(message)
-                .phoneNumber(phoneNumber)
-                .appUserId(appUserId)
-                .title(title)
-                .attachment(attachment)
-                .supplement(supplement)
-                .header(header)
+                .senderKey(request.getSenderKey())
+                .templateCode(request.getTemplateCode())
+                .message(request.getMessage())
+                .phoneNumber(request.getPhoneNumber())
+                .appUserId(request.getAppUserId())
+                .title(request.getTitle())
+                .attachment(request.getAttachment())
+                .supplement(request.getSupplement())
+                .header(request.getHeader())
                 .build();
 
         TraceInfo traceInfo = new TraceInfo();
@@ -85,6 +69,16 @@ public class AtService extends AbstractKakaoService<ImsBizAtReq, ImsPacket<AtMes
         AtMessageReq atMessageReq = request.getData();
         String appUserId = atMessageReq.getAppUserId();
         String phoneNumber = atMessageReq.getPhoneNumber();
+
+        KakaoMessageType requestType = atMessageReq.getMessageType();
+
+        switch (requestType) {
+            case AT:
+            case AI:
+                break;
+            default:
+                throw new NotSupportMessageType("Not support message_type : " + requestType);
+        }
 
         if (!StringUtils.hasText(appUserId) && !StringUtils.hasText(phoneNumber)) {
             throw new ImsMandatoryException("appUserId and phoneNumber is empty.");
@@ -126,8 +120,8 @@ public class AtService extends AbstractKakaoService<ImsBizAtReq, ImsPacket<AtMes
 
     @Override
     protected void onException(ImsBizAtReq request, Exception e) {
-        log.error("exception occurred({}). messageId: {}, senderKey: {}, phoneNumber: {}",
-                e.getMessage(), request.getMessageId(), request.getSenderKey(), request.getPhoneNumber());
+        log.warn("exception occurred({}). messageId: {}, senderKey: {}, phoneNumber: {}, appUserId: {}",
+                e.getMessage(), request.getMessageId(), request.getSenderKey(), request.getPhoneNumber(), request.getAppUserId());
     }
 
     @Override
@@ -135,7 +129,7 @@ public class AtService extends AbstractKakaoService<ImsBizAtReq, ImsPacket<AtMes
         AtMessageReq data = message.getData();
         TraceInfo trace = message.getTraceInfo();
 
-        log.info("[Log] username: {}, serialNumber: {}, senderKey: {}, templateCode: {}",
-                trace.getCustomerId(), data.getSerialNumber(), data.getSenderKey(), data.getTemplateCode());
+        log.info("[Log] username: {}, serialNumber: {}, senderKey: {}, templateCode: {}, phoneNumber: {}",
+                trace.getCustomerId(), data.getSerialNumber(), data.getSenderKey(), data.getTemplateCode(), data.getPhoneNumber());
     }
 }

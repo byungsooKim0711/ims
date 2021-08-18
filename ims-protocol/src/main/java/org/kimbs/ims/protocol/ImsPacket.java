@@ -8,9 +8,7 @@ import org.kimbs.ims.protocol.v1.trace.TraceInfo;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class ImsPacket<T /*extends AbstractMessage*/> {
-
-    // TODO: <T extends AbstractMessage> 사용했을 때 안되는 이유가 뭘까 (no creator, blah blah~)
+public class ImsPacket<T> {
 
     @JsonProperty("command")
     private ImsPacketCommand command;
@@ -20,4 +18,16 @@ public class ImsPacket<T /*extends AbstractMessage*/> {
 
     @JsonProperty("trace_info")
     private TraceInfo traceInfo;
+
+    public void updateCommand(ImsPacketCommand command) {
+        this.command = command;
+    }
+
+    public void updateData(T data) {
+        this.data = data;
+    }
+
+    public void updateTraceInfo(TraceInfo traceInfo) {
+        this.traceInfo = traceInfo;
+    }
 }

@@ -4,6 +4,7 @@ import lombok.Getter;
 
 @Getter
 public enum ResponseCode {
+    // TODO: 오류코드 정의...
     SUCCESS("0000", "Success"),
 
     UNKNOWN_SERVICE_KEY_EXCEPTION("1100", "Unknown service key exception"),
@@ -14,8 +15,9 @@ public enum ResponseCode {
     IMS_DUPLICATE_MSG_UID_EXCEPTION("2030", "Duplicate msg uid exception."),
 
     NOT_SUPPORT_BUTTON_TYPE_EXCEPTION("4000", "Not support button type exception"),
-    ATTACHMENT_EXCEPTION("4001", "Attachment exception"),
-    SUPPLEMENT_EXCEPTION("4002", "Supplement exception"),
+    NOT_SUPPORT_MESSAGE_TYPE_EXCEPTION("4001", "Not support message_type exception"),
+    ATTACHMENT_EXCEPTION("4002", "Attachment exception"),
+    SUPPLEMENT_EXCEPTION("4003", "Supplement exception"),
 
     SERVICE_SERVER_ERROR("9998", "담당자가 확인중입니다."),
     SERVICE_SERVER_ETC_ERROR("9999", "담당자가 확인중입니다.")

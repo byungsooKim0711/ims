@@ -74,4 +74,12 @@ public class AtMessageReq extends AbstractMessage {
     public void setSerialNumber(String serialNumber) {
         this.serialNumber = serialNumber;
     }
+
+    public void setResponseMethod(ResponseMethod responseMethod) {
+        this.responseMethod = responseMethod;
+    }
+
+    public void setTimeout(int timeout) {
+        this.timeout = timeout;
+    }
 }

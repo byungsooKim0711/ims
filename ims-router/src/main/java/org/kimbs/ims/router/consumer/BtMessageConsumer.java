@@ -21,4 +21,9 @@ public class BtMessageConsumer extends AbstractMessageConsumer<BtMessageReq> {
     public void consume(ImsPacket<BtMessageReq> messagePacket, Acknowledgment ack) {
 
     }
+
+    @Override
+    public BtMessageReq convert(Object data) {
+        return null;
+    }
 }
