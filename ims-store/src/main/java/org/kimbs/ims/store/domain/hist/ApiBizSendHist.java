@@ -14,6 +14,7 @@ import java.time.LocalDateTime;
 public class ApiBizSendHist extends BaseTimeEntity {
 
     // report_at, report_type, report_code
+    // TODO: BIZ_SEND_REQUEST / BIZ_SEND_RESPONSE / BIZ_SEND_REPORT 나눠야 하나...
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
