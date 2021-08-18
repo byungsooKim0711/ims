@@ -83,7 +83,6 @@ public class AtService extends AbstractKakaoService<ImsBizAtReq, ImsPacket<AtMes
     @Override
     protected void checkMandatory(ImsPacket<AtMessageReq> request) throws ImsMandatoryException {
         AtMessageReq atMessageReq = request.getData();
-        String message = atMessageReq.getMessage();
         String appUserId = atMessageReq.getAppUserId();
         String phoneNumber = atMessageReq.getPhoneNumber();
 
