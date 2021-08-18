@@ -18,12 +18,11 @@ public class PuMessageConsumer extends AbstractMessageConsumer<PushMessageReq> {
 
     @KafkaListener(topics = "#{routerConfig.topics.recvPu}")
     @Override
-    public void consume(ImsPacket<PushMessageReq> messagePacket, Acknowledgment ack) {
+    public void consume(ImsPacket<PushMessageReq> packet, Acknowledgment ack) {
+        log.info("[PU-CONSUME] command: {}, trackingId: {}", packet.getCommand(), packet.getTraceInfo().getTrackingId());
 
-    }
+        router.routeAndSend(packet);
 
-    @Override
-    public PushMessageReq convert(Object data) {
-        return null;
+        ack.acknowledge();
     }
 }

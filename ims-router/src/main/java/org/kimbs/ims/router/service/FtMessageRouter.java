@@ -1,5 +1,7 @@
 package org.kimbs.ims.router.service;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import lombok.extern.slf4j.Slf4j;
 import org.kimbs.ims.model.kakao.FtMessageReq;
 import org.kimbs.ims.protocol.ImsAnalyzeLog;
 import org.kimbs.ims.protocol.ImsPacket;
@@ -8,30 +10,36 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Slf4j
 @Service
-public class FtMessageRouter extends AbstractMessageRouter<ImsPacket<FtMessageReq>> {
+public class FtMessageRouter extends AbstractMessageRouter<FtMessageReq> {
 
     @Override
-    protected void getSendTopic(ImsPacket<FtMessageReq> message) {
+    protected void convertData(ImsPacket<FtMessageReq> packet) {
+        packet.updateData(mapper.convertValue(packet.getData(), new TypeReference<FtMessageReq>() {}));
+    }
+
+    @Override
+    protected void getSendTopic(ImsPacket<FtMessageReq> packet) {
         List<String> defaultSendTopicList = config.getTopics().getSendFt();
         String destinationTopic = RoundRobinUtil.getRoundRobinValue(RoundRobinUtil.RoundRobinKey.SEND_FT, defaultSendTopicList);
 
-        message.getTraceInfo().setDestinationTopic(destinationTopic);
+        packet.getTraceInfo().setDestinationTopic(destinationTopic);
     }
 
     @Override
-    protected void send(ImsPacket<FtMessageReq> message) {
-
-    }
-
-    @Override
-    protected void log(ImsPacket<FtMessageReq> message) {
+    protected void send(ImsPacket<FtMessageReq> packet) {
 
     }
 
     @Override
-    protected ImsAnalyzeLog analyzeLog(ImsPacket<FtMessageReq> message) {
-        FtMessageReq data = message.getData();
+    protected void log(ImsPacket<FtMessageReq> packet) {
+        log.info("[PU-LOG] command: {}, trackingId: {}, serialNumber: {}", packet.getCommand(), packet.getTraceInfo().getTrackingId(), packet.getData().getSerialNumber());
+    }
+
+    @Override
+    protected ImsAnalyzeLog analyzeLog(ImsPacket<FtMessageReq> packet) {
+        FtMessageReq data = packet.getData();
         ImsAnalyzeLog log = new ImsAnalyzeLog();
         log.setMessage(data.getMessage());
         log.setPhoneNumber(data.getPhoneNumber());

@@ -18,12 +18,11 @@ public class BtMessageConsumer extends AbstractMessageConsumer<BtMessageReq> {
 
     @KafkaListener(topics = "#{routerConfig.topics.recvBt}")
     @Override
-    public void consume(ImsPacket<BtMessageReq> messagePacket, Acknowledgment ack) {
+    public void consume(ImsPacket<BtMessageReq> packet, Acknowledgment ack) {
+        log.info("[BT-CONSUME] command: {}, trackingId: {}", packet.getCommand(), packet.getTraceInfo().getTrackingId());
 
-    }
+        router.routeAndSend(packet);
 
-    @Override
-    public BtMessageReq convert(Object data) {
-        return null;
+        ack.acknowledge();
     }
 }

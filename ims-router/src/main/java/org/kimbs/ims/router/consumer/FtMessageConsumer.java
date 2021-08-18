@@ -1,6 +1,5 @@
 package org.kimbs.ims.router.consumer;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,27 +17,16 @@ import org.springframework.stereotype.Component;
 @Component
 public class FtMessageConsumer extends AbstractMessageConsumer<FtMessageReq> {
 
-    private final ObjectMapper mapper;
     private final FtMessageRouter router;
 
     @KafkaListener(topics = "#{routerConfig.topics.recvFt}")
     @Override
-    public void consume(ImsPacket<FtMessageReq> messagePacket, Acknowledgment ack) {
+    public void consume(ImsPacket<FtMessageReq> packet, Acknowledgment ack) {
+        log.info("[FT-CONSUME] command: {}, trackingId: {}", packet.getCommand(), packet.getTraceInfo().getTrackingId());
 
-        ImsPacketCommand command = messagePacket.getCommand();
-        FtMessageReq ftMessageReq = this.convert(messagePacket.getData());
-        TraceInfo trace = messagePacket.getTraceInfo();
-
-        log.info("command: {}", command);
-        log.info("data: {}", ftMessageReq);
-        log.info("trace: {}", trace);
-
+        router.routeAndSend(packet);
 
         ack.acknowledge();
     }
 
-    @Override
-    public FtMessageReq convert(Object data) {
-        return mapper.convertValue(data, new TypeReference<FtMessageReq>() {});
-    }
 }
