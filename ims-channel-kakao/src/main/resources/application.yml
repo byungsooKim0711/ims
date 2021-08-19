@@ -39,32 +39,27 @@ spring:
       retries: 0
       batch-size: 20000
       compression-type: gzip
-      linger-ms: 50
       buffer-memory: 33554432
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
       acks: 1
+      properties:
+        linger.ms: 50
     consumer:
       group-id: "CHANNEL-KAKAO"
+      client-id: "CHANNEL_KAKAO"
       enable-auto-commit: false
       max-poll-records: 500
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: '*'
+#      isolation-level: read_committed
     listener:
       concurrency: 5
       ack-mode: manual_immediate
       poll-timeout: 3000
-      # type: single
-      # Custom setting - batch listener
-      batch: false
-      # Custom setting - auto startup listener
-      auto-startup: true
-    # Custom setting - retries
-    retry:
-      max-attempts: 10
-      initial-interval: 1000
-      multiplier: 2
-      max-interval: 10000
+      type: single
 
   task:
     scheduling:
@@ -104,10 +99,12 @@ management:
 ims:
   channel:
     kakao:
+      simulation: true
+
       service-name: "CHANNEL-KAKAO"
-      at-base-url: "http://localhost:40101/sendMmessage"
-      bt-base-url: "http://localhost:40101/sendMmessage"
-      ft-base-url: "http://localhost:40101/sendMmessage"
+      at-base-url: "http://localhost:40101/at/sendMmessage"
+      bt-base-url: "http://localhost:40101/bt/sendMmessage"
+      ft-base-url: "http://localhost:40101/ft/sendMmessage"
 
       # \uD1A0\uD53D \uB9AC\uC2A4\uD2B8
       topics:

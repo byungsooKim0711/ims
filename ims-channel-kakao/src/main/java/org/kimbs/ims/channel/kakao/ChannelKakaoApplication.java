@@ -1,11 +1,10 @@
 package org.kimbs.ims.channel.kakao;
 
-import org.kimbs.ims.model.kakao.AtMessageRes;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.event.EventListener;
 import org.springframework.scheduling.annotation.EnableScheduling;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 @EnableScheduling
 @SpringBootApplication
@@ -15,16 +14,9 @@ public class ChannelKakaoApplication {
         SpringApplication.run(ChannelKakaoApplication.class, args);
     }
 
-    @RestController
-    public static class TT {
+    @EventListener(ApplicationReadyEvent.class)
+    public void init() {
 
-        @GetMapping("/sendMmessage")
-        public AtMessageRes test() {
-            AtMessageRes res = new AtMessageRes();
-            res.setCode("0000");
-
-            return res;
-        }
     }
 
 }

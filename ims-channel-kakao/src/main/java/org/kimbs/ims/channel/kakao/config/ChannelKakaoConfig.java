@@ -18,6 +18,8 @@ import java.util.List;
 @ConfigurationProperties(prefix = "ims.channel.kakao", ignoreUnknownFields = false)
 public class ChannelKakaoConfig {
 
+    private boolean simulation = true;
+
     private String serviceName;
     @NotEmpty
     private String atBaseUrl;

@@ -34,7 +34,7 @@ public class AtMessageService extends AbstractMessageService<AtMessageReq, AtMes
     @Override
     protected Mono<AtMessageRes> request(AtMessageReq request) {
         // 요청시간 추가
-        request.getTrace().setKakaReqAt(LocalDateTime.now());
+//        request.getTrace().setKakaReqAt(LocalDateTime.now());
         return webClient.get()
                 .exchangeToMono(exchange -> exchange.bodyToMono(AtMessageRes.class));
     }
@@ -42,7 +42,7 @@ public class AtMessageService extends AbstractMessageService<AtMessageReq, AtMes
     @Override
     protected Mono<AtMessageRes> report(AtMessageReq request, AtMessageRes response) {
         // 결과시간 추가
-        request.getTrace().setKakaResAt(LocalDateTime.now());
+//        request.getTrace().setKakaResAt(LocalDateTime.now());
         log.info("[AT] report. serialNumber: {}", request.getSerialNumber());
         return Mono.just(response);
     }
@@ -55,6 +55,6 @@ public class AtMessageService extends AbstractMessageService<AtMessageReq, AtMes
 
     @Override
     protected void log(AtMessageReq request, AtMessageRes response) {
-        log.info("[AT] log. serialNumber: {}, code: {}, message: {}, responseAt: {}", request.getSerialNumber(), response.getCode(), response.getMessage(), request.getTrace().getKakaResAt());
+//        log.info("[AT] log. serialNumber: {}, code: {}, message: {}, responseAt: {}", request.getSerialNumber(), response.getCode(), response.getMessage(), request.getTrace().getKakaResAt());
     }
 }
