@@ -17,7 +17,7 @@ public class KafkaService {
 
     private final KafkaTemplate<String, ImsPacket<?>> kafkaTemplate;
 
-    public void sendToKafka(String topic, ImsPacket<?> message) throws JsonProcessingException, Exception {
+    public void sendToKafka(String topic, ImsPacket<?> message) {
         ListenableFuture<SendResult<String, ImsPacket<?>>> future = kafkaTemplate.send(topic, message);
         future.addCallback(new ListenableFutureCallback<SendResult<String, ImsPacket<?>>>() {
             @Override

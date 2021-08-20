@@ -31,16 +31,8 @@ public class AtMessageRouter extends AbstractMessageRouter<AtMessageReq> {
     @Override
     protected void send(ImsPacket<AtMessageReq> packet) {
         packet.updateCommand(ImsPacketCommand.SEND_AT);
-//        try {
-//            super.sendToKafka(message.getTrace().getDestinationTopic(), packet);
-//        } catch (JsonProcessingException e) {
-//            log.error("json parse error. serialNumber: {}, message: {}", packet.getSerialNumber(), packet, e);
-//            throw new ImsKafkaSendException(e);
-//        } catch (Exception e) {
-//            log.error("exception occurred({}). serialNumber: {}", e.getMessage(), packet.getSerialNumber(), e);
-//            throw new ImsKafkaSendException(e);
-//        }
 
+        kafkaService.sendToKafka(packet.getTraceInfo().getDestinationTopic(), packet);
     }
 
     @Override

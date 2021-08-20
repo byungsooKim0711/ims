@@ -18,6 +18,9 @@ public abstract class AbstractMessageRouter<T> {
     @Autowired
     protected ObjectMapper mapper;
 
+    @Autowired
+    protected KafkaService kafkaService;
+
     public void routeAndSend(ImsPacket<T> packet) {
 
         try {
