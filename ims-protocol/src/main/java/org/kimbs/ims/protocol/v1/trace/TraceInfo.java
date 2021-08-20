@@ -37,29 +37,21 @@ public class TraceInfo implements Serializable {
     @JsonProperty("destination_topic")
     private String destinationTopic;
 
-    // 카카오 요청/응답
-    @JsonProperty("kakao_request_at")
-    private LocalDateTime kakaoRequestAt;
-    @JsonProperty("kakao_response_at")
-    private LocalDateTime kakaoResponseAt;
 
-    // 문자 요청/응답
-    @JsonProperty("mt_request_at")
-    private LocalDateTime mtRequestAt;
-    @JsonProperty("mt_response_at")
-    private LocalDateTime mtResponseAt;
+    @JsonProperty("trace_at")
+    private TraceAt traceAt;
 
-    // 이메일 요청/응답
-    @JsonProperty("email_request_at")
-    private LocalDateTime emailRequestAt;
-    @JsonProperty("email_response_at")
-    private LocalDateTime emailResponseAt;
+    @JsonProperty("trace_ft")
+    private TraceFt traceFt;
 
-    // 앱푸시 요청/응답
-    @JsonProperty("push_request_at")
-    private LocalDateTime pushRequestAt;
-    @JsonProperty("push_response_at")
-    private LocalDateTime pushResponseAt;
+    @JsonProperty("trace_mt")
+    private TraceMt traceMt;
+
+    @JsonProperty("trace_push")
+    private TracePush tracePush;
+
+    @JsonProperty("trace_email")
+    private TraceEmail traceEmail;
 
     // 부서코드
     @JsonProperty("bill_code")

@@ -1,52 +1,44 @@
 package org.kimbs.ims.channel.kakao.service;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.kimbs.ims.model.kakao.BtMessageReq;
 import org.kimbs.ims.model.kakao.BtMessageRes;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
-import org.springframework.http.client.reactive.ReactorClientHttpConnector;
+import org.kimbs.ims.protocol.ImsPacket;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
-import reactor.netty.http.client.HttpClient;
-
-import javax.annotation.PostConstruct;
 
 @Slf4j
+@RequiredArgsConstructor
 @Service
 public class BtMessageService extends AbstractMessageService<BtMessageReq, BtMessageRes> {
 
-    private WebClient webClient;
+    private final WebClient webClient;
 
-    @PostConstruct
-    public void init() {
-        HttpClient httpClient = HttpClient.create().wiretap(true);
-
-        webClient = WebClient.builder()
-                .clientConnector(new ReactorClientHttpConnector(httpClient))
-                .baseUrl(config.getBtBaseUrl())
-                .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-                .build();
+    @Override
+    protected void convertData(ImsPacket<BtMessageReq> packet) {
+        packet.updateData(mapper.convertValue(packet.getData(), new TypeReference<BtMessageReq>() {}));
     }
 
     @Override
-    protected Mono<BtMessageRes> request(BtMessageReq message) {
+    protected Mono<BtMessageRes> request(ImsPacket<BtMessageReq> packet) {
         return Mono.empty();
     }
 
     @Override
-    protected Mono<BtMessageRes> report(BtMessageReq request, BtMessageRes response) {
+    protected Mono<BtMessageRes> report(ImsPacket<BtMessageReq> packet, BtMessageRes response) {
         return Mono.just(response);
     }
 
     @Override
-    protected Mono<BtMessageRes> history(BtMessageReq request, BtMessageRes response) {
+    protected Mono<BtMessageRes> history(ImsPacket<BtMessageReq> packet, BtMessageRes response) {
         return Mono.just(response);
     }
 
     @Override
-    protected void log(BtMessageReq request, BtMessageRes response) {
+    protected void log(ImsPacket<BtMessageReq> packet, BtMessageRes response) {
 
     }
 }

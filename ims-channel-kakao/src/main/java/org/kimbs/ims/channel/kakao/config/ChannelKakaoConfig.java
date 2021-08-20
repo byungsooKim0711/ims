@@ -19,14 +19,23 @@ import java.util.List;
 public class ChannelKakaoConfig {
 
     private boolean simulation = true;
+    private boolean wiretap = true;
 
     private String serviceName;
+
     @NotEmpty
-    private String atBaseUrl;
+    private String baseUrl;
     @NotEmpty
-    private String btBaseUrl;
+    private String atPath;
     @NotEmpty
-    private String ftBaseUrl;
+    private String btPath;
+    @NotEmpty
+    private String ftPath;
+
+    private int connectTimeout = 3000;
+    private long responseTimeout = 3000;
+    private long readTimeout = 3000;
+    private long writeTimeout = 3000;
 
     private Topics topics = new Topics();
 

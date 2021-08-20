@@ -20,8 +20,8 @@
         </encoder>
     </appender>
 
-    <logger name="org.kimbs.ims" level="DEBUG"/>
-    <logger name="reactor.netty.http" level="DEBUG"/>
+    <logger name="org.kimbs.ims" level="INFO"/>
+    <logger name="reactor.netty.http" level="INFO"/>
 
     <root level="INFO">
         <appender-ref ref="CONSOLE" />

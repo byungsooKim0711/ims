@@ -19,6 +19,7 @@ public class AtMessageConsumer extends AbstractMessageConsumer<AtMessageReq> {
     @KafkaListener(topics = "#{channelKakaoConfig.topics.sendAt}")
     @Override
     public void consume(ImsPacket<AtMessageReq> packet, Acknowledgment ack) {
+        atMessageService.sendMessage(packet);
 
         ack.acknowledge();
     }

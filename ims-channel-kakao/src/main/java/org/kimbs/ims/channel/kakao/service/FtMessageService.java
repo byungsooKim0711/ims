@@ -1,52 +1,44 @@
 package org.kimbs.ims.channel.kakao.service;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.kimbs.ims.model.kakao.FtMessageReq;
 import org.kimbs.ims.model.kakao.FtMessageRes;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
-import org.springframework.http.client.reactive.ReactorClientHttpConnector;
+import org.kimbs.ims.protocol.ImsPacket;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
-import reactor.netty.http.client.HttpClient;
-
-import javax.annotation.PostConstruct;
 
 @Slf4j
+@RequiredArgsConstructor
 @Service
 public class FtMessageService extends AbstractMessageService<FtMessageReq, FtMessageRes> {
 
-    private WebClient webClient;
+    private final WebClient webClient;
 
-    @PostConstruct
-    public void init() {
-        HttpClient httpClient = HttpClient.create().wiretap(true);
-
-        webClient = WebClient.builder()
-                .clientConnector(new ReactorClientHttpConnector(httpClient))
-                .baseUrl(config.getFtBaseUrl())
-                .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-                .build();
+    @Override
+    protected void convertData(ImsPacket<FtMessageReq> packet) {
+        packet.updateData(mapper.convertValue(packet.getData(), new TypeReference<FtMessageReq>() {}));
     }
 
     @Override
-    protected Mono<FtMessageRes> request(FtMessageReq message) {
+    protected Mono<FtMessageRes> request(ImsPacket<FtMessageReq> packet) {
         return Mono.empty();
     }
 
     @Override
-    protected Mono<FtMessageRes> report(FtMessageReq request, FtMessageRes response) {
+    protected Mono<FtMessageRes> report(ImsPacket<FtMessageReq> packet, FtMessageRes response) {
         return Mono.just(response);
     }
 
     @Override
-    protected Mono<FtMessageRes> history(FtMessageReq request, FtMessageRes response) {
+    protected Mono<FtMessageRes> history(ImsPacket<FtMessageReq> packet, FtMessageRes response) {
         return Mono.just(response);
     }
 
     @Override
-    protected void log(FtMessageReq request, FtMessageRes response) {
+    protected void log(ImsPacket<FtMessageReq> packet, FtMessageRes response) {
 
     }
 }

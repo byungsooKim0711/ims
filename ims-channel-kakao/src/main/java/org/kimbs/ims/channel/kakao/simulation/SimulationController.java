@@ -6,22 +6,26 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
-@ConditionalOnExpression(value = "${ims.channel.kakao.simulation:true}")
+@ConditionalOnExpression(value = "${ims.channel.kakao.simulation}")
 @RestController
 public class SimulationController {
 
-    private final Random random = new Random();
-    private final BizReportCode[] randomReportCode = {
+    private static final BizReportCode[] randomReportCode = {
             BizReportCode.SUCCESS,
-            BizReportCode.KAKAO_ERROR1,
+            BizReportCode.SUCCESS,
+            BizReportCode.SUCCESS,
+            BizReportCode.SUCCESS,
+            BizReportCode.SUCCESS,
             BizReportCode.KAKAO_ERROR2,
+            BizReportCode.NO_SEND_AVAILABLE_EXCEPTION,
+            BizReportCode.NO_SEND_AVAILABLE_EXCEPTION,
             BizReportCode.NO_MATCHED_TEMPLATE_BUTTON_EXCEPTION,
-            BizReportCode.NO_MATCHED_TEMPLATE_BUTTON_EXCEPTION
+            BizReportCode.NO_MATCHED_TEMPLATE_BUTTON_EXCEPTION,
     };
 
-    @PostMapping("at/sendMessage")
+    @PostMapping("/at/sendMessage")
     public AtMessageRes atSimulation(AtMessageReq req) {
         BizReportCode report = randomReport();
         AtMessageRes res = new AtMessageRes();
@@ -38,7 +42,7 @@ public class SimulationController {
         return res;
     }
 
-    @PostMapping("ft/sendMessage")
+    @PostMapping("/ft/sendMessage")
     public FtMessageRes ftSimulation(FtMessageReq req) {
         BizReportCode report = randomReport();
         FtMessageRes res = new FtMessageRes();
@@ -56,7 +60,7 @@ public class SimulationController {
         return res;
     }
 
-    @PostMapping("bt/sendMessage")
+    @PostMapping("/bt/sendMessage")
     public BtMessageRes btSimulation(BtMessageReq req) {
         BizReportCode report = randomReport();
         BtMessageRes res = new BtMessageRes();
@@ -75,6 +79,6 @@ public class SimulationController {
     }
 
     private BizReportCode randomReport() {
-        return randomReportCode[random.nextInt() % randomReportCode.length];
+        return randomReportCode[ThreadLocalRandom.current().nextInt(randomReportCode.length)];
     }
 }
