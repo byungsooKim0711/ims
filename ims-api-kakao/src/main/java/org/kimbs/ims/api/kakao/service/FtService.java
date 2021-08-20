@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.kimbs.ims.exception.ImsKafkaSendException;
 import org.kimbs.ims.exception.ImsMandatoryException;
+import org.kimbs.ims.exception.NotSupportMessageType;
 import org.kimbs.ims.model.kakao.FtMessageReq;
 import org.kimbs.ims.model.kakao.KakaoMessageType;
 import org.kimbs.ims.protocol.ImsPacket;
@@ -65,6 +66,17 @@ public class FtService extends AbstractKakaoService<ImsBizFtReq, ImsPacket<FtMes
         String appUserId = ftMessageReq.getAppUserId();
         String phoneNumber = ftMessageReq.getPhoneNumber();
 
+        KakaoMessageType requestType = ftMessageReq.getMessageType();
+
+        switch (requestType) {
+            case FT:
+            case FI:
+            case FW:
+                break;
+            default:
+                throw new NotSupportMessageType("Not support message_type : " + requestType);
+        }
+
         if (!StringUtils.hasText(appUserId) && !StringUtils.hasText(phoneNumber)) {
             throw new ImsMandatoryException("appUserId and phoneNumber is empty.");
         }
@@ -77,7 +89,7 @@ public class FtService extends AbstractKakaoService<ImsBizFtReq, ImsPacket<FtMes
 
     @Override
     protected void send(ImsPacket<FtMessageReq> message) {
-        List<String> ftTopics = config.getTopics().getRecvAt();
+        List<String> ftTopics = config.getTopics().getRecvFt();
         try {
             kafkaService.sendToKafka(RoundRobinUtil.getRoundRobinValue(RoundRobinUtil.RoundRobinKey.RECV_FT, ftTopics), message);
         } catch (JsonProcessingException e) {
