@@ -19,6 +19,7 @@ public class BtMessageConsumer extends AbstractMessageConsumer<BtMessageReq> {
     @KafkaListener(topics = "#{channelKakaoConfig.topics.sendBt}")
     @Override
     public void consume(ImsPacket<BtMessageReq> packet, Acknowledgment ack) {
+        btMessageService.sendMessage(packet);
 
         ack.acknowledge();
     }

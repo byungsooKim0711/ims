@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.kimbs.ims.model.kakao.FtMessageReq;
 import org.kimbs.ims.protocol.ImsAnalyzeLog;
 import org.kimbs.ims.protocol.ImsPacket;
+import org.kimbs.ims.protocol.ImsPacketCommand;
 import org.kimbs.ims.util.RoundRobinUtil;
 import org.springframework.stereotype.Service;
 
@@ -29,12 +30,14 @@ public class FtMessageRouter extends AbstractMessageRouter<FtMessageReq> {
 
     @Override
     protected void send(ImsPacket<FtMessageReq> packet) {
+        packet.updateCommand(ImsPacketCommand.SEND_FT);
 
+        kafkaService.sendToKafka(packet.getTraceInfo().getDestinationTopic(), packet);
     }
 
     @Override
     protected void log(ImsPacket<FtMessageReq> packet) {
-        log.info("[PU-LOG] command: {}, trackingId: {}, serialNumber: {}", packet.getCommand(), packet.getTraceInfo().getTrackingId(), packet.getData().getSerialNumber());
+        log.info("[FT-LOG] command: {}, trackingId: {}, serialNumber: {}", packet.getCommand(), packet.getTraceInfo().getTrackingId(), packet.getData().getSerialNumber());
     }
 
     @Override
