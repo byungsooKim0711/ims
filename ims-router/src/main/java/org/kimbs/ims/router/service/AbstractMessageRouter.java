@@ -24,9 +24,6 @@ public abstract class AbstractMessageRouter<T> {
     public void routeAndSend(ImsPacket<T> packet) {
 
         try {
-            // TODO: 보이는건 구체적 타입이지만... Packet 변환이 안되서...
-            convertData(packet);
-
             packet.getTraceInfo().setDistributionAt(LocalDateTime.now());
 
             // default routing
@@ -54,7 +51,6 @@ public abstract class AbstractMessageRouter<T> {
         }
     }
 
-    protected abstract void convertData(ImsPacket<T> packet);
     protected abstract void getSendTopic(ImsPacket<T> packet);
     protected abstract void send(ImsPacket<T> packet);
     protected abstract void log(ImsPacket<T> packet);

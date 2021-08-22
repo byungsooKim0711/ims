@@ -17,8 +17,6 @@ public abstract class AbstractMessageService<REQ, RES> {
     protected ObjectMapper mapper;
 
     public void sendMessage(ImsPacket<REQ> packet) {
-        convertData(packet);
-
         request(packet)
                 .flatMap(res -> report(packet, res))
                 .flatMap(res -> history(packet, res))
@@ -27,7 +25,6 @@ public abstract class AbstractMessageService<REQ, RES> {
                 .subscribe(res -> log(packet, res));
     }
 
-    protected abstract void convertData(ImsPacket<REQ> packet);
     protected abstract Mono<RES> request(ImsPacket<REQ> packet);
     protected abstract Mono<RES> report(ImsPacket<REQ> packet, RES response);
     protected abstract Mono<RES> history(ImsPacket<REQ> packet, RES response);

@@ -1,6 +1,5 @@
 package org.kimbs.ims.router.service;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import lombok.extern.slf4j.Slf4j;
 import org.kimbs.ims.model.kakao.FtMessageReq;
 import org.kimbs.ims.protocol.ImsAnalyzeLog;
@@ -14,11 +13,6 @@ import java.util.List;
 @Slf4j
 @Service
 public class FtMessageRouter extends AbstractMessageRouter<FtMessageReq> {
-
-    @Override
-    protected void convertData(ImsPacket<FtMessageReq> packet) {
-        packet.updateData(mapper.convertValue(packet.getData(), new TypeReference<FtMessageReq>() {}));
-    }
 
     @Override
     protected void getSendTopic(ImsPacket<FtMessageReq> packet) {

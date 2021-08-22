@@ -1,6 +1,5 @@
 package org.kimbs.ims.router.service;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import lombok.extern.slf4j.Slf4j;
 import org.kimbs.ims.model.email.EmailMessageReq;
 import org.kimbs.ims.protocol.ImsAnalyzeLog;
@@ -10,11 +9,6 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 public class EmMessageRouter extends AbstractMessageRouter<EmailMessageReq> {
-
-    @Override
-    protected void convertData(ImsPacket<EmailMessageReq> packet) {
-        packet.updateData(mapper.convertValue(packet.getData(), new TypeReference<EmailMessageReq>() {}));
-    }
 
     @Override
     protected void getSendTopic(ImsPacket<EmailMessageReq> packet) {

@@ -1,6 +1,5 @@
 package org.kimbs.ims.channel.kakao.service;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.kimbs.ims.model.kakao.BtMessageReq;
@@ -16,11 +15,6 @@ import reactor.core.publisher.Mono;
 public class BtMessageService extends AbstractMessageService<BtMessageReq, BtMessageRes> {
 
     private final WebClient webClient;
-
-    @Override
-    protected void convertData(ImsPacket<BtMessageReq> packet) {
-        packet.updateData(mapper.convertValue(packet.getData(), new TypeReference<BtMessageReq>() {}));
-    }
 
     @Override
     protected Mono<BtMessageRes> request(ImsPacket<BtMessageReq> packet) {
