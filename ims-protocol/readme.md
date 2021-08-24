@@ -1,0 +1,1 @@
+# IMS - Protocol (API / KAFKA / 외부 규약) 정의

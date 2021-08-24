@@ -1,0 +1,1 @@
+# IMS - EMAIL 메시지 접수 API 모듈
