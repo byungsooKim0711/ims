@@ -12,8 +12,6 @@ import org.springframework.kafka.annotation.EnableKafka;
 import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.core.*;
 
-import java.util.Map;
-
 @RequiredArgsConstructor
 @Configuration
 @EnableKafka
@@ -54,23 +52,13 @@ public class KafkaConfig {
     }
 
     @Bean
-    public Map<String, Object> producerConfigs() {
-        return kafkaProperties.buildProducerProperties();
-    }
-
-    @Bean
-    public Map<String, Object> consumerConfigs() {
-        return kafkaProperties.buildConsumerProperties();
-    }
-
-    @Bean
     public ProducerFactory<String, ImsPacket<?>> producerFactory() {
-        return new DefaultKafkaProducerFactory<>(producerConfigs());
+        return new DefaultKafkaProducerFactory<>(kafkaProperties.buildProducerProperties());
     }
 
     @Bean
     public ConsumerFactory<Object, ImsPacket<?>> consumerFactory() {
-        return new DefaultKafkaConsumerFactory<>(consumerConfigs());
+        return new DefaultKafkaConsumerFactory<>(kafkaProperties.buildConsumerProperties());
     }
 
     @Bean

@@ -10,8 +10,6 @@ import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 
-import java.util.Map;
-
 @RequiredArgsConstructor
 @Configuration
 @EnableKafka
@@ -20,13 +18,8 @@ public class KafkaConfig {
     private final KafkaProperties kafkaProperties;
 
     @Bean
-    public Map<String, Object> producerConfigs() {
-        return kafkaProperties.buildProducerProperties();
-    }
-
-    @Bean
     public ProducerFactory<String, ImsPacket<?>> producerFactory() {
-        return new DefaultKafkaProducerFactory<>(producerConfigs());
+        return new DefaultKafkaProducerFactory<>(kafkaProperties.buildProducerProperties());
     }
 
     @Bean
