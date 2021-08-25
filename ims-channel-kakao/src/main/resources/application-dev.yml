@@ -109,10 +109,10 @@ ims:
       bt-path: "/bt/sendMessage"
 
       ## milliseconds
-      connect-timeout: 3000
-      response-timeout: 3000
-      read-timeout: 3000
-      write-timeout: 3000
+      connect-timeout: 3s
+      response-timeout: 3s
+      read-timeout: 3s
+      write-timeout: 3s
 
 
       # \uD1A0\uD53D \uB9AC\uC2A4\uD2B8

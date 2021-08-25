@@ -22,11 +22,11 @@ public class WebClientConfig implements WebFluxConfigurer {
     @Bean
     public WebClient webClient(ChannelKakaoConfig config) {
         HttpClient httpClient = HttpClient.create()
-                .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, config.getConnectTimeout())
-                .responseTimeout(Duration.ofMillis(config.getResponseTimeout()))
+                .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, (int) config.getConnectTimeout().toMillis())
+                .responseTimeout(Duration.ofMillis(config.getResponseTimeout().toMillis()))
                 .doOnConnected(connection -> connection
-                        .addHandler(new ReadTimeoutHandler(config.getReadTimeout(), TimeUnit.MILLISECONDS))
-                        .addHandler(new WriteTimeoutHandler(config.getWriteTimeout(), TimeUnit.MILLISECONDS)));
+                        .addHandler(new ReadTimeoutHandler(config.getReadTimeout().toMillis(), TimeUnit.MILLISECONDS))
+                        .addHandler(new WriteTimeoutHandler(config.getWriteTimeout().toMillis(), TimeUnit.MILLISECONDS)));
 
         ClientHttpConnector connector = new ReactorClientHttpConnector(httpClient.wiretap(config.isWiretap()));
 

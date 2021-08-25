@@ -9,6 +9,7 @@ import org.springframework.validation.annotation.Validated;
 
 import javax.annotation.PostConstruct;
 import javax.validation.constraints.NotEmpty;
+import java.time.Duration;
 import java.util.List;
 
 @Validated
@@ -32,10 +33,10 @@ public class ChannelKakaoConfig {
     @NotEmpty
     private String ftPath;
 
-    private int connectTimeout = 3000;
-    private long responseTimeout = 3000;
-    private long readTimeout = 3000;
-    private long writeTimeout = 3000;
+    private Duration connectTimeout = Duration.ofMillis(3000);
+    private Duration responseTimeout = Duration.ofMillis(3000);
+    private Duration readTimeout = Duration.ofMillis(3000);
+    private Duration writeTimeout = Duration.ofMillis(3000);
 
     private Topics topics = new Topics();
 
@@ -52,7 +53,18 @@ public class ChannelKakaoConfig {
     @PostConstruct
     public void init() {
         ToStringCreator config = new ToStringCreator(this);
-        config.append("service-name", serviceName)
+        config
+                .append("simulation", simulation)
+                .append("wiretap", wiretap)
+                .append("service-name", serviceName)
+                .append("base-url", baseUrl)
+                .append("at-path", atPath)
+                .append("bt-path", btPath)
+                .append("ft-path", ftPath)
+                .append("connect-timeout", connectTimeout)
+                .append("response-timeout", responseTimeout)
+                .append("read-timeout", readTimeout)
+                .append("write-timeout", writeTimeout)
                 .append("topics", topics);
 
         log.info("IMS-CHANNEL-KAKAO: {}", config.toString());
