@@ -2,7 +2,6 @@ package org.kimbs.ims.domain;
 
 import lombok.Getter;
 import org.hibernate.annotations.ColumnDefault;
-import org.kimbs.ims.domain.BaseTimeEntity;
 import org.kimbs.ims.domain.converter.BooleanYNConverter;
 
 import javax.persistence.*;

@@ -1,6 +1,5 @@
 package org.kimbs.ims.router.service;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.kimbs.ims.protocol.ImsAnalyzeLog;
 import org.kimbs.ims.protocol.ImsPacket;
@@ -14,9 +13,6 @@ public abstract class AbstractMessageRouter<T> {
 
     @Autowired
     protected RouterConfig config;
-
-    @Autowired
-    protected ObjectMapper mapper;
 
     @Autowired
     protected KafkaService kafkaService;

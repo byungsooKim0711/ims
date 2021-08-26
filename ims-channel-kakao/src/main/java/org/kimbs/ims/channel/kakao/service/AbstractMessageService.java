@@ -1,6 +1,5 @@
 package org.kimbs.ims.channel.kakao.service;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.kimbs.ims.channel.kakao.config.ChannelKakaoConfig;
 import org.kimbs.ims.protocol.ImsPacket;
@@ -12,9 +11,6 @@ public abstract class AbstractMessageService<REQ, RES> {
 
     @Autowired
     protected ChannelKakaoConfig config;
-
-    @Autowired
-    protected ObjectMapper mapper;
 
     public void sendMessage(ImsPacket<REQ> packet) {
         request(packet)

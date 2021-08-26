@@ -1,7 +1,6 @@
 package org.kimbs.ims.api.kakao.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.kimbs.ims.protocol.ImsPacket;
@@ -16,7 +15,6 @@ import org.springframework.util.concurrent.ListenableFutureCallback;
 @Service
 public class KafkaService {
 
-    private final ObjectMapper mapper;
     private final KafkaTemplate<String, ImsPacket<?>> kafkaTemplate;
 
     public void sendToKafka(String topic, ImsPacket<?> message) throws JsonProcessingException {

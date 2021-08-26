@@ -3,7 +3,6 @@ package org.kimbs.ims.model.kakao;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.Getter;
-import org.kimbs.ims.exception.NotSupportButtonType;
 import org.kimbs.ims.exception.NotSupportMessageType;
 
 import java.util.Arrays;

@@ -1,6 +1,5 @@
 package org.kimbs.ims.api.kakao.service;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.kimbs.ims.api.kakao.config.ApiKakaoConfig;
 import org.kimbs.ims.exception.ImsDuplicateMsgUidException;
@@ -18,9 +17,6 @@ import reactor.core.publisher.Mono;
  */
 @Slf4j
 public abstract class AbstractKakaoService<R, M> {
-
-    @Autowired
-    protected ObjectMapper mapper;
 
     @Autowired
     protected ApiKakaoConfig config;

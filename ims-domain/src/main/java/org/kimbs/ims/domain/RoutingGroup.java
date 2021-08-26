@@ -2,7 +2,6 @@ package org.kimbs.ims.domain;
 
 
 import lombok.Getter;
-import org.kimbs.ims.domain.BaseTimeEntity;
 
 import javax.persistence.*;
 

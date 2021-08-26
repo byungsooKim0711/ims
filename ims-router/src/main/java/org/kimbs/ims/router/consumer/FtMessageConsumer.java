@@ -1,12 +1,9 @@
 package org.kimbs.ims.router.consumer;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.kimbs.ims.model.kakao.FtMessageReq;
 import org.kimbs.ims.protocol.ImsPacket;
-import org.kimbs.ims.protocol.ImsPacketCommand;
-import org.kimbs.ims.protocol.v1.trace.TraceInfo;
 import org.kimbs.ims.router.service.FtMessageRouter;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.support.Acknowledgment;

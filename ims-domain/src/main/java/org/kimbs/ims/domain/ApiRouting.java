@@ -1,8 +1,6 @@
 package org.kimbs.ims.domain;
 
 import lombok.Getter;
-import org.kimbs.ims.domain.BaseTimeEntity;
-import org.kimbs.ims.domain.RoutingGroup;
 
 import javax.persistence.*;
 
