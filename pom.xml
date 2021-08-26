@@ -27,6 +27,7 @@
         <module>ims-channel-kakao</module>
         <module>ims-protocol</module>
         <module>ims-store</module>
+        <module>ims-domain</module>
     </modules>
 
     <properties>
