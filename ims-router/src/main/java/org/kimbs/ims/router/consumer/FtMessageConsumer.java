@@ -1,7 +1,7 @@
 package org.kimbs.ims.router.consumer;
 
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.kimbs.ims.model.kakao.FtMessageReq;
 import org.kimbs.ims.protocol.ImsPacket;
 import org.kimbs.ims.router.service.FtMessageRouter;
@@ -10,18 +10,21 @@ import org.springframework.kafka.support.Acknowledgment;
 import org.springframework.stereotype.Component;
 
 @Slf4j
-@RequiredArgsConstructor
 @Component
 public class FtMessageConsumer extends AbstractMessageConsumer<FtMessageReq> {
 
-    private final FtMessageRouter router;
+    public FtMessageConsumer(FtMessageRouter messageRouter) {
+        super(messageRouter);
+    }
 
     @KafkaListener(topics = "#{routerConfig.topics.recvFt}")
     @Override
-    public void consume(ImsPacket<FtMessageReq> packet, Acknowledgment ack) {
-        log.info("[FT-CONSUME] command: {}, trackingId: {}", packet.getCommand(), packet.getTraceInfo().getTrackingId());
+    public void consume(ConsumerRecord<String, ImsPacket<FtMessageReq>> packet, Acknowledgment ack) {
+        ImsPacket<FtMessageReq> message = packet.value();
 
-        router.routeAndSend(packet);
+        log.info("[FT-CONSUME] command: {}, topic: {}, partition: {}, trackingId: {}", message.getCommand(), packet.topic(), packet.partition(), message.getTraceInfo().getTrackingId());
+
+        messageRouter.routeAndSend(message);
 
         ack.acknowledge();
     }

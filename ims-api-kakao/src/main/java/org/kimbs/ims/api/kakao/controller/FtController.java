@@ -15,16 +15,15 @@ import javax.validation.Valid;
 @RestController
 public class FtController extends AbstractImsController<ImsBizFtReq> {
 
-    private final FtService ftService;
 
     public FtController(FtService ftService) {
-        this.ftService = ftService;
+        super(ftService);
     }
 
     @Override
     @PostMapping("/ft/sendMessage")
     public Mono<ImsApiResult<Void>> sendMessage(@Valid @RequestBody ImsBizFtReq request) {
-        Mono<ImsApiResult<Void>> response = ftService.sendMessage(request);
+        Mono<ImsApiResult<Void>> response = abstractKakaoService.sendMessage(request);
 
         return response;
     }

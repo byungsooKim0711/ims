@@ -15,16 +15,15 @@ import javax.validation.Valid;
 @RestController
 public class BtController extends AbstractImsController<ImsBizBtReq> {
 
-    private final BtService btService;
 
     public BtController(BtService btService) {
-        this.btService = btService;
+        super(btService);
     }
 
     @Override
     @PostMapping("/bt/sendMessage")
     public Mono<ImsApiResult<Void>> sendMessage(@Valid @RequestBody ImsBizBtReq request) {
-        Mono<ImsApiResult<Void>> response = btService.sendMessage(request);
+        Mono<ImsApiResult<Void>> response = abstractKakaoService.sendMessage(request);
 
         return response;
     }
