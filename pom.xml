@@ -23,6 +23,7 @@
         <module>ims-api-kakao</module>
         <module>ims-api-push</module>
         <module>ims-api-email</module>
+        <module>ims-api-mt</module>
         <module>ims-router</module>
         <module>ims-channel-kakao</module>
         <module>ims-protocol</module>
