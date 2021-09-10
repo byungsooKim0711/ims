@@ -6,6 +6,7 @@ import lombok.Data;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Map;
 
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -37,6 +38,9 @@ public class TraceInfo implements Serializable {
     @JsonProperty("destination_topic")
     private String destinationTopic;
 
+    // 맵핑정보
+    @JsonProperty("mapping")
+    private Map<String, String> mapping;
 
     @JsonProperty("trace_at")
     private TraceAt traceAt;

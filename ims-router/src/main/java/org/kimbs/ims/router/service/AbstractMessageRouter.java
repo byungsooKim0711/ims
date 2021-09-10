@@ -28,7 +28,9 @@ public abstract class AbstractMessageRouter<T> {
             // 우선 default 값만 사용
             getSendTopic(packet);
 
-            // 전환발송 등 설정
+            // 전환발송 등 처리
+            // mapping 처리
+            mapping(packet);
 
             // 발송
             send(packet);
@@ -48,6 +50,7 @@ public abstract class AbstractMessageRouter<T> {
     }
 
     protected abstract void getSendTopic(ImsPacket<T> packet);
+    protected abstract void mapping(ImsPacket<T> packet);
     protected abstract void send(ImsPacket<T> packet);
     protected abstract void log(ImsPacket<T> packet);
     protected abstract ImsAnalyzeLog analyzeLog(ImsPacket<T> packet);

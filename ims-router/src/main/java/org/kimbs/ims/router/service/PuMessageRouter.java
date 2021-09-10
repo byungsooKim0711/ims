@@ -5,6 +5,9 @@ import org.kimbs.ims.model.push.PushMessageReq;
 import org.kimbs.ims.protocol.ImsAnalyzeLog;
 import org.kimbs.ims.protocol.ImsPacket;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
+
+import java.util.Map;
 
 @Slf4j
 @Service
@@ -13,6 +16,17 @@ public class PuMessageRouter extends AbstractMessageRouter<PushMessageReq> {
     @Override
     protected void getSendTopic(ImsPacket<PushMessageReq> packet) {
 
+    }
+
+    @Override
+    protected void mapping(ImsPacket<PushMessageReq> packet) {
+        Map<String, String> mapping = packet.getTraceInfo().getMapping();
+
+        if (CollectionUtils.isEmpty(mapping)) {
+            return ;
+        }
+
+        //
     }
 
     @Override

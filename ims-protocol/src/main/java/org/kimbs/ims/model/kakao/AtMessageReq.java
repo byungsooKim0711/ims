@@ -54,26 +54,6 @@ public class AtMessageReq extends AbstractMessage {
     @JsonProperty("header")
     private String header;
 
-//    @Builder
-//    public AtMessageReq(String serialNumber, KakaoMessageType messageType,
-//                        String senderKey, String phoneNumber,
-//                        String appUserId, String templateCode,
-//                        String message, String title,
-//                        Attachment attachment, Supplement supplement,
-//                        String header) {
-//        this.serialNumber = serialNumber;
-//        this.messageType = messageType;
-//        this.senderKey = senderKey;
-//        this.phoneNumber = phoneNumber;
-//        this.appUserId = appUserId;
-//        this.templateCode = templateCode;
-//        this.message = message;
-//        this.title = title;
-//        this.attachment = attachment;
-//        this.supplement = supplement;
-//        this.header = header;
-//    }
-
     public void setSerialNumber(String serialNumber) {
         this.serialNumber = serialNumber;
     }

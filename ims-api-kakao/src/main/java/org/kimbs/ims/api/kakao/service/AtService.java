@@ -50,6 +50,7 @@ public class AtService extends AbstractKakaoService<ImsBizAtReq, ImsPacket<AtMes
         TraceInfo traceInfo = new TraceInfo();
         traceInfo.setMessageId(request.getMessageId());
         traceInfo.setReceivedAt(LocalDateTime.now());
+        traceInfo.setMapping(request.getMapping());
 
         return ImsPacket.<AtMessageReq>builder()
                 .command(ImsPacketCommand.RECEIVE_AT)

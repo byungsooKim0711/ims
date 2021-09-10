@@ -14,7 +14,7 @@ import reactor.core.publisher.Mono;
 
 @Slf4j
 @RestControllerAdvice
-public class ImsExceptionHandler {
+public class ImsKakaoExceptionHandler {
 
     @ExceptionHandler(WebExchangeBindException.class)
     public Mono<ImsApiResult<Void>> handle(WebExchangeBindException e, ServerWebExchange exchange) {

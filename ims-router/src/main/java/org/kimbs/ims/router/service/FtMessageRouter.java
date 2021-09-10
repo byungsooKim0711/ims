@@ -7,8 +7,10 @@ import org.kimbs.ims.protocol.ImsPacket;
 import org.kimbs.ims.protocol.ImsPacketCommand;
 import org.kimbs.ims.util.RoundRobinUtil;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @Service
@@ -20,6 +22,17 @@ public class FtMessageRouter extends AbstractMessageRouter<FtMessageReq> {
         String destinationTopic = RoundRobinUtil.getRoundRobinValue(RoundRobinUtil.RoundRobinKey.SEND_FT, defaultSendTopicList);
 
         packet.getTraceInfo().setDestinationTopic(destinationTopic);
+    }
+
+    @Override
+    protected void mapping(ImsPacket<FtMessageReq> packet) {
+        Map<String, String> mapping = packet.getTraceInfo().getMapping();
+
+        if (CollectionUtils.isEmpty(mapping)) {
+            return ;
+        }
+
+        // 메시지 내용, 버튼 mapping 치환
     }
 
     @Override

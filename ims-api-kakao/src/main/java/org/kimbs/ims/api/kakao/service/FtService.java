@@ -47,6 +47,7 @@ public class FtService extends AbstractKakaoService<ImsBizFtReq, ImsPacket<FtMes
         TraceInfo traceInfo = new TraceInfo();
         traceInfo.setMessageId(messageId);
         traceInfo.setReceivedAt(LocalDateTime.now());
+        traceInfo.setMapping(request.getMapping());
 
         return ImsPacket.<FtMessageReq>builder()
                 .command(ImsPacketCommand.RECEIVE_FT)
