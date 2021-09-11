@@ -1,9 +1,8 @@
-package org.kimbs.ims.api.kakao.service;
+package org.kimbs.ims.api.kakao.route;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.kimbs.ims.exception.ImsKafkaSendException;
+import org.kimbs.ims.api.kakao.config.ApiKakaoConfig;
+import org.kimbs.ims.api.kakao.service.KafkaService;
 import org.kimbs.ims.exception.ImsMandatoryException;
 import org.kimbs.ims.exception.NotSupportMessageType;
 import org.kimbs.ims.model.kakao.FtMessageReq;
@@ -15,18 +14,23 @@ import org.kimbs.ims.protocol.v1.trace.TraceInfo;
 import org.kimbs.ims.util.RoundRobinUtil;
 import org.kimbs.ims.util.SerialNumberUtil;
 import org.springframework.data.redis.core.ReactiveRedisTemplate;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
+import javax.validation.Validator;
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Slf4j
-@RequiredArgsConstructor
-@Service
-public class FtService extends AbstractKakaoService<ImsBizFtReq, ImsPacket<FtMessageReq>> {
+@Component
+public class FtRouteHandler extends AbstractRouteHandler<ImsBizFtReq, FtMessageReq> {
 
     private final ReactiveRedisTemplate<String, String> reactiveRedisTemplate;
+
+    public FtRouteHandler(Validator validator, ApiKakaoConfig config, KafkaService kafkaService, ReactiveRedisTemplate<String, String> reactiveRedisTemplate) {
+        super(validator, config, kafkaService);
+        this.reactiveRedisTemplate = reactiveRedisTemplate;
+    }
 
     @Override
     protected ImsPacket<FtMessageReq> convert(ImsBizFtReq request) {
@@ -57,11 +61,6 @@ public class FtService extends AbstractKakaoService<ImsBizFtReq, ImsPacket<FtMes
     }
 
     @Override
-    protected void checkSenderKeyAndTemplate(ImsPacket<FtMessageReq> message) {
-
-    }
-
-    @Override
     protected void checkMandatory(ImsPacket<FtMessageReq> message) throws ImsMandatoryException {
         FtMessageReq ftMessageReq = message.getData();
         String appUserId = ftMessageReq.getAppUserId();
@@ -84,24 +83,20 @@ public class FtService extends AbstractKakaoService<ImsBizFtReq, ImsPacket<FtMes
     }
 
     @Override
+    protected void checkSenderKeyAndTemplate(ImsPacket<FtMessageReq> message) {
+
+    }
+
+    @Override
     protected void checkDuplicateMsgUid(ImsPacket<FtMessageReq> message) {
-        // TODO:
+
     }
 
     @Override
     protected void send(ImsPacket<FtMessageReq> message) {
         List<String> ftTopics = config.getTopics().getRecvFt();
-        try {
-            kafkaService.sendToKafka(RoundRobinUtil.getRoundRobinValue(RoundRobinUtil.RoundRobinKey.RECV_FT, ftTopics), message);
-        } catch (JsonProcessingException e) {
-            throw new ImsKafkaSendException(e);
-        }
-    }
 
-    @Override
-    protected void onException(ImsBizFtReq request, Exception e) {
-        log.warn("exception occurred({}). messageId: {}, senderKey: {}, phoneNumber: {}",
-                e.getMessage(), request.getMessageId(), request.getSenderKey(), request.getPhoneNumber());
+        kafkaService.sendToKafka(RoundRobinUtil.getRoundRobinValue(RoundRobinUtil.RoundRobinKey.RECV_FT, ftTopics), message);
     }
 
     @Override

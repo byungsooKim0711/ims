@@ -34,7 +34,8 @@ spring:
             user.password: admin12#$
 
   kafka:
-    bootstrap-servers: "127.0.0.1:9092"
+    bootstrap-servers:
+      - 127.0.0.1:9092
     producer:
       client-id: "API-KAKAO"
       retries: 0

@@ -1,9 +1,8 @@
-package org.kimbs.ims.api.kakao.service;
+package org.kimbs.ims.api.kakao.route;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.kimbs.ims.exception.ImsKafkaSendException;
+import org.kimbs.ims.api.kakao.config.ApiKakaoConfig;
+import org.kimbs.ims.api.kakao.service.KafkaService;
 import org.kimbs.ims.exception.ImsMandatoryException;
 import org.kimbs.ims.exception.NotSupportMessageType;
 import org.kimbs.ims.model.kakao.AtMessageReq;
@@ -15,18 +14,23 @@ import org.kimbs.ims.protocol.v1.trace.TraceInfo;
 import org.kimbs.ims.util.RoundRobinUtil;
 import org.kimbs.ims.util.SerialNumberUtil;
 import org.springframework.data.redis.core.ReactiveRedisTemplate;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
+import javax.validation.Validator;
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Slf4j
-@RequiredArgsConstructor
-@Service
-public class AtService extends AbstractKakaoService<ImsBizAtReq, ImsPacket<AtMessageReq>> {
+@Component
+public class AtRouteHandler extends AbstractRouteHandler<ImsBizAtReq, AtMessageReq> {
 
     private final ReactiveRedisTemplate<String, String> reactiveRedisTemplate;
+
+    public AtRouteHandler(Validator validator, ApiKakaoConfig config, KafkaService kafkaService, ReactiveRedisTemplate<String, String> reactiveRedisTemplate) {
+        super(validator, config, kafkaService);
+        this.reactiveRedisTemplate = reactiveRedisTemplate;
+    }
 
     @Override
     protected ImsPacket<AtMessageReq> convert(ImsBizAtReq request) {
@@ -60,14 +64,8 @@ public class AtService extends AbstractKakaoService<ImsBizAtReq, ImsPacket<AtMes
     }
 
     @Override
-    protected void checkSenderKeyAndTemplate(ImsPacket<AtMessageReq> request) {
-//        redis -> findTemplate
-//        request.getSenderKey(), request.getTemplateCode()
-    }
-
-    @Override
-    protected void checkMandatory(ImsPacket<AtMessageReq> request) throws ImsMandatoryException {
-        AtMessageReq atMessageReq = request.getData();
+    protected void checkMandatory(ImsPacket<AtMessageReq> message) throws ImsMandatoryException {
+        AtMessageReq atMessageReq = message.getData();
         String appUserId = atMessageReq.getAppUserId();
         String phoneNumber = atMessageReq.getPhoneNumber();
 
@@ -87,42 +85,20 @@ public class AtService extends AbstractKakaoService<ImsBizAtReq, ImsPacket<AtMes
     }
 
     @Override
-    protected void checkDuplicateMsgUid(ImsPacket<AtMessageReq> request) {
-//        LocalDate now = LocalDate.now();
-//        Mono<Long> ret;
-//        AtMessageReq atMessageReq = atMessagePacket.getData();
-//        String msgUid = atMessageReq.getTrace().getMessageId();
-//        long userId = atMessageReq.getTrace().getCustomerId();
-//        KakaoMessageType type = KakaoMessageType.AT;
-//
-//
-//        StringBuilder builder = new StringBuilder();
-//        builder.append(now.format(DateTimeFormatter.ofPattern("yyMMdd")))
-//                .append(":")
-//                .append(type)
-//                .append(":")
-//                .append(userId);
-//
-//        ret = reactiveRedisTemplate.opsForSet().add(builder.toString(), msgUid);
+    protected void checkSenderKeyAndTemplate(ImsPacket<AtMessageReq> message) {
 
-        // 여기에 중복체크는 어떻게하는건가?
-        // ret == 0 이면 이미 key 존재
+    }
+
+    @Override
+    protected void checkDuplicateMsgUid(ImsPacket<AtMessageReq> message) {
+
     }
 
     @Override
     protected void send(ImsPacket<AtMessageReq> message) {
         List<String> atTopics = config.getTopics().getRecvAt();
-        try {
-            kafkaService.sendToKafka(RoundRobinUtil.getRoundRobinValue(RoundRobinUtil.RoundRobinKey.RECV_AT, atTopics), message);
-        } catch (JsonProcessingException e) {
-            throw new ImsKafkaSendException(e);
-        }
-    }
 
-    @Override
-    protected void onException(ImsBizAtReq request, Exception e) {
-        log.warn("exception occurred({}). messageId: {}, senderKey: {}, phoneNumber: {}, appUserId: {}",
-                e.getMessage(), request.getMessageId(), request.getSenderKey(), request.getPhoneNumber(), request.getAppUserId());
+        kafkaService.sendToKafka(RoundRobinUtil.getRoundRobinValue(RoundRobinUtil.RoundRobinKey.RECV_AT, atTopics), message);
     }
 
     @Override

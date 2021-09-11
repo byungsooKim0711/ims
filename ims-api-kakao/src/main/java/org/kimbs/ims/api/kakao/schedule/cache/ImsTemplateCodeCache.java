@@ -1,4 +1,4 @@
-package org.kimbs.ims.api.kakao.service.cache;
+package org.kimbs.ims.api.kakao.schedule.cache;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;

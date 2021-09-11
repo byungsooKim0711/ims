@@ -1,21 +1,27 @@
-package org.kimbs.ims.api.kakao.service;
+package org.kimbs.ims.api.kakao.route;
 
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.kimbs.ims.api.kakao.config.ApiKakaoConfig;
+import org.kimbs.ims.api.kakao.service.KafkaService;
 import org.kimbs.ims.exception.ImsMandatoryException;
 import org.kimbs.ims.model.kakao.BtMessageReq;
 import org.kimbs.ims.protocol.ImsPacket;
 import org.kimbs.ims.protocol.v1.kakao.bt.ImsBizBtReq;
 import org.springframework.data.redis.core.ReactiveRedisTemplate;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
+
+import javax.validation.Validator;
 
 @Slf4j
-@RequiredArgsConstructor
-@Service
-public class BtService extends AbstractKakaoService<ImsBizBtReq, ImsPacket<BtMessageReq>> {
+@Component
+public class BtRouteHandler extends AbstractRouteHandler<ImsBizBtReq, BtMessageReq> {
 
     private final ReactiveRedisTemplate<String, String> reactiveRedisTemplate;
 
+    public BtRouteHandler(Validator validator, ApiKakaoConfig config, KafkaService kafkaService, ReactiveRedisTemplate<String, String> reactiveRedisTemplate) {
+        super(validator, config, kafkaService);
+        this.reactiveRedisTemplate = reactiveRedisTemplate;
+    }
 
     @Override
     protected ImsPacket<BtMessageReq> convert(ImsBizBtReq request) {
@@ -23,12 +29,12 @@ public class BtService extends AbstractKakaoService<ImsBizBtReq, ImsPacket<BtMes
     }
 
     @Override
-    protected void checkSenderKeyAndTemplate(ImsPacket<BtMessageReq> message) {
+    protected void checkMandatory(ImsPacket<BtMessageReq> message) throws ImsMandatoryException {
 
     }
 
     @Override
-    protected void checkMandatory(ImsPacket<BtMessageReq> message) throws ImsMandatoryException {
+    protected void checkSenderKeyAndTemplate(ImsPacket<BtMessageReq> message) {
 
     }
 
@@ -39,11 +45,6 @@ public class BtService extends AbstractKakaoService<ImsBizBtReq, ImsPacket<BtMes
 
     @Override
     protected void send(ImsPacket<BtMessageReq> message) {
-
-    }
-
-    @Override
-    protected void onException(ImsBizBtReq request, Exception e) {
 
     }
 

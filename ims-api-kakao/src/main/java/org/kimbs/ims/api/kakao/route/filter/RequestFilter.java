@@ -1,4 +1,4 @@
-package org.kimbs.ims.api.kakao.controller.filter;
+package org.kimbs.ims.api.kakao.route.filter;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -9,7 +9,7 @@ import reactor.core.publisher.Mono;
 
 @Slf4j
 @Component
-public class ImsRequestFilter implements WebFilter {
+public class RequestFilter implements WebFilter {
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, WebFilterChain chain) {

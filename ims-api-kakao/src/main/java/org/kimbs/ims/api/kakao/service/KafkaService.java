@@ -1,6 +1,5 @@
 package org.kimbs.ims.api.kakao.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.kimbs.ims.protocol.ImsPacket;
@@ -20,7 +19,7 @@ public class KafkaService {
 
     private final KafkaTemplate<String, ImsPacket<?>> kafkaTemplate;
 
-    public void sendToKafka(String topic, ImsPacket<?> message) throws JsonProcessingException {
+    public void sendToKafka(String topic, ImsPacket<?> message) {
 
         Message<ImsPacket<?>> packetMessage = MessageBuilder
                 .<ImsPacket<?>>withPayload(message)

@@ -1,4 +1,4 @@
-package org.kimbs.ims.api.kakao.service.cache;
+package org.kimbs.ims.api.kakao.schedule.cache;
 
 import org.kimbs.ims.model.redis.RedisServiceKey;
 import org.springframework.context.annotation.Bean;
