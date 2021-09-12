@@ -102,7 +102,7 @@ ims:
       simulation: true
       wiretap: false
 
-      service-name: "CHANNEL-KAKAO"
+      service-name: ${spring.application.name}
       base-url: "http://localhost:40101"
       at-path: "/at/sendMessage"
       ft-path: "/ft/sendMessage"

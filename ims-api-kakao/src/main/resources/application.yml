@@ -108,7 +108,7 @@ management:
 ims:
   api:
     kakao:
-      service-name: "API-KAKAO"
+      service-name: ${spring.application.name}
       scheduled:
         redis-load-service-key-info: "30 */1 * * * *"
         redis-load-template-code-info: "30 */1 * * * *"

@@ -97,7 +97,7 @@ management:
 
 ims:
   router:
-    service-name: "ROUTER"
+    service-name: ${spring.application.name}
 
     # 토픽 리스트
     topics:

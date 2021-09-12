@@ -83,4 +83,4 @@ management:
 
 ims:
   store:
-    service-name: "STORE"
+    service-name: ${spring.application.name}
