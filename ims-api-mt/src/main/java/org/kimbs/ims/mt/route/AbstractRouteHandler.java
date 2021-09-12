@@ -1,6 +1,7 @@
 package org.kimbs.ims.mt.route;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.kafka.common.errors.TimeoutException;
 import org.kimbs.ims.exception.ImsBadRequestException;
 import org.kimbs.ims.exception.ImsTooLongMessageException;
 import org.kimbs.ims.exception.NotSupportMessageType;
@@ -14,6 +15,7 @@ import org.springframework.kafka.KafkaException;
 import org.springframework.web.reactive.function.server.ServerResponse;
 import org.springframework.web.server.ServerWebInputException;
 import reactor.core.publisher.Mono;
+import reactor.kafka.sender.SenderResult;
 
 import javax.validation.Validator;
 
@@ -33,11 +35,11 @@ public abstract class AbstractRouteHandler<R, M> {
     public Mono<ServerResponse> sendMessage(Mono<R> request) {
         return request.doOnNext(this::validation)
                 .map(this::convert)
-                .doOnNext(message -> {
+                .flatMap(message -> {
                     this.checkMandatory(message);
                     this.checkDuplicateMsgUid(message);
-                    this.send(message);
-                    this.log(message);
+                    return this.send(message)
+                            .doOnSubscribe(subscription -> this.log(message));
                 })
                 .flatMap(req -> ServerResponse.ok()
                         .contentType(MediaType.APPLICATION_JSON)
@@ -58,7 +60,7 @@ public abstract class AbstractRouteHandler<R, M> {
 
     protected abstract void checkMandatory(ImsPacket<M> message);
     protected abstract void checkDuplicateMsgUid(ImsPacket<M> message);
-    protected abstract void send(ImsPacket<M> message);
+    protected abstract Mono<SenderResult<Void>> send(ImsPacket<M> message);
     protected abstract void log(ImsPacket<M> message);
 
     protected  Mono<ServerResponse> onException(Throwable e) {
@@ -72,7 +74,7 @@ public abstract class AbstractRouteHandler<R, M> {
             return ServerResponse.ok().bodyValue(ImsApiResult.failed(ResponseCode.BAD_REQUEST));
         } else if (e instanceof ImsTooLongMessageException) {
             return ServerResponse.ok().bodyValue(ImsApiResult.failed(ResponseCode.TOO_LONG_MESSAGE_EXCEPTION, e.getMessage()));
-        } else if (e instanceof KafkaException) {
+        } else if (e instanceof KafkaException || e instanceof TimeoutException) {
             log.error("kafka exception.", e);
             return ServerResponse.ok().bodyValue(ImsApiResult.failed(ResponseCode.SERVICE_SERVER_ERROR));
         }

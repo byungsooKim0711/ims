@@ -16,6 +16,8 @@ import org.kimbs.ims.util.RoundRobinUtil;
 import org.kimbs.ims.util.SerialNumberUtil;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
+import reactor.core.publisher.Mono;
+import reactor.kafka.sender.SenderResult;
 
 import javax.validation.Validator;
 import java.time.LocalDateTime;
@@ -62,6 +64,7 @@ public class MtRouteHandler extends AbstractRouteHandler<ImsMtReq, MtMessageReq>
         MtMessageType messageType = mtMessageReq.getMessageType();
         int byteLength = ByteUtil.getByteLength(mtMessageReq.getMessage(), ByteUtil.Charsets.EUC_KR);
 
+        // TODO: 코드가 지저분하네.........
         switch (messageType) {
             case SMS:
                 if (byteLength > 90) {
@@ -92,10 +95,10 @@ public class MtRouteHandler extends AbstractRouteHandler<ImsMtReq, MtMessageReq>
     }
 
     @Override
-    protected void send(ImsPacket<MtMessageReq> message) {
+    protected Mono<SenderResult<Void>> send(ImsPacket<MtMessageReq> message) {
         List<String> mtTopics = config.getTopics().getRecvMt();
 
-        kafkaService.sendToKafka(RoundRobinUtil.getRoundRobinValue(RoundRobinUtil.RoundRobinKey.RECV_MT, mtTopics), message);
+        return kafkaService.sendToKafka(RoundRobinUtil.getRoundRobinValue(RoundRobinUtil.RoundRobinKey.RECV_MT, mtTopics), message);
     }
 
     @Override
