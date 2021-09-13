@@ -15,14 +15,12 @@ public class GlobalLoggingFilter {
 
     @Bean
     public GlobalFilter postGlobalFilter() {
-        LocalDateTime startDate = LocalDateTime.now();
-
         return ((exchange, chain) -> chain.filter(exchange)
                 .then(Mono.fromRunnable(() -> {
                     String requestPath = exchange.getRequest().getPath().toString();
                     String requestId = exchange.getRequest().getId();
 
-                    log.info("Global logging filter. path: {}, id: {}, elapsedTime: {}", requestPath, requestId, Duration.between(startDate, LocalDateTime.now()));
+                    log.info("Global logging filter. path: {}, id: {}", requestPath, requestId);
                 }))
         );
     }
