@@ -2,42 +2,35 @@ package org.kimbs.ims.api.kakao.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.kafka.clients.producer.ProducerRecord;
+import org.apache.kafka.clients.producer.RecordMetadata;
 import org.kimbs.ims.protocol.ImsPacket;
-import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.kafka.support.KafkaHeaders;
-import org.springframework.kafka.support.SendResult;
-import org.springframework.messaging.Message;
-import org.springframework.messaging.support.MessageBuilder;
+import org.springframework.kafka.core.reactive.ReactiveKafkaProducerTemplate;
 import org.springframework.stereotype.Service;
-import org.springframework.util.concurrent.ListenableFuture;
-import org.springframework.util.concurrent.ListenableFutureCallback;
+import reactor.core.publisher.Mono;
+import reactor.kafka.sender.SenderResult;
 
 @Slf4j
 @RequiredArgsConstructor
 @Service
 public class KafkaService {
 
-    private final KafkaTemplate<String, ImsPacket<?>> kafkaTemplate;
+    private final ReactiveKafkaProducerTemplate<String, ImsPacket<?>> reactiveKafkaProducerTemplate;
 
-    public void sendToKafka(String topic, ImsPacket<?> message) {
+    public Mono<SenderResult<Void>> sendToKafka(String topic, ImsPacket<?> message) {
+        ProducerRecord<String, ImsPacket<?>> producerRecord = new ProducerRecord<>(topic, message);
 
-        Message<ImsPacket<?>> packetMessage = MessageBuilder
-                .<ImsPacket<?>>withPayload(message)
-                .setHeader(KafkaHeaders.TOPIC, topic)
-                .build();
+        return reactiveKafkaProducerTemplate.send(producerRecord)
+                .doOnSuccess(this::onSuccess)
+                .doOnError(e -> onError(e, topic, message));
+    }
 
-        ListenableFuture<SendResult<String, ImsPacket<?>>> future = kafkaTemplate.send(packetMessage);
-        future.addCallback(new ListenableFutureCallback<SendResult<String, ImsPacket<?>>>() {
+    private void onSuccess(SenderResult<Void> senderResult) {
+        RecordMetadata metadata = senderResult.recordMetadata();
+        log.info("kafka send success. topic: {}, partition: {}, offset: {}", metadata.topic(), metadata.partition(), metadata.offset());
+    }
 
-            @Override
-            public void onSuccess(SendResult<String, ImsPacket<?>> packet) {
-
-            }
-
-            @Override
-            public void onFailure(Throwable e) {
-                log.error("kafka send failed. topic: {}, data: {}", topic, message.getData(), e.getCause());
-            }
-        });
+    private void onError(Throwable e, String topic, ImsPacket<?> message) {
+        log.error("kafka send failed. topic: {}, data: {}", topic, message.getData(), e);
     }
 }

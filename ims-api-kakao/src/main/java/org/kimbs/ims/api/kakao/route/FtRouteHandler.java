@@ -16,6 +16,8 @@ import org.kimbs.ims.util.SerialNumberUtil;
 import org.springframework.data.redis.core.ReactiveRedisTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
+import reactor.core.publisher.Mono;
+import reactor.kafka.sender.SenderResult;
 
 import javax.validation.Validator;
 import java.time.LocalDateTime;
@@ -93,10 +95,10 @@ public class FtRouteHandler extends AbstractRouteHandler<ImsBizFtReq, FtMessageR
     }
 
     @Override
-    protected void send(ImsPacket<FtMessageReq> message) {
+    protected Mono<SenderResult<Void>> send(ImsPacket<FtMessageReq> message) {
         List<String> ftTopics = config.getTopics().getRecvFt();
 
-        kafkaService.sendToKafka(RoundRobinUtil.getRoundRobinValue(RoundRobinUtil.RoundRobinKey.RECV_FT, ftTopics), message);
+        return kafkaService.sendToKafka(RoundRobinUtil.getRoundRobinValue(RoundRobinUtil.RoundRobinKey.RECV_FT, ftTopics), message);
     }
 
     @Override

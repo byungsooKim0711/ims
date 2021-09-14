@@ -16,6 +16,8 @@ import org.kimbs.ims.util.SerialNumberUtil;
 import org.springframework.data.redis.core.ReactiveRedisTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
+import reactor.core.publisher.Mono;
+import reactor.kafka.sender.SenderResult;
 
 import javax.validation.Validator;
 import java.time.LocalDateTime;
@@ -95,10 +97,10 @@ public class AtRouteHandler extends AbstractRouteHandler<ImsBizAtReq, AtMessageR
     }
 
     @Override
-    protected void send(ImsPacket<AtMessageReq> message) {
+    protected Mono<SenderResult<Void>> send(ImsPacket<AtMessageReq> message) {
         List<String> atTopics = config.getTopics().getRecvAt();
 
-        kafkaService.sendToKafka(RoundRobinUtil.getRoundRobinValue(RoundRobinUtil.RoundRobinKey.RECV_AT, atTopics), message);
+        return kafkaService.sendToKafka(RoundRobinUtil.getRoundRobinValue(RoundRobinUtil.RoundRobinKey.RECV_AT, atTopics), message);
     }
 
     @Override

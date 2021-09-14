@@ -9,6 +9,8 @@ import org.kimbs.ims.protocol.ImsPacket;
 import org.kimbs.ims.protocol.v1.kakao.bt.ImsBizBtReq;
 import org.springframework.data.redis.core.ReactiveRedisTemplate;
 import org.springframework.stereotype.Component;
+import reactor.core.publisher.Mono;
+import reactor.kafka.sender.SenderResult;
 
 import javax.validation.Validator;
 
@@ -44,8 +46,9 @@ public class BtRouteHandler extends AbstractRouteHandler<ImsBizBtReq, BtMessageR
     }
 
     @Override
-    protected void send(ImsPacket<BtMessageReq> message) {
+    protected Mono<SenderResult<Void>> send(ImsPacket<BtMessageReq> message) {
 
+        return Mono.empty();
     }
 
     @Override
