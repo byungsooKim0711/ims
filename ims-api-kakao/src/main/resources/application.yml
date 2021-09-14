@@ -46,7 +46,10 @@ spring:
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
       acks: 1
       properties:
-        linger.ms: 50
+        linger.ms: 5
+        transaction.timeout.ms: 60000
+        ## send 하는데 block 되는 시간 (default 60 * 1000 ms, 조절 할 필요 있을듯.)
+        max.block.ms: 1000
 
   task:
     scheduling:
