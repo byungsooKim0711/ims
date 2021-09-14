@@ -6,7 +6,6 @@
 		<groupId>org.kimbs.ims</groupId>
 		<artifactId>ims</artifactId>
 		<version>1.0.0</version>
-		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<artifactId>ims-api-gateway</artifactId>
 	<version>1.0.0</version>
