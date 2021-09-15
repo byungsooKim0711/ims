@@ -2,8 +2,7 @@ package org.kimbs.ims.model.kakao;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 import org.kimbs.ims.protocol.AbstractMessage;
 
 import java.util.Map;
@@ -11,8 +10,11 @@ import java.util.Map;
 /**
  * 브랜드톡 일반형
  */
-@Data
 @EqualsAndHashCode(callSuper = true)
+@Builder
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class BtMessageReq extends AbstractMessage {
 

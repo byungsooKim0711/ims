@@ -1,14 +1,16 @@
 package org.kimbs.ims.model.kakao;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Builder;
-import lombok.Getter;
+import lombok.*;
 import org.kimbs.ims.protocol.AbstractMessage;
 
-@Getter
-@JsonInclude(Include.NON_EMPTY)
+@EqualsAndHashCode(callSuper = true)
+@Builder
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class FtMessageReq extends AbstractMessage {
 
 	private static final long serialVersionUID = -1142822831531186105L;
@@ -39,19 +41,6 @@ public class FtMessageReq extends AbstractMessage {
 	
 	@JsonProperty("attachment")
 	private Attachment attachment;
-
-	@Builder
-	public FtMessageReq(String serialNumber, KakaoMessageType messageType, String senderKey, String phoneNumber, String appUserId, String userKey, String message, String adFlag, String wide, Attachment attachment) {
-		this.serialNumber = serialNumber;
-		this.messageType = messageType;
-		this.senderKey = senderKey;
-		this.phoneNumber = phoneNumber;
-		this.appUserId = appUserId;
-		this.userKey = userKey;
-		this.message = message;
-		this.adFlag = adFlag;
-		this.attachment = attachment;
-	}
 
 	public void setSerialNumber(String serialNumber) {
 		this.serialNumber = serialNumber;
