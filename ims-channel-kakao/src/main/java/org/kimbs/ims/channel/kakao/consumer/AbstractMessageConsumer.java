@@ -1,18 +1,20 @@
 package org.kimbs.ims.channel.kakao.consumer;
 
-import org.apache.kafka.clients.consumer.ConsumerRecord;
-import org.kimbs.ims.channel.kakao.service.AbstractMessageService;
 import org.kimbs.ims.protocol.AbstractMessage;
 import org.kimbs.ims.protocol.ImsPacket;
-import org.springframework.kafka.support.Acknowledgment;
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.kafka.core.reactive.ReactiveKafkaConsumerTemplate;
 
-public abstract class AbstractMessageConsumer<T extends AbstractMessage> {
+public abstract class AbstractMessageConsumer<T extends AbstractMessage> implements DisposableBean {
 
-    protected AbstractMessageService<T, ?> abstractMessageService;
+    protected ReactiveKafkaConsumerTemplate<String, ImsPacket<T>> consumer;
 
-    public AbstractMessageConsumer(AbstractMessageService<T, ?> abstractMessageService) {
-        this.abstractMessageService = abstractMessageService;
+    public AbstractMessageConsumer(ReactiveKafkaConsumerTemplate<String, ImsPacket<T>> consumer) {
+        this.consumer = consumer;
     }
 
-    public abstract void consume(ConsumerRecord<String, ImsPacket<T>> packet, Acknowledgment ack);
+    public abstract void consume();
+
+    @Override
+    public abstract void destroy() throws Exception;
 }

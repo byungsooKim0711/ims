@@ -1,16 +1,18 @@
 package org.kimbs.ims.channel.kakao.config;
 
 import lombok.RequiredArgsConstructor;
-import org.kimbs.ims.channel.kakao.handler.CommonKafkaBatchErrorHandler;
-import org.kimbs.ims.channel.kakao.handler.CommonKafkaErrorHandler;
+import org.kimbs.ims.model.kakao.AtMessageReq;
+import org.kimbs.ims.model.kakao.BtMessageReq;
+import org.kimbs.ims.model.kakao.FtMessageReq;
 import org.kimbs.ims.protocol.ImsPacket;
-import org.springframework.boot.autoconfigure.kafka.ConcurrentKafkaListenerContainerFactoryConfigurer;
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.annotation.EnableKafka;
-import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
-import org.springframework.kafka.core.*;
+import org.springframework.kafka.core.reactive.ReactiveKafkaConsumerTemplate;
+import org.springframework.kafka.core.reactive.ReactiveKafkaProducerTemplate;
+import reactor.kafka.receiver.ReceiverOptions;
+import reactor.kafka.sender.SenderOptions;
 
 @RequiredArgsConstructor
 @Configuration
@@ -18,53 +20,34 @@ import org.springframework.kafka.core.*;
 public class KafkaConfig {
 
     private final KafkaProperties kafkaProperties;
-    private final CommonKafkaErrorHandler commonErrorHandler;
-    private final CommonKafkaBatchErrorHandler commonBatchErrorHandler;
+    private final ChannelKakaoConfig config;
 
     @Bean
-    ConcurrentKafkaListenerContainerFactory<Object, ImsPacket<?>> kafkaListenerContainerFactory(ConcurrentKafkaListenerContainerFactoryConfigurer configurer) {
-        ConcurrentKafkaListenerContainerFactory<Object, ImsPacket<?>> factory = new ConcurrentKafkaListenerContainerFactory<>();
-
-        KafkaProperties.Listener.Type type = kafkaProperties.getListener().getType();
-
-        switch (type) {
-            case SINGLE:
-                factory.setErrorHandler(commonErrorHandler);
-                factory.setBatchListener(false);
-                break;
-            case BATCH:
-                factory.setBatchErrorHandler(commonBatchErrorHandler);
-                factory.setBatchListener(true);
-                break;
-            default:
-                break;
-        }
-
-        factory.setAutoStartup(true);
-        factory.setConsumerFactory(consumerFactory());
-
-        // TODO: 깔끔하게 세팅하는방법이 없을까? ;;
-        factory.getContainerProperties().setAckMode(kafkaProperties.getListener().getAckMode());
-        factory.getContainerProperties().setPollTimeout(kafkaProperties.getListener().getPollTimeout().toMillis());
-        factory.setConcurrency(kafkaProperties.getListener().getConcurrency());
-
-        return factory;
+    public ReactiveKafkaProducerTemplate<String, ImsPacket<?>> reactiveKafkaProducerTemplate() {
+        return new ReactiveKafkaProducerTemplate<>(SenderOptions.create(kafkaProperties.buildProducerProperties()));
     }
 
-    @Bean
-    public ProducerFactory<String, ImsPacket<?>> producerFactory() {
-        return new DefaultKafkaProducerFactory<>(kafkaProperties.buildProducerProperties());
+    @Bean("atConsumer")
+    public ReactiveKafkaConsumerTemplate<String, ImsPacket<AtMessageReq>> atConsumer() {
+        ReceiverOptions<String, ImsPacket<AtMessageReq>> options = ReceiverOptions.<String, ImsPacket<AtMessageReq>>create(kafkaProperties.buildConsumerProperties())
+                .subscription(config.getTopics().getSendAt());
+
+        return new ReactiveKafkaConsumerTemplate<>(options);
     }
 
-    @Bean
-    public ConsumerFactory<Object, ImsPacket<?>> consumerFactory() {
-        return new DefaultKafkaConsumerFactory<>(kafkaProperties.buildConsumerProperties());
+    @Bean("ftConsumer")
+    public ReactiveKafkaConsumerTemplate<String, ImsPacket<FtMessageReq>> ftConsumer() {
+        ReceiverOptions<String, ImsPacket<FtMessageReq>> options = ReceiverOptions.<String, ImsPacket<FtMessageReq>>create(kafkaProperties.buildConsumerProperties())
+                .subscription(config.getTopics().getSendFt());
+
+        return new ReactiveKafkaConsumerTemplate<>(options);
     }
 
-    @Bean
-    public KafkaTemplate<String, ImsPacket<?>> kafkaTemplate() {
-        return new KafkaTemplate<>(producerFactory());
+    @Bean("btConsumer")
+    public ReactiveKafkaConsumerTemplate<String, ImsPacket<BtMessageReq>> btConsumer() {
+        ReceiverOptions<String, ImsPacket<BtMessageReq>> options = ReceiverOptions.<String, ImsPacket<BtMessageReq>>create(kafkaProperties.buildConsumerProperties())
+                .subscription(config.getTopics().getSendBt());
+
+        return new ReactiveKafkaConsumerTemplate<>(options);
     }
-
-
 }
